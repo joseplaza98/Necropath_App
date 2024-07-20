@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Results</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <div class="results-container">
+    <div class="user-info">
+      <h2>Welcome, {{ userName }}!</h2>
+      <p>Here are your results:</p>
+    </div>
+    
+    <div class="score-section">
+      <h3>Your Total Score:</h3>
+      <div class="score-card">
+        <p><strong>{{ score }}</strong> / <strong>{{ totalQuestions }}</strong></p>
+      </div>
+    </div>
+
+    <div class="chart-section">
+      <canvas id="myChart"></canvas>
+    </div>
+  </div>
+</ion-content>

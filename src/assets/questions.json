@@ -1,0 +1,71 @@
+[
+  {
+    "testNumber": 1,
+    "questions": [
+      {
+        "question": "¿Cuál es la capital de Francia?",
+        "answers": [
+          { "text": "Londres", "isCorrect": false },
+          { "text": "Madrid", "isCorrect": false },
+          { "text": "París", "isCorrect": true },
+          { "text": "Berlín", "isCorrect": false }
+        ]
+      },
+      {
+        "question": "¿Cuál es el río más largo del mundo?",
+        "answers": [
+          { "text": "Nilo", "isCorrect": true },
+          { "text": "Amazonas", "isCorrect": false },
+          { "text": "Yangtsé", "isCorrect": false },
+          { "text": "Misisipi", "isCorrect": false }
+        ]
+      }
+    ]
+  },
+  {
+    "testNumber": 2,
+    "questions": [
+      {
+        "question": "¿Cuál es el océano más grande?",
+        "answers": [
+          { "text": "Atlántico", "isCorrect": false },
+          { "text": "Íntico", "isCorrect": false },
+          { "text": "Ártico", "isCorrect": false },
+          { "text": "Pacífico", "isCorrect": true }
+        ]
+      },
+      {
+        "question": "¿Cuál es el planeta más cercano al sol?",
+        "answers": [
+          { "text": "Venus", "isCorrect": false },
+          { "text": "Tierra", "isCorrect": false },
+          { "text": "Mercurio", "isCorrect": true },
+          { "text": "Marte", "isCorrect": false }
+        ]
+      }
+    ]
+  },
+  {
+    "testNumber": 3,
+    "questions": [
+      {
+        "question": "¿Pregunta 1?",
+        "answers": [
+          { "text": "Correcta", "isCorrect": true },
+          { "text": "Incor", "isCorrect": false },
+          { "text": "Incorr", "isCorrect": false },
+          { "text": "Incorre", "isCorrect": false }
+        ]
+      },
+      {
+        "question": "¿Pregunta 2?",
+        "answers": [
+          { "text": "Correcta", "isCorrect": true },
+          { "text": "Incor", "isCorrect": false },
+          { "text": "Incorr", "isCorrect": false },
+          { "text": "Incorre", "isCorrect": false }
+        ]
+      }
+    ]
+  }
+]

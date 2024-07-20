@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Test 1</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding class="content">
+  <form (ngSubmit)="submit()" class="test-form">
+    <div *ngFor="let question of questions; let i = index" class="question-container animate__animated animate__fadeIn animate__delay-1s">
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title>Question {{ i + 1 }}</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <ion-item>
+            <ion-label>{{ question.question }}</ion-label>
+          </ion-item>
+          <ion-radio-group [(ngModel)]="selectedAnswers[i]" name="question-{{i}}" class="radio-group">
+            <ion-item *ngFor="let answer of question.answers">
+              <ion-label>{{ answer.text }}</ion-label>
+              <ion-radio slot="start" [value]="answer.text"></ion-radio>
+            </ion-item>
+          </ion-radio-group>
+        </ion-card-content>
+      </ion-card>
+    </div>
+
+    <ion-button expand="full" type="submit" class="submit-button animate__animated animate__pulse animate__infinite">Submit</ion-button>
+  </form>
+</ion-content>

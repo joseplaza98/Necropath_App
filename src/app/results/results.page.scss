@@ -1,0 +1,55 @@
+.results-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  .user-info {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .user-info h2 {
+    font-size: 24px;
+    color: #3880ff;
+    margin-bottom: 10px;
+  }
+  
+  .user-info p {
+    font-size: 16px;
+    color: #666;
+  }
+  
+  .score-section {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  .score-card {
+    background: #f4f5f8;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    display: inline-block;
+  }
+  
+  .score-card p {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0;
+    color: #333; /* Color más oscuro para el valor total de la puntuación */
+  }
+  
+  .chart-section {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  
+  canvas {
+    width: 80% !important;
+    height: auto !important;
+  }
+  

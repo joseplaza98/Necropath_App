@@ -1,0 +1,58 @@
+/* Estilo general del contenido */
+.content {
+    background-color: #f0f4f8; /* Fondo claro */
+    padding: 10px;
+  }
+  
+  /* Estilo del formulario */
+  .test-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Espacio entre preguntas */
+  }
+  
+  /* Contenedor de la pregunta */
+  .question-container {
+    margin-bottom: 20px;
+  }
+  
+  /* Estilo del ion-card */
+  ion-card {
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+  }
+  
+  /* Estilo del ion-card-header */
+  ion-card-header {
+    background-color: #007bff; /* Color de fondo del encabezado */
+    color: white;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+  }
+  
+  /* Estilo del ion-card-title */
+  ion-card-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+  
+  /* Estilo del ion-item dentro del ion-card */
+  ion-item {
+    --padding-start: 0;
+  }
+  
+  /* Estilo del grupo de radio buttons */
+  .radio-group {
+    margin-top: 10px;
+  }
+  
+  /* Estilo del botón de envío */
+  .submit-button {
+    background-color: #007bff; /* Color del botón */
+    color: white;
+    font-size: 1.1rem;
+    border-radius: 5px;
+    --padding-start: 0;
+    --padding-end: 0;
+  }
+  
