@@ -34,11 +34,43 @@ const routes: Routes = [
     },
   {
     path: 'test-3',
-    loadChildren: () => import('./pages/test-3/test-3.module').then( m => m.Test3PageModule)
+    loadChildren: () => import('./pages/test-3/test-3.module').then( m => m.Test3PageModule),
+    canActivate: [AuthGuard]  // Protege la ruta home con el AuthGuard
   },
   {
     path: 'results',
-    loadChildren: () => import('./results/results.module').then( m => m.ResultsPageModule)
+    loadChildren: () => import('./results/results.module').then( m => m.ResultsPageModule),
+    canActivate: [AuthGuard]  // Protege la ruta home con el AuthGuard
+  },
+  {
+    path: 'u1-tema-1',
+    loadChildren: () => import('./pages/Unidades/Unidad 1/u1-tema-1/u1-tema-1.module').then( m => m.U1Tema1PageModule),
+    canActivate: [AuthGuard]  // Protege la ruta home con el AuthGuard
+  },
+  {
+    path: 'u2-tema-1',
+    loadChildren: () => import('./pages/Unidades/Unidad 2/u2-tema-1/u2-tema-1.module').then( m => m.U2Tema1PageModule),
+    canActivate: [AuthGuard]  // Protege la ruta home con el AuthGuard
+  },
+  {
+    path: 'intro-u1',
+    loadChildren: () => import('./pages/Unidades/Unidad 1/intro-u1/intro-u1.module').then( m => m.IntroU1PageModule),
+    canActivate: [AuthGuard]  // Protege la ruta home con el AuthGuard
+  },
+  {
+    path: 'intro-u2',
+    loadChildren: () => import('./pages/Unidades/Unidad 2/intro-u2/intro-u2.module').then( m => m.IntroU2PageModule),
+    canActivate: [AuthGuard]  // Protege la ruta home con el AuthGuard
+  },
+  {
+    path: 'intro-u3',
+    loadChildren: () => import('./pages/Unidades/Unidad 3/intro-u3/intro-u3.module').then( m => m.IntroU3PageModule),
+    canActivate: [AuthGuard]  // Protege la ruta home con el AuthGuard
+  },
+  {
+    path: 'u3-tema-1',
+    loadChildren: () => import('./pages/Unidades/Unidad 3/u3-tema-1/u3-tema-1.module').then( m => m.U3Tema1PageModule),
+    canActivate: [AuthGuard]  // Protege la ruta home con el AuthGuard
   },
 ];
 

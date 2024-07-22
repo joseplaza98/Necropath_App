@@ -19,10 +19,16 @@ export class HomePage {
     }
   }
 
+
+  goToU1Tema1(){
+    this.router.navigate(['/u1-tema-1']);
+  }
+
+  /** 
   goToTest1() {
     this.router.navigate(['/test-1']);
   }
-
+*/
   goToTest2() {
     this.router.navigate(['/test-2']);
   }
