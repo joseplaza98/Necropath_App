@@ -1,53 +1,121 @@
-import { Component } from '@angular/core';
-import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { FirestoreService } from 'src/app/services/firestore.service';
+import { AuthService } from 'src/app/services/auth/auth.service';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-u1-tema-1',
   templateUrl: './u1-tema-1.page.html',
   styleUrls: ['./u1-tema-1.page.scss'],
 })
-export class U1Tema1Page {
-  selectedContent: string = 'video';
-  videoUrl!: SafeResourceUrl;
-  showMenu: boolean = true; // Control de visibilidad del menú
+export class U1Tema1Page implements OnInit {
+  selectedContent: string | null = null;
+  videoUrl: SafeResourceUrl;
+  videoUrl2: SafeResourceUrl;
+  progress: any = {
+    video: false,
+    lecture: false,
+    image: false,
+    video2: false,
+    lecture2: false,
+    test: false
+  };
 
-  private contentOrder: string[] = ['video', 'lecture', 'image'];
-  private currentIndex: number = 0;
-
-  constructor(private sanitizer: DomSanitizer, private router: Router) {
-    this.updateVideoUrl();
+  constructor(
+    private firestoreService: FirestoreService,
+    private authService: AuthService,
+    private router: Router,
+    private sanitizer: DomSanitizer
+  ) {
+    // Usar las URLs de incrustación de YouTube
+    this.videoUrl = this.sanitizer.bypassSecurityTrustResourceUrl('https://www.youtube.com/embed/your-first-video-id');
+    this.videoUrl2 = this.sanitizer.bypassSecurityTrustResourceUrl('https://www.youtube.com/embed/your-second-video-id');
   }
 
-  loadContent(content: string) {
-    this.selectedContent = content;
-    this.currentIndex = this.contentOrder.indexOf(content);
-    if (this.selectedContent === 'video') {
-      this.updateVideoUrl();
+  ngOnInit() {
+    this.loadProgress();
+  }
+
+  async loadProgress() {
+    try {
+      const userId = await this.authService.getCurrentUserId();
+      if (userId) {
+        const userProgress = await this.firestoreService.getUserProgress(userId, 'u1-tema-1');
+        if (userProgress) {
+          this.progress = userProgress;
+        }
+        // Inicializa el progreso para el primer contenido
+        if (!this.progress.video) {
+          this.progress.video = true;
+          this.saveProgress();
+        }
+        this.updateTestAccess();
+      }
+    } catch (error) {
+      console.error('Error loading progress:', error);
     }
-    this.showMenu = false; // Ocultar menú después de cargar contenido
+  }
+
+  loadContent(contentType: string) {
+    // Permitir acceso si el contenido anterior ha sido visto
+    const contentOrder = ['video', 'lecture', 'image', 'video2', 'lecture2'];
+    const currentIndex = contentOrder.indexOf(contentType);
+    const previousContent = contentOrder[currentIndex - 1];
+
+    if (contentType === 'video' || (this.progress[previousContent] && this.progress[previousContent] !== undefined)) {
+      this.selectedContent = contentType;
+      if (!this.progress[contentType]) {
+        this.progress[contentType] = true;
+        this.saveProgress();
+      }
+    } else {
+      console.warn('El contenido está bloqueado.');
+    }
+  }
+
+  async saveProgress() {
+    try {
+      const userId = await this.authService.getCurrentUserId();
+      if (userId) {
+        await this.firestoreService.saveUserProgress(userId, 'u1-tema-1', this.progress);
+      }
+    } catch (error) {
+      console.error('Error saving progress:', error);
+    }
   }
 
   nextContent() {
-    if (this.currentIndex < this.contentOrder.length - 1) {
-      this.currentIndex++;
-      this.selectedContent = this.contentOrder[this.currentIndex];
-      if (this.selectedContent === 'video') {
-        this.updateVideoUrl();
-      }
+    const contentOrder = ['video', 'lecture', 'image', 'video2', 'lecture2'];
+    const currentIndex = contentOrder.indexOf(this.selectedContent!);
+    const nextIndex = currentIndex + 1;
+
+    if (nextIndex < contentOrder.length) {
+      this.loadContent(contentOrder[nextIndex]);
     }
   }
 
-  goToTest() {
-    this.router.navigate(['/test-1']); // Redirigir al Test 1
+  finishAndGoToTest() {
+    this.saveProgress().then(() => {
+      this.router.navigate(['/test-1']);
+    }).catch(error => {
+      console.error('Error finishing content and navigating to test:', error);
+    });
   }
 
-  toggleMenu() {
-    this.showMenu = !this.showMenu;
+  async goToTest() {
+    if (this.progress.video && this.progress.lecture && this.progress.image && this.progress.video2 && this.progress.lecture2) {
+      this.router.navigate(['/test-1']);
+    } else {
+      console.warn('Debe completar todos los contenidos antes de acceder al test.');
+    }
   }
 
-  private updateVideoUrl() {
-    const videoId = 'k3dv5gz4Zh0'; // ID del video de YouTube
-    this.videoUrl = this.sanitizer.bypassSecurityTrustResourceUrl(`https://www.youtube.com/embed/${videoId}`);
+  updateTestAccess() {
+    if (this.progress.video && this.progress.lecture && this.progress.image && this.progress.video2 && this.progress.lecture2) {
+      this.progress.test = true;
+    } else {
+      this.progress.test = false;
+    }
   }
 }

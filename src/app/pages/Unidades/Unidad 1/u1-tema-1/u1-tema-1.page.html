@@ -16,10 +16,12 @@
     </ion-header>
     <ion-content>
       <ion-list>
-        <ion-item button (click)="loadContent('video'); menu.close()">Tema 1: Video</ion-item>
-        <ion-item button (click)="loadContent('lecture'); menu.close()">Tema 2: Lectura</ion-item>
-        <ion-item button (click)="loadContent('image'); menu.close()">Tema 3: Imagen</ion-item>
-        <ion-item button (click)="goToTest(); menu.close()">Test 1</ion-item>
+        <ion-item button [disabled]="!progress.video && selectedContent !== 'video'" (click)="loadContent('video'); menu.close()">Tema 1: Video</ion-item>
+        <ion-item button [disabled]="!progress.lecture && selectedContent !== 'lecture'" (click)="loadContent('lecture'); menu.close()">Tema 2: Lectura</ion-item>
+        <ion-item button [disabled]="!progress.image && selectedContent !== 'image'" (click)="loadContent('image'); menu.close()">Tema 3: Imagen</ion-item>
+        <ion-item button [disabled]="!progress.video2 && selectedContent !== 'video2'" (click)="loadContent('video2'); menu.close()">Tema 4: Segundo Video</ion-item>
+        <ion-item button [disabled]="!progress.lecture2 && selectedContent !== 'lecture2'" (click)="loadContent('lecture2'); menu.close()">Tema 5: Segunda Lectura</ion-item>
+        <ion-item button [disabled]="!progress.test" (click)="goToTest(); menu.close()">Test 1</ion-item>
       </ion-list>
     </ion-content>
   </ion-menu>
@@ -62,7 +64,31 @@
         </ion-card-header>
         <ion-card-content>
           <img src="path-to-your-image.jpg" alt="Imagen" width="100%">
-          <ion-button (click)="goToTest()">Finalizar y volver al Test 1</ion-button>
+          <ion-button (click)="nextContent()">Siguiente</ion-button>
+        </ion-card-content>
+      </ion-card>
+    </ng-container>
+
+    <ng-container *ngIf="selectedContent === 'video2'">
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title>Tema 4: Segundo Video</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <iframe [src]="videoUrl2" frameborder="0" allowfullscreen></iframe>
+          <ion-button (click)="nextContent()">Siguiente</ion-button>
+        </ion-card-content>
+      </ion-card>
+    </ng-container>
+
+    <ng-container *ngIf="selectedContent === 'lecture2'">
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title>Tema 5: Segunda Lectura</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <p>Este es el contenido de la segunda lectura...</p>
+          <ion-button (click)="finishAndGoToTest()">Finalizar y volver al Test 1</ion-button>
         </ion-card-content>
       </ion-card>
     </ng-container>

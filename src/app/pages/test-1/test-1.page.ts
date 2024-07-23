@@ -2,7 +2,9 @@ import { Component, OnInit, ViewChildren, QueryList, ElementRef } from '@angular
 import { HttpClient } from '@angular/common/http';
 import { AuthService } from '../../services/auth/auth.service';
 import { FirestoreService } from '../../services/firestore.service';
-import { AlertController } from '@ionic/angular';
+import { AlertController, ToastController } from '@ionic/angular';
+import { Router } from '@angular/router';
+import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-test-1',
@@ -12,6 +14,10 @@ import { AlertController } from '@ionic/angular';
 export class Test1Page implements OnInit {
   questions: any[] = [];
   selectedAnswers: { [index: number]: string } = {};
+  correctAnswers: number = 0;
+  testCompleted: boolean = false;
+  testForm!: FormGroup;
+  totalQuestions: number = 0;
 
   @ViewChildren('questionItem') questionItems!: QueryList<ElementRef>;
 
@@ -19,20 +25,26 @@ export class Test1Page implements OnInit {
     private http: HttpClient,
     private authService: AuthService,
     private firestoreService: FirestoreService,
-    private alertController: AlertController
+    private alertController: AlertController,
+    private toastController: ToastController,
+    private router: Router,
+    private formBuilder: FormBuilder
   ) {}
 
   ngOnInit() {
     this.loadQuestions();
+    this.testForm = this.formBuilder.group({});
   }
 
   loadQuestions() {
     this.http.get<any[]>('/assets/questions.json').subscribe(
       data => {
         this.questions = data.filter(q => q.testNumber === 1)[0]?.questions || [];
+        this.totalQuestions = this.questions.length;
+        this.questions.forEach((question, index) => {
+          this.testForm.addControl(index.toString(), new FormControl(''));
+        });
         console.log('Questions loaded:', this.questions);
-
-        // Apply animation to questions
         this.animateQuestions();
       },
       error => {
@@ -43,37 +55,42 @@ export class Test1Page implements OnInit {
 
   animateQuestions() {
     this.questionItems.forEach((item, index) => {
-      // Add animation class after a delay
       setTimeout(() => {
         item.nativeElement.classList.add('animate__animated', 'animate__fadeIn');
-      }, index * 300); // Delay for each item
+      }, index * 300);
     });
   }
 
   async submit() {
-    let correctAnswers = 0;
+    this.correctAnswers = 0;
     const totalQuestions = this.questions.length;
 
     for (let i = 0; i < totalQuestions; i++) {
       const question = this.questions[i];
       const correctAnswer = question.answers.find((a: { isCorrect: boolean }) => a.isCorrect)?.text;
-      const selectedAnswer = this.selectedAnswers[i];
+      const selectedAnswer = this.testForm.value[i.toString()];
 
       if (selectedAnswer && correctAnswer && selectedAnswer.trim() === correctAnswer.trim()) {
-        correctAnswers++;
+        this.correctAnswers++;
       }
     }
 
-    const alert = await this.alertController.create({
-      header: 'Test Completed',
-      message: `Has acertado ${correctAnswers} de ${totalQuestions} preguntas.`,
-      buttons: ['OK']
-    });
-    await alert.present();
+    this.testCompleted = true;
 
     const userId = await this.authService.getCurrentUserId();
     if (userId) {
-      await this.firestoreService.saveUserScore(userId, 1, correctAnswers, totalQuestions);
+      await this.firestoreService.saveUserScore(userId, 1, this.correctAnswers, totalQuestions);
     }
   }
+
+  retryTest() {
+    this.testCompleted = false;
+    this.selectedAnswers = {};
+    this.testForm.reset();
+  }
+
+  goHome() {
+    this.router.navigate(['/home']);
+  }
+
 }
