@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth/auth.service';  // Asegúrate de tener la ruta correcta
+import { AlertController } from '@ionic/angular'; // Importar AlertController
 
 @Component({
   selector: 'app-home',
@@ -8,15 +9,35 @@ import { AuthService } from '../services/auth/auth.service';  // Asegúrate de t
   styleUrls: ['./home.page.scss'],
 })
 export class HomePage {
-  constructor(private authService: AuthService, private router: Router) {}
+  constructor(private authService: AuthService, private router: Router, private alertController: AlertController) {}
 
   async logout() {
-    try {
-      await this.authService.logout();
-      this.router.navigateByUrl('/login');  // Redirige a la página de login
-    } catch (error) {
-      console.error('Logout failed', error);
-    }
+    const alert = await this.alertController.create({
+      header: 'Confirmar',
+      message: '¿Estás seguro de que deseas cerrar sesión?',
+      buttons: [
+        {
+          text: 'Cancelar',
+          role: 'cancel',
+          cssClass: 'secondary',
+          handler: () => {
+            console.log('Logout cancelado');
+          }
+        }, {
+          text: 'Confirmar',
+          handler: async () => {
+            try {
+              await this.authService.logout();
+              this.router.navigateByUrl('/login');  // Redirige a la página de login
+            } catch (error) {
+              console.error('Logout failed', error);
+            }
+          }
+        }
+      ]
+    });
+
+    await alert.present();
   }
 
 
@@ -34,9 +55,5 @@ export class HomePage {
 
   goToResultados() {
     this.router.navigate(['/results']);
-  }
-
-  goToQuiz1(){
-    this.router.navigate(['/quiz-1']);
   }
 }

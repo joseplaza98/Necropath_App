@@ -81,7 +81,7 @@ export class Quiz1Page implements OnInit {
   async saveResults() {
     const userId = await this.authService.getCurrentUserId();
     if (userId) {
-      await this.firestoreService.saveUserScore(userId, 2, this.correctAnswers, this.totalQuestions); // Cambia el número del test si es necesario
+      await this.firestoreService.saveUserScore(userId, "Quiz 1", this.correctAnswers, this.totalQuestions); // Cambia el número del test si es necesario
     }
   }
 
@@ -93,7 +93,7 @@ export class Quiz1Page implements OnInit {
     this.feedback = '';
   }
 
-  goHome() {
-    this.router.navigate(['/home']);
+  goU1() {
+    this.router.navigate(['/u1-tema-1']);
   }
 }

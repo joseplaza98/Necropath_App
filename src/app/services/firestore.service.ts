@@ -9,12 +9,12 @@ export class FirestoreService {
   constructor(private firestore: AngularFirestore) {}
 
   // Método para obtener las preguntas del test desde Firestore
-  getQuestions(testNumber: number): Observable<any> {
+  getQuestions(testNumber: string): Observable<any> {
     return this.firestore.collection('questions').doc(`test-${testNumber}`).valueChanges();
   }
 
   // Método para guardar el puntaje del usuario en Firestore
-  async saveUserScore(userId: string, testNumber: number, correctAnswers: number, totalQuestions: number): Promise<void> {
+  async saveUserScore(userId: string, testNumber: string, correctAnswers: number, totalQuestions: number): Promise<void> {
     if (!userId) throw new Error('User ID is required');
 
     const scoreData = {
@@ -26,7 +26,7 @@ export class FirestoreService {
     try {
       await userScoreRef.set(
         {
-          [`Test ${testNumber}`]: scoreData
+          [`reg-${testNumber}`]: scoreData  // Actualiza el nombre del documento y trae el valor con que se guarda el resultado
         },
         { merge: true }
       );

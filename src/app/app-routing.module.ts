@@ -74,7 +74,8 @@ const routes: Routes = [
   },
   {
     path: 'quiz-1',
-    loadChildren: () => import('./pages/Unidades/Unidad 1/Activitys/quiz-1/quiz-1.module').then( m => m.Quiz1PageModule)
+    loadChildren: () => import('./pages/Unidades/Unidad 1/Activitys/quiz-1/quiz-1.module').then( m => m.Quiz1PageModule),
+    canActivate: [AuthGuard]  // Protege la ruta home con el AuthGuard
   },
 ];
 

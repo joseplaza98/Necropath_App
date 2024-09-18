@@ -94,7 +94,7 @@ export class Test1Page implements OnInit {
     const userId = await this.authService.getCurrentUserId();
     if (userId) {
       console.log('Saving user score...');
-      await this.firestoreService.saveUserScore(userId, 1, this.correctAnswers, totalQuestions);
+      await this.firestoreService.saveUserScore(userId, "Test U1", this.correctAnswers, totalQuestions);
     }
   }
 

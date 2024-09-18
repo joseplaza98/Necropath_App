@@ -1,17 +1,32 @@
+/* Estilo para el fondo general del test */
+.test-container {
+  background: linear-gradient(to right, #f0f4f7, #ffffff); /* Gradiente similar al fondo del home */
+  padding: 2rem;
+  border-radius: 12px;
+}
+
 /* Estilo para el contenedor del formulario del test */
 .test-form {
   padding: 1rem;
+  background: #ffffff; /* Fondo blanco para el formulario para destacar */
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 /* Estilo para el contenedor de cada pregunta */
 .question-container {
   margin-bottom: 1rem;
+  background: #f9f9f9; /* Fondo ligeramente gris para las preguntas */
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
 /* Estilo para el título de la pregunta */
 .question-title {
   color: #007bff; /* Azul para el título */
   font-weight: bold;
+  font-size: 1.2rem;
 }
 
 /* Estilo para el botón de enviar */
@@ -20,17 +35,25 @@
   background-color: #007bff;
   color: white;
   font-weight: bold;
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
+  border: none;
 }
 
 /* Estilo para el contenedor de resultados */
 .result-container {
   padding: 1rem;
+  background: #ffffff; /* Fondo blanco para el contenedor de resultados */
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 /* Estilo para la tarjeta de resultados */
 .result-card {
   border-radius: 12px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  background: #ffffff; /* Fondo blanco para las tarjetas */
+  padding: 1rem;
 }
 
 /* Estilo para el texto de resultados */
@@ -38,6 +61,7 @@
   text-align: center;
   font-size: 1.2rem;
   margin-bottom: 1rem;
+  color: #333333; /* Color de texto oscuro para mejor legibilidad */
 }
 
 /* Estilo para los botones de resultados */
@@ -47,4 +71,6 @@
   background-color: #007bff;
   color: white;
   font-weight: bold;
+  padding: 0.5rem 1rem;
+  border: none;
 }
