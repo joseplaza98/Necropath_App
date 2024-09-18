@@ -1,0 +1,31 @@
+[
+  {
+    "testNumber": 1,
+    "questions": [
+      {
+        "question": "¿Cuál es la capital de Francia?",
+        "answers": [
+          { "text": "París", "isCorrect": true },
+          { "text": "Londres", "isCorrect": false },
+          { "text": "Madrid", "isCorrect": false }
+        ],
+        "feedback": {
+          "correct": "¡Correcto! París es la capital de Francia. 😊",
+          "incorrect": "Incorrecto. La respuesta correcta es París. 😢"
+        }
+      },
+      {
+        "question": "¿Cuál es el resultado de 2 + 2?",
+        "answers": [
+          { "text": "3", "isCorrect": false },
+          { "text": "4", "isCorrect": true },
+          { "text": "5", "isCorrect": false }
+        ],
+        "feedback": {
+          "correct": "¡Correcto! 2 + 2 es 4 😊.",
+          "incorrect": "Incorrecto. La respuesta correcta es 4. 😢"
+        }
+      }
+    ]
+  }
+]

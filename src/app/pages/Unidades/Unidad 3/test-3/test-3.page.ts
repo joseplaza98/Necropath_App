@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { AuthService } from '../../services/auth/auth.service';
-import { FirestoreService } from '../../services/firestore.service';
+import { AuthService } from '../../../../services/auth/auth.service';
+import { FirestoreService } from '../../../../services/firestore.service';
 import { AlertController } from '@ionic/angular';
 
 @Component({

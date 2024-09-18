@@ -1,13 +1,96 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
-    <ion-title>u2_tema_1</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Unidad 2</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
+<ion-content>
+  <ion-menu side="start" menuId="first" contentId="main-content" #menu>
+    <ion-header>
+      <ion-toolbar color="primary">
+        <ion-title>Menú</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+      <ion-list>
+        <ion-item button [disabled]="!progress.video && selectedContent !== 'video'" (click)="loadContent('video'); menu.close()">Tema 1: Video</ion-item>
+        <ion-item button [disabled]="!progress.lecture && selectedContent !== 'lecture'" (click)="loadContent('lecture'); menu.close()">Tema 2: Lectura</ion-item>
+        <ion-item button [disabled]="!progress.image && selectedContent !== 'image'" (click)="loadContent('image'); menu.close()">Tema 3: Imagen</ion-item>
+        <ion-item button [disabled]="!progress.video2 && selectedContent !== 'video2'" (click)="loadContent('video2'); menu.close()">Tema 4: Segundo Video</ion-item>
+        <ion-item button [disabled]="!progress.lecture2 && selectedContent !== 'lecture2'" (click)="loadContent('lecture2'); menu.close()">Tema 5: Segunda Lectura</ion-item>
+        <ion-item button [disabled]="!progress.test" (click)="goToTest(); menu.close()">Test 1</ion-item>
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+
+  <div id="main-content">
     <ion-toolbar>
-      <ion-title size="large">u2_tema_1</ion-title>
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title>Contenidos</ion-title>
     </ion-toolbar>
-  </ion-header>
+    <ng-container *ngIf="selectedContent === 'video'">
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title>Tema 1: Video</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <iframe [src]="videoUrl" frameborder="0" allowfullscreen></iframe>
+          <ion-button (click)="nextContent()">Siguiente</ion-button>
+        </ion-card-content>
+      </ion-card>
+    </ng-container>
+
+    <ng-container *ngIf="selectedContent === 'lecture'">
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title>Tema 2: Lectura</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <p>Este es el contenido de la lectura...</p>
+          <ion-button (click)="nextContent()">Siguiente</ion-button>
+        </ion-card-content>
+      </ion-card>
+    </ng-container>
+
+    <ng-container *ngIf="selectedContent === 'image'">
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title>Tema 3: Imagen</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <img src="path-to-your-image.jpg" alt="Imagen" width="100%">
+          <ion-button (click)="nextContent()">Siguiente</ion-button>
+        </ion-card-content>
+      </ion-card>
+    </ng-container>
+
+    <ng-container *ngIf="selectedContent === 'video2'">
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title>Tema 4: Segundo Video</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <iframe [src]="videoUrl2" frameborder="0" allowfullscreen></iframe>
+          <ion-button (click)="nextContent()">Siguiente</ion-button>
+        </ion-card-content>
+      </ion-card>
+    </ng-container>
+
+    <ng-container *ngIf="selectedContent === 'lecture2'">
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title>Tema 5: Segunda Lectura</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <p>Este es el contenido de la segunda lectura...</p>
+          <ion-button (click)="finishAndGoToTest()">Finalizar y volver al Test 1</ion-button>
+        </ion-card-content>
+      </ion-card>
+    </ng-container>
+  </div>
 </ion-content>

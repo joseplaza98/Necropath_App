@@ -24,20 +24,19 @@ export class HomePage {
     this.router.navigate(['/u1-tema-1']);
   }
 
-  /** 
-  goToTest1() {
-    this.router.navigate(['/test-1']);
-  }
-*/
-  goToTest2() {
-    this.router.navigate(['/test-2']);
+  goToU2Tema1(){
+    this.router.navigate(['/u2-tema-1']);
   }
 
-  goToTest3() {
-    this.router.navigate(['/test-3']);
+  goToU3Tema1(){
+    this.router.navigate(['/u3-tema-1']);
   }
 
   goToResultados() {
     this.router.navigate(['/results']);
+  }
+
+  goToQuiz1(){
+    this.router.navigate(['/quiz-1']);
   }
 }

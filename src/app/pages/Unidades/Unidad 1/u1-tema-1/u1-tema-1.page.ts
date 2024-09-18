@@ -29,19 +29,20 @@ export class U1Tema1Page implements OnInit {
     private sanitizer: DomSanitizer
   ) {
     // Usar las URLs de incrustación de YouTube
-    this.videoUrl = this.sanitizer.bypassSecurityTrustResourceUrl('https://www.youtube.com/embed/your-first-video-id');
-    this.videoUrl2 = this.sanitizer.bypassSecurityTrustResourceUrl('https://www.youtube.com/embed/your-second-video-id');
+    this.videoUrl = this.sanitizer.bypassSecurityTrustResourceUrl('https://drive.google.com/file/d/1gApRULDtRi4GV4H_uqhlElzPbm0NuBk9/preview');
+    this.videoUrl2 = this.sanitizer.bypassSecurityTrustResourceUrl('https://drive.google.com/file/d/1zcAgdq5ZN85S_lCe_BMuw_oFb38WVsd8/preview');
   }
 
   ngOnInit() {
     this.loadProgress();
+    this.selectedContent = 'video'; // Mostrar el primer contenido por defecto
   }
 
   async loadProgress() {
     try {
       const userId = await this.authService.getCurrentUserId();
       if (userId) {
-        const userProgress = await this.firestoreService.getUserProgress(userId, 'u1-tema-1');
+        const userProgress = await this.firestoreService.getUserProgress(userId, 'unidad 1');
         if (userProgress) {
           this.progress = userProgress;
         }
@@ -78,7 +79,7 @@ export class U1Tema1Page implements OnInit {
     try {
       const userId = await this.authService.getCurrentUserId();
       if (userId) {
-        await this.firestoreService.saveUserProgress(userId, 'u1-tema-1', this.progress);
+        await this.firestoreService.saveUserProgress(userId, 'unidad 1', this.progress);
       }
     } catch (error) {
       console.error('Error saving progress:', error);

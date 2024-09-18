@@ -16,7 +16,11 @@
           <ion-item>
             <ion-label>{{ question.question }}</ion-label>
           </ion-item>
-          <ion-radio-group [(ngModel)]="selectedAnswers[i]" name="question-{{i}}" class="radio-group">
+          <ion-radio-group 
+            [(ngModel)]="selectedAnswers[i]" 
+            (ionChange)="onAnswerChange($event, i)" 
+            name="question-{{i}}" 
+            class="radio-group">
             <ion-item *ngFor="let answer of question.answers">
               <ion-label>{{ answer.text }}</ion-label>
               <ion-radio slot="start" [value]="answer.text"></ion-radio>

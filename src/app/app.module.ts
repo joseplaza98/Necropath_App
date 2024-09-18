@@ -22,7 +22,9 @@ import { HttpClientModule } from '@angular/common/http';
   ], 
   imports: [
     BrowserModule, 
-    IonicModule.forRoot(),
+    IonicModule.forRoot({
+      backButtonText: 'Atrás' // Configuración global para el texto del botón de retroceso
+    }),
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
