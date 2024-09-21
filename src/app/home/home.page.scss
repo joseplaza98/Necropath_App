@@ -36,9 +36,11 @@
   --background: #3880ff;
   --color: #fff;
   --border-radius: 20px;
-  margin: 16px auto;  // Centrar el botón horizontalmente
+  margin: 16px 0;
+}
+
+ion-button.custom-button {
   display: block;
-  width: auto;        // Ajusta el ancho automático
-  max-width: 200px;   // Ancho máximo del botón
+  width: 100%;
   text-align: center;
 }

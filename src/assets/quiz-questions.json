@@ -27,5 +27,34 @@
         }
       }
     ]
+  },
+  {
+    "testNumber": 2,
+    "questions": [
+      {
+        "question": "¿Donde vives?",
+        "answers": [
+          { "text": "Cali", "isCorrect": true },
+          { "text": "Medellin", "isCorrect": false },
+          { "text": "Bogota", "isCorrect": false }
+        ],
+        "feedback": {
+          "correct": "¡Correcto! Vives en cali. 😊",
+          "incorrect": "Incorrecto. No vives en ahi. 😢"
+        }
+      },
+      {
+        "question": "¿3+2?",
+        "answers": [
+          { "text": "2", "isCorrect": false },
+          { "text": "5", "isCorrect": true },
+          { "text": "7", "isCorrect": false }
+        ],
+        "feedback": {
+          "correct": "¡Correcto! 3 + 2 es 5 😊.",
+          "incorrect": "Incorrecto. La respuesta correcta es 5. 😢"
+        }
+      }
+    ]
   }
 ]

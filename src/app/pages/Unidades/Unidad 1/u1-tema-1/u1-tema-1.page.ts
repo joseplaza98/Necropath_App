@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { FirestoreService } from 'src/app/services/firestore.service';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
@@ -11,31 +11,106 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 })
 export class U1Tema1Page implements OnInit {
   selectedContent: string | null = null;
-  videoUrl: SafeResourceUrl;
-  videoUrl2: SafeResourceUrl;
+  //Videos U1 SU1
+  u1_su1_video1_Url: SafeResourceUrl;
+  u1_su1_video2_Url: SafeResourceUrl;
+
+  //Videos U1 SU2
+  u1_su2_video1_Url: SafeResourceUrl;
+  u1_su2_video2_Url: SafeResourceUrl;
+  u1_su2_video3_Url: SafeResourceUrl;
+  u1_su2_video4_Url: SafeResourceUrl;
+  u1_su2_video5_Url: SafeResourceUrl;
+
+  //Videos U1 SU3
+  u1_su3_video1_Url: SafeResourceUrl;
+  u1_su3_video2_Url: SafeResourceUrl;
+  u1_su3_video3_Url: SafeResourceUrl;
+  u1_su3_video4_Url: SafeResourceUrl;
+
+  //Videos U1 SU4
+  u1_su4_video1_Url: SafeResourceUrl;
+  u1_su4_video2_Url: SafeResourceUrl;
+
   progress: any = {
+
+    //Sub unidad 1
+    u1_su1_intro: false,
+    u1_su1_lectura1: false,
+    u1_su1_video1: false,
+    u1_su1_video2: false,
+    
+    //Sub unidad 2
+    u1_su2_intro: false,
+    u1_su2_video1: false,
+    u1_su2_video2: false,
+    u1_su2_video3: false,
+    u1_su2_video4: false,
+    u1_su2_video5: false,
+    u1_su2_quiz1: false,
+    
+    //Sub unidad 3
+    u1_su3_intro: false,
+    u1_su3_video1: false,
+    u1_su3_video2: false,
+    u1_su3_video3: false,
+    u1_su3_video4: false,
+    u1_su3_quiz2: false,
+    
+    //Sub unidad 4
+    u1_su4_intro: false,
+    u1_su4_infografia: false,
+    u1_su4_video1: false,
+    u1_su4_video2: false,
+    u1_su4_test_1: false,
+
+
+    /** 
     video: false,
     lecture: false,
     image: false,
+    quiz: false,
     video2: false,
     lecture2: false,
     test: false
+    */
   };
 
   constructor(
     private firestoreService: FirestoreService,
     private authService: AuthService,
     private router: Router,
+    private route: ActivatedRoute,
     private sanitizer: DomSanitizer
   ) {
-    // Usar las URLs de incrustación de YouTube
-    this.videoUrl = this.sanitizer.bypassSecurityTrustResourceUrl('https://drive.google.com/file/d/1gApRULDtRi4GV4H_uqhlElzPbm0NuBk9/preview');
-    this.videoUrl2 = this.sanitizer.bypassSecurityTrustResourceUrl('https://drive.google.com/file/d/1zcAgdq5ZN85S_lCe_BMuw_oFb38WVsd8/preview');
+
+    //Lista y enlaces de contenido de video
+    this.u1_su1_video1_Url = this.sanitizer.bypassSecurityTrustResourceUrl('https://drive.google.com/file/d/1gApRULDtRi4GV4H_uqhlElzPbm0NuBk9/preview');
+    this.u1_su1_video2_Url = this.sanitizer.bypassSecurityTrustResourceUrl('https://drive.google.com/file/d/1zcAgdq5ZN85S_lCe_BMuw_oFb38WVsd8/preview');
+    this.u1_su2_video1_Url = this.sanitizer.bypassSecurityTrustResourceUrl('https://drive.google.com/file/d/19Yh09G-sXhzspeuzxOHbhVHt1usimwxu/preview');
+    this.u1_su2_video2_Url = this.sanitizer.bypassSecurityTrustResourceUrl('https://drive.google.com/file/d/1CKRPmz35f7BgLSNaK93ufZ6z_jwV_SQU/preview');
+    this.u1_su2_video3_Url = this.sanitizer.bypassSecurityTrustResourceUrl('https://drive.google.com/file/d/1iLPTWOrvRwjFopcZ-Eqycsne3A66oUjs/preview');
+    this.u1_su2_video4_Url = this.sanitizer.bypassSecurityTrustResourceUrl('https://drive.google.com/file/d/1zygRnEZbCgqTLflWatMNMOLEZPvSJekX/preview');
+    this.u1_su2_video5_Url = this.sanitizer.bypassSecurityTrustResourceUrl('https://drive.google.com/file/d/1d83ivrrIEEB2PBltBCO6AWZ2i8OvAqco/preview');
+    this.u1_su3_video1_Url = this.sanitizer.bypassSecurityTrustResourceUrl('https://drive.google.com/file/d/1qKnAHaszBsvdJ-x_NaN_IEamSDW9Qewv/preview');
+    this.u1_su3_video2_Url = this.sanitizer.bypassSecurityTrustResourceUrl('https://drive.google.com/file/d/1Qs5ivS9bRip7ME2MmHx4lpyGolRwiVx2/preview');
+    this.u1_su3_video3_Url = this.sanitizer.bypassSecurityTrustResourceUrl('https://drive.google.com/file/d/1Dnlop4mIW3hI1VGP7-luGVz14vXI6vs5/preview');
+    this.u1_su3_video4_Url = this.sanitizer.bypassSecurityTrustResourceUrl('https://drive.google.com/file/d/1F57bwhnZVP56C2bQMwXsAKYFsUKYpuSO/preview');
+    this.u1_su4_video1_Url = this.sanitizer.bypassSecurityTrustResourceUrl('https://drive.google.com/file/d/1MIUlyK3HfE00FQ73iejdKo1O8hE9566S/preview');
+    this.u1_su4_video2_Url = this.sanitizer.bypassSecurityTrustResourceUrl('https://drive.google.com/file/d/1S8YRMHiaQ0tK9lpArlVOLpptWITla2qB/preview');
+
   }
 
   ngOnInit() {
     this.loadProgress();
-    this.selectedContent = 'video'; // Mostrar el primer contenido por defecto
+    this.route.queryParams.subscribe(params => {
+      const loadContent = params['loadContent'];
+      if (loadContent) {
+        this.loadContent(loadContent);
+      } else {
+        this.selectedContent = 'u1_su1_intro'; // Mostrar el primer contenido por defecto
+      }
+    });
   }
 
   async loadProgress() {
@@ -45,10 +120,11 @@ export class U1Tema1Page implements OnInit {
         const userProgress = await this.firestoreService.getUserProgress(userId, 'unidad 1');
         if (userProgress) {
           this.progress = userProgress;
+          console.log('Loaded progress from Firebase:', this.progress); // Verifica si se carga correctamente
         }
         // Inicializa el progreso para el primer contenido
-        if (!this.progress.video) {
-          this.progress.video = true;
+        if (!this.progress.u1_su1_intro) {
+          this.progress.u1_su1_intro = true;
           this.saveProgress();
         }
         this.updateTestAccess();
@@ -60,11 +136,12 @@ export class U1Tema1Page implements OnInit {
 
   loadContent(contentType: string) {
     // Permitir acceso si el contenido anterior ha sido visto
-    const contentOrder = ['video', 'lecture', 'image', 'video2', 'lecture2'];
+    const contentOrder = ['u1_su1_intro', 'u1_su1_lectura1', 'u1_su1_video1', 'u1_su1_video2','u1_su2_intro', 'u1_su2_video1', 'u1_su2_video2', 'u1_su2_video3', 'u1_su2_video4', 'u1_su2_video5', 'u1_su2_quiz1', 'u1_su3_intro', 'u1_su3_video1', 'u1_su3_video2', 'u1_su3_video3', 'u1_su3_video4', 'u1_su3_quiz2', 'u1_su4_intro', 'u1_su4_infografia', 'u1_su4_video1', 'u1_su4_video2'];
+    //const contentOrder = ['video', 'lecture', 'image', 'quiz', 'video2', 'lecture2'];
     const currentIndex = contentOrder.indexOf(contentType);
     const previousContent = contentOrder[currentIndex - 1];
 
-    if (contentType === 'video' || (this.progress[previousContent] && this.progress[previousContent] !== undefined)) {
+    if (contentType === 'u1_su1_intro' || (this.progress[previousContent] && this.progress[previousContent] !== undefined)) {
       this.selectedContent = contentType;
       if (!this.progress[contentType]) {
         this.progress[contentType] = true;
@@ -79,7 +156,9 @@ export class U1Tema1Page implements OnInit {
     try {
       const userId = await this.authService.getCurrentUserId();
       if (userId) {
+        console.log('Progress to save:', this.progress); // Agrega un log para verificar el progreso
         await this.firestoreService.saveUserProgress(userId, 'unidad 1', this.progress);
+        console.log('Progress saved successfully');
       }
     } catch (error) {
       console.error('Error saving progress:', error);
@@ -87,7 +166,8 @@ export class U1Tema1Page implements OnInit {
   }
 
   nextContent() {
-    const contentOrder = ['video', 'lecture', 'image', 'video2', 'lecture2'];
+    const contentOrder = ['u1_su1_intro', 'u1_su1_lectura1', 'u1_su1_video1', 'u1_su1_video2','u1_su2_intro', 'u1_su2_video1', 'u1_su2_video2', 'u1_su2_video3', 'u1_su2_video4', 'u1_su2_video5', 'u1_su2_quiz1', 'u1_su3_intro', 'u1_su3_video1', 'u1_su3_video2', 'u1_su3_video3', 'u1_su3_video4', 'u1_su3_quiz2', 'u1_su4_intro', 'u1_su4_infografia', 'u1_su4_video1', 'u1_su4_video2'];
+    //const contentOrder = ['video', 'lecture', 'image', 'quiz', 'video2', 'lecture2'];
     const currentIndex = contentOrder.indexOf(this.selectedContent!);
     const nextIndex = currentIndex + 1;
 
@@ -97,6 +177,7 @@ export class U1Tema1Page implements OnInit {
   }
 
   finishAndGoToTest() {
+    this.progress.u1_su4_test_1 = true; // Marca el test como completado
     this.saveProgress().then(() => {
       this.router.navigate(['/test-1']);
     }).catch(error => {
@@ -105,18 +186,44 @@ export class U1Tema1Page implements OnInit {
   }
 
   async goToTest() {
-    if (this.progress.video && this.progress.lecture && this.progress.image && this.progress.video2 && this.progress.lecture2) {
+    if (this.progress.u1_su1_intro && this.progress.u1_su1_lectura1 && this.progress.u1_su1_video1 && this.progress.u1_su1_video2 && this.progress.u1_su2_intro && this.progress.u1_su2_video1 && this.progress.u1_su2_video2 && this.progress.u1_su2_video3 && this.progress.u1_su2_video4 && this.progress.u1_su2_video5 && this.progress.u1_su2_quiz1 && this.progress.u1_su3_intro && this.progress.u1_su3_video1 && this.progress.u1_su3_video2 && this.progress.u1_su3_video3 && this.progress.u1_su3_video4 && this.progress.u1_su3_quiz2 && this.progress.u1_su4_intro && this.progress.u1_su4_infografia && this.progress.u1_su4_video1 && this.progress.u1_su4_video2) {
+    //if (this.progress.video && this.progress.lecture && this.progress.image && this.progress.quiz && this.progress.video2 && this.progress.lecture2) {
       this.router.navigate(['/test-1']);
     } else {
       console.warn('Debe completar todos los contenidos antes de acceder al test.');
     }
   }
 
+  // Navegar al quiz
+  goToQuiz() {
+    this.progress.u1_su2_quiz1 = true;
+    console.log('Setting u1_su2_quiz1 to true'); // Verifica si esto se ejecuta
+    this.saveProgress().then(() => {
+      console.log('Navigating to quiz-1'); // Verifica si esto se ejecuta después del guardado
+      this.router.navigate(['/quiz-1']);
+    }).catch(error => {
+      console.error('Error navigating to quiz:', error);
+    });
+  }
+
+    // Navegar al quiz
+    goToQuiz2() {
+      this.progress.u1_su3_quiz2 = true;
+      console.log('Setting u1_su3_quiz2 to true'); // Verifica si esto se ejecuta
+      this.saveProgress().then(() => {
+        console.log('Navigating to quiz-2'); // Verifica si esto se ejecuta después del guardado
+        this.router.navigate(['/quiz-2']);
+      }).catch(error => {
+        console.error('Error navigating to quiz:', error);
+      });
+    }
+
   updateTestAccess() {
-    if (this.progress.video && this.progress.lecture && this.progress.image && this.progress.video2 && this.progress.lecture2) {
-      this.progress.test = true;
+   if (this.progress.u1_su1_intro && this.progress.u1_su1_lectura1 && this.progress.u1_su1_video1 && this.progress.u1_su1_video2 && this.progress.u1_su2_intro && this.progress.u1_su2_video1 && this.progress.u1_su2_video2 && this.progress.u1_su2_video3 && this.progress.u1_su2_video4 && this.progress.u1_su2_video5 && this.progress.u1_su2_quiz1 && this.progress.u1_su3_intro && this.progress.u1_su3_video1 && this.progress.u1_su3_video2 && this.progress.u1_su3_video3 && this.progress.u1_su3_video4 && this.progress.u1_su3_quiz2 && this.progress.u1_su4_intro && this.progress.u1_su4_infografia && this.progress.u1_su4_video1 && this.progress.u1_su4_video2) {
+    // if (this.progress.video && this.progress.lecture && this.progress.image && this.progress.quiz && this.progress.video2 && this.progress.lecture2) {
+      this.progress.u1_su4_test_1 = true;
     } else {
-      this.progress.test = false;
+      this.progress.u1_su4_test_1 = false;
     }
   }
 }

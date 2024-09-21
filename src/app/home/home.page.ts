@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth/auth.service';  // Asegúrate de tener la ruta correcta
+import { FirestoreService } from '../services/firestore.service';  // Asegúrate de tener la ruta correcta
 import { AlertController } from '@ionic/angular'; // Importar AlertController
 
 @Component({
@@ -8,8 +9,41 @@ import { AlertController } from '@ionic/angular'; // Importar AlertController
   templateUrl: './home.page.html',
   styleUrls: ['./home.page.scss'],
 })
-export class HomePage {
-  constructor(private authService: AuthService, private router: Router, private alertController: AlertController) {}
+export class HomePage implements OnInit {
+  progress: any = {
+    content1: false,
+    content2: false,
+    content3: false
+  };
+
+  constructor(
+    private authService: AuthService,
+    private router: Router,
+    private firestoreService: FirestoreService,
+    private alertController: AlertController
+  ) {}
+
+  ngOnInit() {
+    this.loadProgress();
+  }
+
+  async loadProgress() {
+    try {
+      const userId = await this.authService.getCurrentUserId();
+      if (userId) {
+        const userProgress = await this.firestoreService.getUserProgress(userId, 'unidad 1');
+        if (userProgress) {
+          this.progress = {
+            content1: userProgress['content1'] || false,
+            content2: userProgress['content2'] || false,
+            content3: userProgress['content3'] || false
+          };
+        }
+      }
+    } catch (error) {
+      console.error('Error loading progress:', error);
+    }
+  }
 
   async logout() {
     const alert = await this.alertController.create({
@@ -39,7 +73,6 @@ export class HomePage {
 
     await alert.present();
   }
-
 
   goToU1Tema1(){
     this.router.navigate(['/u1-tema-1']);

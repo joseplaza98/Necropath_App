@@ -5,11 +5,11 @@ import { FirestoreService } from '../../../../../services/firestore.service';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-quiz-1',
-  templateUrl: './quiz-1.page.html',
-  styleUrls: ['./quiz-1.page.scss'],
+  selector: 'app-quiz-2',
+  templateUrl: './quiz-2.page.html',
+  styleUrls: ['./quiz-2.page.scss'],
 })
-export class Quiz1Page implements OnInit {
+export class Quiz2Page implements OnInit {
   questions: any[] = []; // Aquí se almacenarán las preguntas cargadas
   selectedAnswer: string = ''; // Respuesta seleccionada por el usuario
   feedback: string = ''; // Retroalimentación para la respuesta seleccionada
@@ -34,13 +34,13 @@ export class Quiz1Page implements OnInit {
       data => {
         console.log('Data loaded:', data); // Verifica la estructura de los datos
         if (Array.isArray(data)) {
-          const quizData = data.find(q => q.testNumber === 1);
+          const quizData = data.find(q => q.testNumber === 2);
           if (quizData) {
             this.questions = quizData.questions || [];
             this.totalQuestions = this.questions.length;
             console.log('Questions:', this.questions);
           } else {
-            console.error('No data found for testNumber 1');
+            console.error('No data found for testNumber 2');
           }
         } else {
           console.error('Loaded data is not an array:', data);
@@ -81,7 +81,7 @@ export class Quiz1Page implements OnInit {
   async saveResults() {
     const userId = await this.authService.getCurrentUserId();
     if (userId) {
-      await this.firestoreService.saveUserScore(userId, "Quiz 1", this.correctAnswers, this.totalQuestions); // Cambia el número del test si es necesario
+      await this.firestoreService.saveUserScore(userId, "Quiz 2", this.correctAnswers, this.totalQuestions); // Cambia el número del test si es necesario
     }
   }
 
@@ -94,6 +94,6 @@ export class Quiz1Page implements OnInit {
   }
 
   goU1() {
-    this.router.navigate(['/u1-tema-1'], { queryParams: { loadContent: 'u1_su3_intro' } });
+    this.router.navigate(['/u1-tema-1'], { queryParams: { loadContent: 'u1_su4_intro' } });
   }
 }
