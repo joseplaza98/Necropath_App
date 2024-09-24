@@ -24,17 +24,17 @@ const routes: Routes = [
   },
   {
     path: 'test-1',
-    loadChildren: () => import('./pages/Unidades/Unidad 1/test-1/test-1.module').then(m => m.Test1PageModule),
+    loadChildren: () => import('./pages/Unidades/Unidad 1/Activities/test-1/test-1.module').then(m => m.Test1PageModule),
     canActivate: [AuthGuard]  // Protege la ruta home con el AuthGuard
   },
   {
     path: 'test-2',
-    loadChildren: () => import('./pages/Unidades/Unidad 2/test-2/test-2.module').then( m => m.Test2PageModule),
+    loadChildren: () => import('./pages/Unidades/Unidad 2/Activities/test-2/test-2.module').then( m => m.Test2PageModule),
     canActivate: [AuthGuard]  // Protege la ruta home con el AuthGuard  
     },
   {
     path: 'test-3',
-    loadChildren: () => import('./pages/Unidades/Unidad 3/test-3/test-3.module').then( m => m.Test3PageModule),
+    loadChildren: () => import('./pages/Unidades/Unidad 3/Activities/test-3/test-3.module').then( m => m.Test3PageModule),
     canActivate: [AuthGuard]  // Protege la ruta home con el AuthGuard
   },
   {
@@ -74,12 +74,38 @@ const routes: Routes = [
   },
   {
     path: 'quiz-1',
-    loadChildren: () => import('./pages/Unidades/Unidad 1/Activitys/quiz-1/quiz-1.module').then( m => m.Quiz1PageModule),
+    loadChildren: () => import('./pages/Unidades/Unidad 1/Activities/quiz-1/quiz-1.module').then( m => m.Quiz1PageModule),
     canActivate: [AuthGuard]  // Protege la ruta home con el AuthGuard
   },
   {
     path: 'quiz-2',
-    loadChildren: () => import('./pages/Unidades/Unidad 1/Activitys/quiz-2/quiz-2.module').then( m => m.Quiz2PageModule)
+    loadChildren: () => import('./pages/Unidades/Unidad 1/Activities/quiz-2/quiz-2.module').then( m => m.Quiz2PageModule),
+    canActivate: [AuthGuard]  // Protege la ruta home con el AuthGuard
+  },
+  {
+    path: 'u2-quiz-1',
+    loadChildren: () => import('./pages/Unidades/Unidad 2/Activities/u2-quiz-1/u2-quiz-1.module').then( m => m.U2Quiz1PageModule),
+    canActivate: [AuthGuard]  // Protege la ruta home con el AuthGuard
+  },
+  {
+    path: 'u3-quiz-1',
+    loadChildren: () => import('./pages/Unidades/Unidad 3/Activities/u3-quiz-1/u3-quiz-1.module').then( m => m.U3Quiz1PageModule),
+    canActivate: [AuthGuard]  // Protege la ruta home con el AuthGuard
+  },
+  {
+    path: 'about',
+    loadChildren: () => import('./about/about.module').then( m => m.AboutPageModule),
+    canActivate: [AuthGuard]  // Protege la ruta home con el AuthGuard
+  },
+  {
+    path: 'syllabus',
+    loadChildren: () => import('./syllabus/syllabus.module').then( m => m.SyllabusPageModule),
+    canActivate: [AuthGuard]  // Protege la ruta home con el AuthGuard
+  },
+  {
+    path: 'edit-user',
+    loadChildren: () => import('./edit-user/edit-user.module').then( m => m.EditUserPageModule),
+    canActivate: [AuthGuard]  // Protege la ruta home con el AuthGuard
   },
 ];
 

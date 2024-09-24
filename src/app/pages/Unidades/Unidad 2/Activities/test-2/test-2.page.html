@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Test Unidad 2</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding class="content">
+  <!-- Formulario del Test -->
+  <form (ngSubmit)="submit()" *ngIf="!testCompleted" class="test-form">
+    <div *ngFor="let question of questions; let i = index" class="question-container">
+      <ion-card class="question-card">
+        <ion-card-header>
+          <ion-card-title class="question-title">Pregunta {{ i + 1 }}</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <ion-item>
+            <ion-label>{{ question.question }}</ion-label>
+          </ion-item>
+          <ion-radio-group 
+            [(ngModel)]="selectedAnswers[i]" 
+            (ionChange)="onAnswerChange($event, i)" 
+            name="question-{{i}}" 
+            class="radio-group">
+            <ion-item *ngFor="let answer of question.answers">
+              <ion-label>{{ answer.text }}</ion-label>
+              <ion-radio slot="start" [value]="answer.text"></ion-radio>
+            </ion-item>
+          </ion-radio-group>
+        </ion-card-content>
+      </ion-card>
+    </div>
+
+    <ion-button expand="full" shape="round" type="submit" class="submit-button">Enviar respuestas</ion-button>
+  </form>
+
+  <!-- Sección de Resultados -->
+  <div *ngIf="testCompleted" class="result-container animate__animated animate__fadeIn animate__delay-1s">
+    <ion-card class="result-card animate__animated animate__fadeIn animate__delay-1s">
+      <ion-card-header>
+        <ion-card-title class="result-title">Test Completado</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <br/>
+        <p class="result-text">Has acertado <span class="correct">{{ correctAnswers }}</span> de <span class="total">{{
+            totalQuestions }}</span> preguntas.</p>
+          <!--<ion-button expand="full" shape="round" (click)="retryTest()" class="rounded-button retry-button">Reintentar</ion-button>-->
+          <ion-button expand="full" shape="round" (click)="goHome()" class="rounded-button home-button">Página principal</ion-button>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>

@@ -1,46 +1,110 @@
-@import "https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css";
+ion-header {
+  ion-toolbar {
+    border: none; /* Quita cualquier borde del toolbar */
+    box-shadow: none; /* Quita cualquier sombra */
+    ion-title {
+      display: flex;
+      align-items: center;
+      color: #ffffff; /* Color blanco para el título del encabezado */
+      background-color: #466ece; /* Azul más vibrante */
+      padding: 20px; /* Aumentar el padding para mayor espacio */
+      border-radius: 0 0 16px 16px; /* Bordes redondeados en la parte inferior */
+      font-weight: bold; /* Negrita para mayor impacto */
+      font-size: 1.8em; /* Tamaño de fuente mayor para mayor visibilidad */
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Sombra para dar profundidad */
+    }
 
-ion-toolbar {
-  ion-title {
-    display: flex;
-    align-items: center;
+    /* Estilo para el botón de retroceso */
+    ion-buttons {
+      ion-back-button {
+        color: #ffffff; /* Color blanco para el icono del botón de retroceso */
+        --background: transparent; /* Fondo transparente para el botón */
+        --icon-color: #ffffff; /* Color del icono en blanco */
+        
+        &:hover {
+          --icon-color: #e0e0e0; /* Color del icono al pasar el ratón */
+        }
+      }
+    }
   }
 }
 
+ion-content {
+  --background: #f3f4f6; /* Color de fondo más claro y suave */
+  padding: 0; /* Eliminar el padding para ajustar la tarjeta al borde */
+}
+
 ion-card {
-  margin: 20px;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-  border-radius: 10px;
+  margin: 20px auto; /* Centrar la tarjeta y agregar margen */
+  max-width: 90%; /* Ancho máximo de la tarjeta */
+  border-radius: 16px; /* Bordes redondeados más pronunciados */
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1); /* Sombra más difusa y suave */
+  background-color: #ffffff; /* Fondo blanco para la tarjeta */
+  transition: transform 0.3s, box-shadow 0.3s; /* Transiciones suaves para hover */
+  
+  &:hover {
+    transform: translateY(-4px); /* Efecto de elevación al pasar el mouse */
+    box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.2); /* Sombra más intensa en hover */
+  }
+}
+
+ion-card-header {
+  background-color: #466ece; /* Azul vibrante para el header de la tarjeta */
+  color: #ffffff; /* Texto en blanco para mayor contraste */
+  padding: 16px; /* Padding para mayor espacio */
+  border-radius: 16px 16px 0 0; /* Bordes redondeados en la parte superior */
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
 }
 
 ion-card-title {
-  font-size: 1.5em;
-  color: #3880ff;
+  font-size: 1.6em; /* Ajustar tamaño de título */
+  font-weight: bold; /* Negrita para resaltar el título */
+  text-align: center; /* Centrar el texto */
+  color: #ffffff; /* Color blanco para el título */
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3); /* Sombra para mejorar la legibilidad */
 }
 
 ion-card-content {
-  font-size: 1.2em;
-  color: #333;
-}
-
-.lecture-text {
-  line-height: 1.6;
+  font-size: 1.1em; /* Tamaño de texto en contenido */
+  color: #333; /* Color del texto del contenido */
+  padding: 20px; /* Mayor padding para el contenido de la tarjeta */
+  text-align: justify; /* Centrar el contenido */
+  line-height: 1.5; /* Espaciado entre líneas para mejor lectura */
 }
 
 .responsive-image {
   width: 100%;
   height: auto;
-  border-radius: 10px;
+  border-radius: 16px; /* Bordes redondeados en la imagen */
+  margin-bottom: 16px; /* Espacio entre imagen y contenido */
 }
 
-.video-frame {
+.responsive-video {
   width: 100%;
-  height: 300px;
-  border-radius: 10px;
-  margin-bottom: 20px;
+  height: 300px; /* Ajustar esta altura según sea necesario */
+  border-radius: 16px; /* Bordes redondeados en el video */
+  margin-bottom: 20px; /* Espacio inferior para el video */
 }
 
 ion-button {
   margin-top: 20px;
-  --border-radius: 10px;
+  --border-radius: 20px; /* Bordes redondeados más pronunciados */
+  --background: #466ece; /* Verde vibrante para el botón */
+  --color: #ffffff; /* Texto en blanco para el botón */
+  padding: 12px 24px; /* Mayor padding del botón */
+  font-size: 16px; /* Tamaño de fuente del botón */
+  font-weight: bold; /* Negrita para el texto del botón */
+  transition: background-color 0.3s, transform 0.3s; /* Transiciones suaves */
+  
+}
+
+ion-card-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centrar el contenido dentro de la tarjeta */
+  padding: 16px;
+}
+
+ion-card-content ion-button {
+  align-self: center; /* Asegurarse de que el botón esté centrado */
 }

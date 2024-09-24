@@ -2,10 +2,14 @@ import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { FirestoreService } from '../services/firestore.service';
 import { AuthService } from '../services/auth/auth.service';
 import { Chart, registerables } from 'chart.js';
-import { switchMap, of } from 'rxjs';  // Importa 'of' desde 'rxjs'
 
 // Registrar todos los componentes necesarios de Chart.js
 Chart.register(...registerables);
+
+interface UserScore {
+  correctAnswers: number;
+  totalQuestions: number;
+}
 
 @Component({
   selector: 'app-results',
@@ -14,10 +18,12 @@ Chart.register(...registerables);
 })
 export class ResultsPage implements OnInit, AfterViewInit {
   userId: string = '';
-  userName: string = ''; // Nueva propiedad para el nombre del usuario
+  userName: string = '';
   chart: any;
-  score: number = 0; // Asegúrate de que estas propiedades existan y se actualicen correctamente
+  score: number = 0;
   totalQuestions: number = 0;
+  results: any[] = [];
+  unitScores: { [key: string]: number } = {}; // Para almacenar los puntajes por unidad
 
   constructor(
     private firestoreService: FirestoreService,
@@ -27,7 +33,7 @@ export class ResultsPage implements OnInit, AfterViewInit {
   ngOnInit() {
     this.authService.getUserProfile().subscribe(profile => {
       if (profile) {
-        this.userName = profile.name || 'User'; // Ajusta según el campo en tu Firestore
+        this.userName = profile.name || 'User';
         this.userId = profile.uid;
         this.fetchScores();
       }
@@ -41,20 +47,77 @@ export class ResultsPage implements OnInit, AfterViewInit {
   fetchScores() {
     if (this.userId) {
       this.firestoreService.getUserScores(this.userId).subscribe((scores) => {
-        if (scores) {
-          const testNumbers = Object.keys(scores).map((key) => parseInt(key.replace('Test ', ''), 10));
-          const correctAnswers = testNumbers.map((testNumber) => scores[`Test ${testNumber}`]?.correctAnswers || 0);
-          const totalQuestions = testNumbers.map((testNumber) => scores[`Test ${testNumber}`]?.totalQuestions || 0);
+        console.log('Scores:', scores); // Registro para verificar los datos de puntajes
 
-          this.renderChart(correctAnswers, totalQuestions);
+        if (scores) {
+          const scoreEntries = Object.entries(scores) as [string, UserScore][];
+
+          // Organizar resultados según el orden requerido
+          const orderedResults = [
+            { key: 'reg-u1_quiz 1', name: 'Unidad 1: reg-u1-quiz 1' }, //Unidad 1: reg-u1-quiz 1
+            { key: 'reg-u1_quiz 2', name: 'Unidad 1: reg-u1-quiz 2' }, //Unidad 1: reg-u1-quiz 2
+            { key: 'reg-u1_test', name: 'Unidad 1: reg-u1-test' }, //Unidad 1: reg-u1-test
+            { key: 'reg-u2_quiz 1', name: 'Unidad 2: reg-u2-quiz 1' }, //Unidad 2: reg-u2-quiz 1
+            { key: 'reg-u2_test', name: 'Unidad 2: reg-u2-test' }, //Unidad 2: reg-u2-test
+            { key: 'reg-u3_quiz 1', name: 'Unidad 3: reg-u3-quiz 1' }, //Unidad 3: reg-u3-quiz 1
+            { key: 'reg-u3_test', name: 'Unidad 3: reg-u3-test' }, //Unidad 3: reg-u3-test
+          ];
+
+          this.results = orderedResults.map(({ key, name }) => {
+            const scoreData = scores[key] || { correctAnswers: 0, totalQuestions: 0 };
+            console.log(`Data for ${key}:`, scoreData); // Registro para verificar datos individuales
+
+            const correctAnswers = scoreData.correctAnswers || 0;
+            const totalQuestions = scoreData.totalQuestions || 0;
+            const scorePercentage = totalQuestions > 0 ? ((correctAnswers / totalQuestions) * 100).toFixed(2) : 0;
+
+            return { name, correctAnswers, totalQuestions, score: scorePercentage };
+          });
+
+          console.log('Results:', this.results); // Registro para verificar resultados finales
+
+          // Obtener datos para el gráfico
+          const correctAnswers = this.results.map(result => result.correctAnswers);
+          const totalQuestionsArray = this.results.map(result => result.totalQuestions);
           
-          // Asegúrate de que estas propiedades existan y se actualicen correctamente
-          this.totalQuestions = totalQuestions.reduce((sum, val) => sum + val, 0);
+          this.renderChart(correctAnswers, totalQuestionsArray);
+          
+          // Calcular total de preguntas y puntajes
+          this.totalQuestions = totalQuestionsArray.reduce((sum, val) => sum + val, 0);
           this.score = correctAnswers.reduce((sum, val) => sum + val, 0);
+
+          // Calcular puntajes por unidad
+          this.calculateUnitScores();
         }
       });
     }
   }
+
+  calculateUnitScores() {
+    const unitTotals: { [key: string]: { correct: number; total: number } } = {};
+
+    this.results.forEach(result => {
+        const unit = result.name.split(':')[0].trim(); // Extrae el nombre de la unidad
+        const correctAnswers = result.correctAnswers;
+        const totalQuestions = result.totalQuestions;
+
+        // Inicializa el objeto para la unidad si no existe
+        if (!unitTotals[unit]) {
+            unitTotals[unit] = { correct: 0, total: 0 };
+        }
+
+        // Suma los correctos y totales
+        unitTotals[unit].correct += correctAnswers;
+        unitTotals[unit].total += totalQuestions;
+    });
+
+    // Calcula el puntaje por unidad y lo asigna a unitScores
+    this.unitScores = {};
+    for (const unit in unitTotals) {
+        const { correct, total } = unitTotals[unit];
+        this.unitScores[unit] = total > 0 ? parseFloat(((correct / total) * 100).toFixed(2)) : 0; // Calcula el porcentaje y convierte a número
+    }
+}
 
   renderChart(correctAnswers: number[], totalQuestions: number[]) {
     const canvas = document.getElementById('myChart') as HTMLCanvasElement;
@@ -74,7 +137,7 @@ export class ResultsPage implements OnInit, AfterViewInit {
       this.chart = new Chart(ctx, {
         type: 'bar',
         data: {
-          labels: correctAnswers.map((_, index) => `Test ${index + 1}`),
+          labels: this.results.map(result => result.name),
           datasets: [
             {
               label: 'Correct Answers',
@@ -103,5 +166,16 @@ export class ResultsPage implements OnInit, AfterViewInit {
     } else {
       console.error('Could not get context for chart');
     }
+  }
+
+  isInUnit(resultName: string, unit: string): boolean {
+    if (unit === 'Unidad 1') {
+      return resultName.includes('reg-u1');
+    } else if (unit === 'Unidad 2') {
+      return resultName.includes('reg-u2');
+    } else if (unit === 'Unidad 3') {
+      return resultName.includes('reg-u3');
+    }
+    return false;
   }
 }

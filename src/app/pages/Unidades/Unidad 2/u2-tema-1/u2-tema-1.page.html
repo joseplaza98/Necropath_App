@@ -14,81 +14,181 @@
         <ion-title>Menú</ion-title>
       </ion-toolbar>
     </ion-header>
+
     <ion-content>
+
+      <!--Menu temas unidad 2-Sub unidad 1-->
+      <ion-item-divider>
+        <ion-label>Examen externo (Antro pometría)</ion-label>
+      </ion-item-divider>
       <ion-list>
-        <ion-item button [disabled]="!progress.video && selectedContent !== 'video'" (click)="loadContent('video'); menu.close()">Tema 1: Video</ion-item>
-        <ion-item button [disabled]="!progress.lecture && selectedContent !== 'lecture'" (click)="loadContent('lecture'); menu.close()">Tema 2: Lectura</ion-item>
-        <ion-item button [disabled]="!progress.image && selectedContent !== 'image'" (click)="loadContent('image'); menu.close()">Tema 3: Imagen</ion-item>
-        <ion-item button [disabled]="!progress.video2 && selectedContent !== 'video2'" (click)="loadContent('video2'); menu.close()">Tema 4: Segundo Video</ion-item>
-        <ion-item button [disabled]="!progress.lecture2 && selectedContent !== 'lecture2'" (click)="loadContent('lecture2'); menu.close()">Tema 5: Segunda Lectura</ion-item>
-        <ion-item button [disabled]="!progress.test" (click)="goToTest(); menu.close()">Test 1</ion-item>
+        <ion-item button [disabled]="!progress.u2_su1_intro && selectedContent !== 'u2_su1_intro'"
+          (click)="loadContent('u2_su1_intro'); menu.close()">Tema 1: Introducción al examen externo</ion-item>
+        <ion-item button [disabled]="!progress.u2_su1_video1 && selectedContent !== 'u2_su1_video1'"
+          (click)="loadContent('u2_su1_video1'); menu.close()">Tema 2: Descripción examen externo</ion-item>
+        <ion-item button [disabled]="!progress.u2_su1_infografia && selectedContent !== 'u2_su1_infografia'"
+          (click)="loadContent('u2_su1_infografia'); menu.close()">Tema 3: Elementos del examen externo</ion-item>
+        <ion-item button [disabled]="!progress.u2_su1_video2 && selectedContent !== 'u2_su1_video2'"
+          (click)="loadContent('u2_su1_video2'); menu.close()">Tema 4: Laboratorio VI: Lavado de cadáver</ion-item>
+        <ion-item button [disabled]="!progress.u2_su1_quiz && selectedContent !== 'u2_su1_quiz'"
+          (click)="loadContent('u2_su1_quiz'); menu.close()">Quiz</ion-item>
+      </ion-list>
+
+      <!--Menu temas unidad 2-Sub unidad 2-->
+      <ion-item-divider>
+        <ion-label>Examen interno</ion-label>
+      </ion-item-divider>
+      <ion-list>
+        <ion-item button [disabled]="!progress.u2_su2_intro && selectedContent !== 'u2_su2_intro'"
+          (click)="loadContent('u2_su2_intro'); menu.close()">Tema 1: Introducción al examen interno</ion-item>
+        <ion-item button [disabled]="!progress.u2_su2_infografia && selectedContent !== 'u2_su2_infografia'"
+          (click)="loadContent('u2_su2_infografia'); menu.close()">Tema 2: Definiciones examen interno</ion-item>
+        <ion-item button [disabled]="!progress.u2_su2_video1 && selectedContent !== 'u2_su2_video1'"
+          (click)="loadContent('u2_su2_video1'); menu.close()">Tema 3: Aplicación examen interno</ion-item>
+        <ion-item button [disabled]="!progress.u2_su2_test_2" (click)="goToTest(); menu.close()">Test 2</ion-item>
       </ion-list>
     </ion-content>
   </ion-menu>
 
+
   <div id="main-content">
+
     <ion-toolbar>
       <ion-buttons slot="start">
         <ion-menu-button></ion-menu-button>
       </ion-buttons>
       <ion-title>Contenidos</ion-title>
     </ion-toolbar>
-    <ng-container *ngIf="selectedContent === 'video'">
+
+    <!--Temas unidad 2-Sub unidad 1-->
+    <!-- Tema 1: Introducción al examen externo -->
+    <ng-container *ngIf="selectedContent === 'u2_su1_intro'">
       <ion-card>
         <ion-card-header>
-          <ion-card-title>Tema 1: Video</ion-card-title>
+          <ion-card-title>Tema 1: Introducción al examen externo</ion-card-title>
         </ion-card-header>
         <ion-card-content>
-          <iframe [src]="videoUrl" frameborder="0" allowfullscreen></iframe>
+          <p>Siguiendo el procedimiento él examen externo del cuerpo, sigue él método anatomo patológico así: céfalo
+            caudal, del lado derecho a izquierdo, y desde la superficie además de la palpación y descripción de las
+            lesiones.</p>
+          <br />
+          <p>Este examen es fundamental y debe realizarse de manera rigurosa para describir las lesiones observadas.
+            <br />
+            <br />
+            <strong>PALABRAS CLAVES:</strong>Examen corporal externo, Antropometría.
+          </p>
           <ion-button (click)="nextContent()">Siguiente</ion-button>
         </ion-card-content>
       </ion-card>
     </ng-container>
 
-    <ng-container *ngIf="selectedContent === 'lecture'">
+    <!-- Tema 2: Descripción examen externo -->
+    <ng-container *ngIf="selectedContent === 'u2_su1_video1'">
       <ion-card>
         <ion-card-header>
-          <ion-card-title>Tema 2: Lectura</ion-card-title>
+          <ion-card-title>Tema 2: Descripción examen externo</ion-card-title>
         </ion-card-header>
         <ion-card-content>
-          <p>Este es el contenido de la lectura...</p>
+          <iframe [src]="u2_su1_video1_Url" frameborder="0" allowfullscreen></iframe>
           <ion-button (click)="nextContent()">Siguiente</ion-button>
         </ion-card-content>
       </ion-card>
     </ng-container>
 
-    <ng-container *ngIf="selectedContent === 'image'">
+    <!-- Tema 3: Elementos del examen externo -->
+    <ng-container *ngIf="selectedContent === 'u2_su1_infografia'">
       <ion-card>
         <ion-card-header>
-          <ion-card-title>Tema 3: Imagen</ion-card-title>
+          <ion-card-title>Tema 3: Elementos del examen externo</ion-card-title>
         </ion-card-header>
         <ion-card-content>
-          <img src="path-to-your-image.jpg" alt="Imagen" width="100%">
+          <img src="../../../../../assets/imgs/u1/ej_Infografia.png" alt="Imagen" width="100%">
           <ion-button (click)="nextContent()">Siguiente</ion-button>
         </ion-card-content>
       </ion-card>
     </ng-container>
 
-    <ng-container *ngIf="selectedContent === 'video2'">
+    <!-- Tema 4: Laboratorio VI: Lavado de cadáver -->
+    <ng-container *ngIf="selectedContent === 'u2_su1_video2'">
       <ion-card>
         <ion-card-header>
-          <ion-card-title>Tema 4: Segundo Video</ion-card-title>
+          <ion-card-title>Tema 4: Laboratorio VI: Lavado de cadáver</ion-card-title>
         </ion-card-header>
         <ion-card-content>
-          <iframe [src]="videoUrl2" frameborder="0" allowfullscreen></iframe>
+          <iframe [src]="u2_su1_video2_Url" frameborder="0" allowfullscreen></iframe>
+          <ion-button (click)="goToQuiz()">Siguiente</ion-button>
+        </ion-card-content>
+      </ion-card>
+    </ng-container>
+
+    <!-- Quiz1-->
+    <ng-container *ngIf="selectedContent === 'u2_su1_quiz'">
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title>Quiz</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <p>Haz clic en el botón de abajo para hacer el quiz.</p>
+          <ion-button (click)="nextContent()">Ir al Quiz</ion-button>
+        </ion-card-content>
+      </ion-card>
+    </ng-container>
+
+    <!--Temas unidad 2-Sub unidad 2-->
+    <!-- Tema 1: Introducción al examen interno -->
+    <ng-container *ngIf="selectedContent === 'u2_su2_intro'">
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title>Tema 1: Introducción al examen interno</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <p>Continuando con él procedimiento él examen interno sé deben realizar incisiones de acuerdo a las letras I,
+            U, T, Y, Este examen es fundamental y debe realizarse de manera rigurosa para describir las lesiones
+            mediante la extracción del bloque de órganos, mediante las técnicas de disección.</p>
+          <br />
+          <p>Él muy importante escoger el tipo de incisión puede ser en Y, U, T, I, Bimastotidea para poder extraer él
+            encefalo.La disección técnica qué escojamos puede ser de: Letuye, Mata, Ghonn, in-situ y siempre decir cuál
+            fue la que utilizamos.</p>
+          <br />
+          <p>Es obligatorio la disección del Bloque completo y descripcion de los organos. Describir contenidos
+            hematicos o colecciones en las cavidades, presencia de adherencias, ausencia de órganos, lesiones, fijar con
+            fotografías. Disecar todos los órganos con la tecnica descrita y tomar fotografías de las lesiones y de cada
+            órgano.</p>
+          <br />
+          <p>Durante el procedimiento sé deben tomar muestras y evidencias biológicas, sangre, orina frotis o cortes de
+            tejido de acuerdo con él contexto del caso. Embalar y rotular los elementos recolectados y enviar a los
+            laboratorios bajo cadena de custodia.
+            <br />
+            <br />
+            <strong>PALABRAS CLAVES:</strong>Examen de órganos, disección de bloque orgánico.
+          </p>
           <ion-button (click)="nextContent()">Siguiente</ion-button>
         </ion-card-content>
       </ion-card>
     </ng-container>
 
-    <ng-container *ngIf="selectedContent === 'lecture2'">
+    <!-- Tema 2: Definiciones examen interno -->
+    <ng-container *ngIf="selectedContent === 'u2_su2_infografia'">
       <ion-card>
         <ion-card-header>
-          <ion-card-title>Tema 5: Segunda Lectura</ion-card-title>
+          <ion-card-title>Tema 2: Definiciones examen interno</ion-card-title>
         </ion-card-header>
         <ion-card-content>
-          <p>Este es el contenido de la segunda lectura...</p>
-          <ion-button (click)="finishAndGoToTest()">Finalizar y volver al Test 1</ion-button>
+          <img src="../../../../../assets/imgs/u1/ej_Infografia.png" alt="Imagen" width="100%">
+          <ion-button (click)="nextContent()">Siguiente</ion-button>
+        </ion-card-content>
+      </ion-card>
+    </ng-container>
+
+    <!-- Tema 3: Aplicación examen interno -->
+    <ng-container *ngIf="selectedContent === 'u2_su2_video1'">
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title>Tema 3: Aplicación examen interno</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <iframe [src]="u2_su2_video1_Url" frameborder="0" allowfullscreen></iframe>
+          <ion-button (click)="finishAndGoToTest()">Siguiente</ion-button>
         </ion-card-content>
       </ion-card>
     </ng-container>

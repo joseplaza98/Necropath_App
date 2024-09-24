@@ -117,7 +117,7 @@ export class U1Tema1Page implements OnInit {
     try {
       const userId = await this.authService.getCurrentUserId();
       if (userId) {
-        const userProgress = await this.firestoreService.getUserProgress(userId, 'unidad 1');
+        const userProgress = await this.firestoreService.getUserProgress(userId, 'unidad 1'); //Agrega la colección llamada Unidad 2 asociada con el uid del usuario registrado
         if (userProgress) {
           this.progress = userProgress;
           console.log('Loaded progress from Firebase:', this.progress); // Verifica si se carga correctamente

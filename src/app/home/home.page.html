@@ -1,64 +1,65 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Inicio</ion-title>
+    <ion-buttons slot="start">
+      <ion-button (click)="goToEdit()">
+        <ion-icon slot="icon-only" name="person-circle-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
     <ion-buttons slot="end">
+      <ion-button (click)="goToAbout()">
+        <ion-icon slot="icon-only" name="information-circle-outline"></ion-icon>
+      </ion-button>
       <ion-button (click)="logout()">
         <ion-icon slot="icon-only" name="log-out"></ion-icon>
       </ion-button>
     </ion-buttons>
+    <ion-title>Inicio</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true" class="home-content">
+
   <div class="background-waves"></div>
 
   <div class="cards-container">
     <ion-card class="custom-card">
-      <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/card-media.png" />
-      <ion-card-header>
-        <ion-card-title>Patología forense</ion-card-title>
-        <ion-card-subtitle>Unidad 1</ion-card-subtitle>
-      </ion-card-header>
+      <img alt="Silhouette of mountains" src="../../assets/imgs/logo_u1.png" />
       <ion-card-content>
         Aprende los procedimientos técnico-científicos, necesarios para realizar una Necropsia Médico Legal.
       </ion-card-content>
+      <div class="button-container">
       <ion-button class="custom-button" (click)="goToU1Tema1()">Empezar</ion-button>
+    </div>
     </ion-card>
 
     <ion-card class="custom-card">
-      <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/card-media.png" />
-      <ion-card-header>
-        <ion-card-title>Autopsia medico legal</ion-card-title>
-        <ion-card-subtitle>Unidad 2</ion-card-subtitle>
-      </ion-card-header>
+      <img alt="Silhouette of mountains" src="../../assets/imgs/logo_u2.png" />
       <ion-card-content>
         Identifica los metodos anatomo patológicos de una autópsia.
       </ion-card-content>
+      <div class="button-container">
       <ion-button class="custom-button" (click)="goToU2Tema1()">Empezar</ion-button>
+      </div>
     </ion-card>
 
     <ion-card class="custom-card">
-      <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/card-media.png" />
-      <ion-card-header>
-        <ion-card-title>Causa básica de muerte</ion-card-title>
-        <ion-card-subtitle>Unidad 3</ion-card-subtitle>
-      </ion-card-header>
+      <img alt="Silhouette of mountains" src="../../assets/imgs/logo_u3.png" />
       <ion-card-content>
         Explora y describe las causas básicas de muerte.
       </ion-card-content>
+      <div class="button-container">
       <ion-button class="custom-button" (click)="goToU3Tema1()">Empezar</ion-button>
+    </div>
     </ion-card>
 
     <ion-card class="custom-card">
-      <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/card-media.png" />
-      <ion-card-header>
-        <ion-card-title>Ver resultados</ion-card-title>
-        <ion-card-subtitle>Resultados</ion-card-subtitle>
-      </ion-card-header>
+      <img alt="Silhouette of mountains" src="../../assets/imgs/Calificaciones.png" />
       <ion-card-content>
-        Here's a small text description for the card content. Nothing more, nothing less.
+        Conoce el desarrollo de tus actividades en la aplicación.
       </ion-card-content>
+      <div class="button-container">
       <ion-button class="custom-button" (click)="goToResultados()">Ver Resultados</ion-button>
+    </div>
     </ion-card>
 
   </div>

@@ -10,14 +10,13 @@
 <ion-content>
   <ion-menu side="start" menuId="first" contentId="main-content" #menu>
     <ion-header>
-      <ion-toolbar color="primary">
+      <ion-toolbar>
         <ion-title>Menú</ion-title>
       </ion-toolbar>
     </ion-header>
     <ion-content>
 
-     <!--Modelos para la creación de contenidos
-
+      <!--Modelos para la creación de contenidos
       //División del contenido
       <ion-item-divider>
         <ion-label>Básicos de autópsia</ion-label>
@@ -41,10 +40,14 @@
         <ion-label>Básicos de autópsia</ion-label>
       </ion-item-divider>
       <ion-list>
-        <ion-item button [disabled]="!progress.u1_su1_intro && selectedContent !== 'u1_su1_intro'" (click)="loadContent('u1_su1_intro'); menu.close()">Tema 1: Introducción básicos de autópsia</ion-item>
-        <ion-item button [disabled]="!progress.u1_su1_lectura1 && selectedContent !== 'u1_su1_lectura1'" (click)="loadContent('u1_su1_lectura1'); menu.close()">Tema 2: Lectura acta de levantamiento</ion-item>
-        <ion-item button [disabled]="!progress.u1_su1_video1 && selectedContent !== 'u1_su1_video1'" (click)="loadContent('u1_su1_video1'); menu.close()">Tema 3: Necopsia médico legal</ion-item>
-        <ion-item button [disabled]="!progress.u1_su1_video2 && selectedContent !== 'u1_su1_video2'" (click)="loadContent('u1_su1_video2'); menu.close()">Tema 4: Objetivos de la necropsia</ion-item>
+        <ion-item button [disabled]="!progress.u1_su1_intro && selectedContent !== 'u1_su1_intro'"
+          (click)="loadContent('u1_su1_intro'); menu.close()">Tema 1: Introducción básicos de autópsia</ion-item>
+        <ion-item button [disabled]="!progress.u1_su1_lectura1 && selectedContent !== 'u1_su1_lectura1'"
+          (click)="loadContent('u1_su1_lectura1'); menu.close()">Tema 2: Lectura acta de levantamiento</ion-item>
+        <ion-item button [disabled]="!progress.u1_su1_video1 && selectedContent !== 'u1_su1_video1'"
+          (click)="loadContent('u1_su1_video1'); menu.close()">Tema 3: Necropsia médico legal</ion-item>
+        <ion-item button [disabled]="!progress.u1_su1_video2 && selectedContent !== 'u1_su1_video2'"
+          (click)="loadContent('u1_su1_video2'); menu.close()">Tema 4: Objetivos de la necropsia</ion-item>
       </ion-list>
 
       <!--Menu temas unidad 1-Sub unidad 2-->
@@ -52,41 +55,59 @@
         <ion-label>Procedimientos y técnicas</ion-label>
       </ion-item-divider>
       <ion-list>
-        <ion-item button [disabled]="!progress.u1_su2_intro && selectedContent !== 'u1_su2_intro'" (click)="loadContent('u1_su2_intro'); menu.close()">Tema 1: Introducción TDF</ion-item>
-        <ion-item button [disabled]="!progress.u1_su2_video1 && selectedContent !== 'u1_su2_video1'" (click)="loadContent('u1_su2_video1'); menu.close()">Tema 2: Toma de fotografías de inicio I</ion-item>
-        <ion-item button [disabled]="!progress.u1_su2_video2 && selectedContent !== 'u1_su2_video2'" (click)="loadContent('u1_su2_video2'); menu.close()">Tema 3: Toma de fotografías de inicio II</ion-item>
-        <ion-item button [disabled]="!progress.u1_su2_video3 && selectedContent !== 'u1_su2_video3'" (click)="loadContent('u1_su2_video3'); menu.close()">Tema 4: Señales particulares</ion-item>
-        <ion-item button [disabled]="!progress.u1_su2_video4 && selectedContent !== 'u1_su2_video4'" (click)="loadContent('u1_su2_video4'); menu.close()">Tema 5: Identificación del cadáver</ion-item>
-        <ion-item button [disabled]="!progress.u1_su2_video5 && selectedContent !== 'u1_su2_video5'" (click)="loadContent('u1_su2_video5'); menu.close()">Tema 6: Identificación del preámbulo</ion-item>
-        <ion-item button [disabled]="!progress.u1_su2_quiz1 && selectedContent !== 'u1_su2_quiz1'" (click)="loadContent('u1_su2_quiz1'); menu.close()">Quiz</ion-item>
-        </ion-list>
+        <ion-item button [disabled]="!progress.u1_su2_intro && selectedContent !== 'u1_su2_intro'"
+          (click)="loadContent('u1_su2_intro'); menu.close()">Tema 1: Introducción TDF</ion-item>
+        <ion-item button [disabled]="!progress.u1_su2_video1 && selectedContent !== 'u1_su2_video1'"
+          (click)="loadContent('u1_su2_video1'); menu.close()">Tema 2: Toma de fotografías de inicio I</ion-item>
+        <ion-item button [disabled]="!progress.u1_su2_video2 && selectedContent !== 'u1_su2_video2'"
+          (click)="loadContent('u1_su2_video2'); menu.close()">Tema 3: Toma de fotografías de inicio II</ion-item>
+        <ion-item button [disabled]="!progress.u1_su2_video3 && selectedContent !== 'u1_su2_video3'"
+          (click)="loadContent('u1_su2_video3'); menu.close()">Tema 4: Señales particulares</ion-item>
+        <ion-item button [disabled]="!progress.u1_su2_video4 && selectedContent !== 'u1_su2_video4'"
+          (click)="loadContent('u1_su2_video4'); menu.close()">Tema 5: Identificación del cadáver</ion-item>
+        <ion-item button [disabled]="!progress.u1_su2_video5 && selectedContent !== 'u1_su2_video5'"
+          (click)="loadContent('u1_su2_video5'); menu.close()">Tema 6: Identificación del preámbulo</ion-item>
+        <ion-item button [disabled]="!progress.u1_su2_quiz1 && selectedContent !== 'u1_su2_quiz1'"
+          (click)="loadContent('u1_su2_quiz1'); menu.close()">Quiz</ion-item>
+      </ion-list>
 
-          <!--Menu temas unidad 1-Sub unidad 3-->
-          <ion-item-divider>
-            <ion-label>Descripción de prendas</ion-label>
-          </ion-item-divider>
-          <ion-list>
-            <ion-item button [disabled]="!progress.u1_su3_intro && selectedContent !== 'u1_su3_intro'" (click)="loadContent('u1_su3_intro'); menu.close()">Tema 1: Introducción a la descripción de prendas</ion-item>
-            <ion-item button [disabled]="!progress.u1_su3_video1 && selectedContent !== 'u1_su3_video1'" (click)="loadContent('u1_su3_video1'); menu.close()">Tema 2: Prendas y accesorios</ion-item>
-            <ion-item button [disabled]="!progress.u1_su3_video2 && selectedContent !== 'u1_su3_video2'" (click)="loadContent('u1_su3_video2'); menu.close()">Tema 3: Laboratorio I</ion-item>
-            <ion-item button [disabled]="!progress.u1_su3_video3 && selectedContent !== 'u1_su3_video3'" (click)="loadContent('u1_su3_video3'); menu.close()">Tema 4: Laboratorio II</ion-item>
-            <ion-item button [disabled]="!progress.u1_su3_video4 && selectedContent !== 'u1_su3_video4'" (click)="loadContent('u1_su3_video4'); menu.close()">Tema 5: Laboratorio III</ion-item>
-            <ion-item button [disabled]="!progress.u1_su3_quiz2 && selectedContent !== 'u1_su3_quiz2'" (click)="loadContent('u1_su3_quiz2'); menu.close()">Quiz</ion-item>
-            </ion-list>
+      <!--Menu temas unidad 1-Sub unidad 3-->
+      <ion-item-divider>
+        <ion-label>Descripción de prendas</ion-label>
+      </ion-item-divider>
+      <ion-list>
+        <ion-item button [disabled]="!progress.u1_su3_intro && selectedContent !== 'u1_su3_intro'"
+          (click)="loadContent('u1_su3_intro'); menu.close()">Tema 1: Introducción a la descripción de
+          prendas</ion-item>
+        <ion-item button [disabled]="!progress.u1_su3_video1 && selectedContent !== 'u1_su3_video1'"
+          (click)="loadContent('u1_su3_video1'); menu.close()">Tema 2: Prendas y accesorios</ion-item>
+        <ion-item button [disabled]="!progress.u1_su3_video2 && selectedContent !== 'u1_su3_video2'"
+          (click)="loadContent('u1_su3_video2'); menu.close()">Tema 3: Laboratorio I</ion-item>
+        <ion-item button [disabled]="!progress.u1_su3_video3 && selectedContent !== 'u1_su3_video3'"
+          (click)="loadContent('u1_su3_video3'); menu.close()">Tema 4: Laboratorio II</ion-item>
+        <ion-item button [disabled]="!progress.u1_su3_video4 && selectedContent !== 'u1_su3_video4'"
+          (click)="loadContent('u1_su3_video4'); menu.close()">Tema 5: Laboratorio III</ion-item>
+        <ion-item button [disabled]="!progress.u1_su3_quiz2 && selectedContent !== 'u1_su3_quiz2'"
+          (click)="loadContent('u1_su3_quiz2'); menu.close()">Quiz</ion-item>
+      </ion-list>
 
-          <!--Menu temas unidad 1-Sub unidad 4-->
-          <ion-item-divider>
-            <ion-label>Fenómenos cadavéricos: Etimología</ion-label>
-          </ion-item-divider>
-          <ion-list>
-            <ion-item button [disabled]="!progress.u1_su4_intro && selectedContent !== 'u1_su4_intro'" (click)="loadContent('u1_su4_intro'); menu.close()">Tema 1: Introducción fenómenos cadavéricos</ion-item>
-            <ion-item button [disabled]="!progress.u1_su4_infografia && selectedContent !== 'u1_su4_infografia'" (click)="loadContent('u1_su4_infografia'); menu.close()">Tema 2: Definición fenómenos cadavéricos</ion-item>
-            <ion-item button [disabled]="!progress.u1_su4_video1 && selectedContent !== 'u1_su4_video1'" (click)="loadContent('u1_su4_video1'); menu.close()">Tema 3: Lavoratorio IV-Larvas</ion-item>
-            <ion-item button [disabled]="!progress.u1_su4_video2 && selectedContent !== 'u1_su4_video2'" (click)="loadContent('u1_su4_video2'); menu.close()">Tema 4: Laboratorio V-Larvas</ion-item>
-            <ion-item button [disabled]="!progress.u1_su4_test_1" (click)="goToTest(); menu.close()">Test 1</ion-item>
-            </ion-list>
+      <!--Menu temas unidad 1-Sub unidad 4-->
+      <ion-item-divider>
+        <ion-label>Fenómenos cadavéricos: Etimología</ion-label>
+      </ion-item-divider>
+      <ion-list>
+        <ion-item button [disabled]="!progress.u1_su4_intro && selectedContent !== 'u1_su4_intro'"
+          (click)="loadContent('u1_su4_intro'); menu.close()">Tema 1: Introducción fenómenos cadavéricos</ion-item>
+        <ion-item button [disabled]="!progress.u1_su4_infografia && selectedContent !== 'u1_su4_infografia'"
+          (click)="loadContent('u1_su4_infografia'); menu.close()">Tema 2: Definición fenómenos cadavéricos</ion-item>
+        <ion-item button [disabled]="!progress.u1_su4_video1 && selectedContent !== 'u1_su4_video1'"
+          (click)="loadContent('u1_su4_video1'); menu.close()">Tema 3: Lavoratorio IV-Larvas</ion-item>
+        <ion-item button [disabled]="!progress.u1_su4_video2 && selectedContent !== 'u1_su4_video2'"
+          (click)="loadContent('u1_su4_video2'); menu.close()">Tema 4: Laboratorio V-Larvas</ion-item>
+        <ion-item button [disabled]="!progress.u1_su4_test_1" (click)="goToTest(); menu.close()">Test 1</ion-item>
+      </ion-list>
 
-        </ion-content>
+    </ion-content>
 
   </ion-menu>
 
@@ -98,7 +119,7 @@
       <ion-title>Contenidos</ion-title>
     </ion-toolbar>
 
-<!--Temas unidad 1-Sub unidad 1-->
+    <!--Temas unidad 1-Sub unidad 1-->
     <!-- Tema 1: Introducción básicos de autópsia -->
     <ng-container *ngIf="selectedContent === 'u1_su1_intro'">
       <ion-card>
@@ -106,11 +127,13 @@
           <ion-card-title>Tema 1: Introducción básicos de autópsia</ion-card-title>
         </ion-card-header>
         <ion-card-content>
-          <p>Para comenzar, debe recibir los datos preliminares por parte de la autoridad del caso quien los consolidará en el acta de levantamiento; es importante realizar una lectura detenida y prestar atención al detalle para obtener los datos más relevantes como fecha, lugar de los hechos y contexto relacionado con la muerte.
-            <br/>
-            <br/>
-            <strong>PALABRAS CLAVES:</strong>Necropsia, Medicina Legal, Patología Forense, Educación Médica.
-            </p>
+          <p>Para comenzar, debe recibir los datos preliminares por parte de la autoridad del caso quien los consolidará
+            en el acta de levantamiento; es importante realizar una lectura detenida y prestar atención al detalle para
+            obtener los datos más relevantes como fecha, lugar de los hechos y contexto relacionado con la muerte.
+            <br />
+            <br />
+            <strong>PALABRAS CLAVES: </strong>Necropsia, Medicina Legal, Patología Forense, Educación Médica.
+          </p>
           <ion-button (click)="nextContent()">Siguiente</ion-button>
         </ion-card-content>
       </ion-card>
@@ -123,32 +146,32 @@
           <ion-card-title>Tema 2: Lectura acta de levantamiento</ion-card-title>
         </ion-card-header>
         <ion-card-content>
-         <p>El acta de levantamiento, es un documento fundamental donde reposan los datos relacionados con la defunción de una persona como fecha, nombres, apellidos, edad, sexo, lugar y contexto del suceso.</p>
-         <br/>
-          <p>Es importante leer con detenimiento esta información, para así tener una idea más cercana del caso y ajustar el procedimiento a realizar; entre las recomendaciones principales y cuidados que se deben de tener presentes están:</p>
-        <br/>
-
-        <p>
-            <ion-list>
-              <ion-item>
-                a.	Leer detenidamente el caso, identificando las causas de muerte, edad y sexo del difunto.
-              </ion-item>
-              <br/>
-              <ion-item>
-                b.	Revisar que el formato (acta) se encuentre con sus campos correctamente diligenciados.
-              </ion-item>
-            </ion-list>
-          </p> 
+          <p>El acta de levantamiento, es un documento fundamental donde reposan los datos relacionados con la defunción
+            de una persona como fecha, nombres, apellidos, edad, sexo, lugar y contexto del suceso.</p>
+          <br />
+          <p>Es importante leer con detenimiento esta información, para así tener una idea más cercana del caso y
+            ajustar el procedimiento a realizar; entre las recomendaciones principales y cuidados que se deben de tener
+            presentes están:</p>
+          <br />
+          <ion-list>
+            <ion-item>
+              <p>a. Leer detenidamente el caso, identificando las causas de muerte, edad y sexo del difunto.</p>
+            </ion-item>
+            <br />
+            <ion-item>
+              <p>b. Revisar que el formato (acta) se encuentre con sus campos correctamente diligenciados.</p>
+            </ion-item>
+          </ion-list>
           <ion-button (click)="nextContent()">Siguiente</ion-button>
         </ion-card-content>
       </ion-card>
     </ng-container>
 
-    <!-- Tema 3: Necopsia médico legal -->
+    <!-- Tema 3: Necropsia médico legal -->
     <ng-container *ngIf="selectedContent === 'u1_su1_video1'">
       <ion-card>
         <ion-card-header>
-          <ion-card-title>Tema 3: Necopsia médico legal</ion-card-title>
+          <ion-card-title>Tema 3: Necropsia médico legal</ion-card-title>
         </ion-card-header>
         <ion-card-content>
           <iframe [src]="u1_su1_video1_Url" frameborder="0" allowfullscreen></iframe>
@@ -170,7 +193,7 @@
       </ion-card>
     </ng-container>
 
-<!--Temas unidad 1-Sub unidad 2-->
+    <!--Temas unidad 1-Sub unidad 2-->
     <!-- Tema 1: Introducción TDF -->
     <ng-container *ngIf="selectedContent === 'u1_su2_intro'">
       <ion-card>
@@ -178,19 +201,21 @@
           <ion-card-title>Tema 1: Introducción TDF</ion-card-title>
         </ion-card-header>
         <ion-card-content>
-          <p>Él procedimiento de necropsia es un protocolo basado en un método muy antiguo qué nace en la especialidad médica de la Anatomía - Patológica, siguiendo parámetros rigurosos y científicos.</p>
-          <br/>
-            <p>Una vez leída él acta debemos revisar los rótulos y él embalaje del cuerpo, además firmar la cadena de custodia, para luego proceder a tomar las fotografías de inicio del procedimiento.
-            <br/>
-            <br/>
-            <strong>PALABRAS CLAVES:</strong> Patología Forense, Cadena de custodia.
-          </p> 
+          <p>Él procedimiento de necropsia es un protocolo basado en un método muy antiguo qué nace en la especialidad
+            médica de la Anatomía - Patológica, siguiendo parámetros rigurosos y científicos.</p>
+          <br />
+          <p>Una vez leída él acta debemos revisar los rótulos y él embalaje del cuerpo, además firmar la cadena de
+            custodia, para luego proceder a tomar las fotografías de inicio del procedimiento.
+            <br />
+            <br />
+            <strong>PALABRAS CLAVES: </strong>Patología Forense, Cadena de custodia.
+          </p>
           <ion-button (click)="nextContent()">Siguiente</ion-button>
         </ion-card-content>
       </ion-card>
     </ng-container>
 
-        <!-- Tema 2: Toma de fotografías de inicio I -->
+    <!-- Tema 2: Toma de fotografías de inicio I -->
     <ng-container *ngIf="selectedContent === 'u1_su2_video1'">
       <ion-card>
         <ion-card-header>
@@ -259,7 +284,7 @@
     </ng-container>
 
 
-    <!-- Quiz1--> 
+    <!-- Quiz1-->
     <ng-container *ngIf="selectedContent === 'u1_su1_quiz1'">
       <ion-card>
         <ion-card-header>
@@ -272,7 +297,7 @@
       </ion-card>
     </ng-container>
 
-<!--Temas unidad 1-Sub unidad 3-->
+    <!--Temas unidad 1-Sub unidad 3-->
     <!-- Tema 1: Introducción a la descripción de prendas -->
     <ng-container *ngIf="selectedContent === 'u1_su3_intro'">
       <ion-card>
@@ -280,15 +305,20 @@
           <ion-card-title>Tema 1: Introducción a la descripción de prendas</ion-card-title>
         </ion-card-header>
         <ion-card-content>
-          <p>La ropa, la moda las prendas son parte del contexto social de los seres humanos, nos permiten inferir por su aspecto, cuidado, valor y limpieza, además de aportar manchas fibras o cabellos entre otros elementos como residuos de disparo rasgaduras qué permitan establecer nexos entre el agresor y la víctima.</p>
-          <br/>
-           <p> Es importante describir las prendas, así: Talla la cual está en la etiqueta al igual que la marca, el material por ejemplo algodón, poliéster, caucho entre otros, describir rasgaduras por arma blanca o proyectil arma de fuego, y la presencia de residuos de disparo.</p> 
-            <br/>
-            <p>Los residuos de disparo serán analizados en él laboratorio de balística. Finalmente describir sí las prendas coinciden con las heridas observadas en él cadáver.
-            <br/>
-            <br/>            
+          <p>La ropa, la moda las prendas son parte del contexto social de los seres humanos, nos permiten inferir por
+            su aspecto, cuidado, valor y limpieza, además de aportar manchas fibras o cabellos entre otros elementos
+            como residuos de disparo rasgaduras qué permitan establecer nexos entre el agresor y la víctima.</p>
+          <br />
+          <p> Es importante describir las prendas, así: Talla la cual está en la etiqueta al igual que la marca, el
+            material por ejemplo algodón, poliéster, caucho entre otros, describir rasgaduras por arma blanca o
+            proyectil arma de fuego, y la presencia de residuos de disparo.</p>
+          <br />
+          <p>Los residuos de disparo serán analizados en él laboratorio de balística. Finalmente describir sí las
+            prendas coinciden con las heridas observadas en él cadáver.
+            <br />
+            <br />
             <strong>PALABRAS CLAVES:</strong> Prendas de vestir, Residuos, Intercambio, evidencias.
-            </p>
+          </p>
           <ion-button (click)="nextContent()">Siguiente</ion-button>
         </ion-card-content>
       </ion-card>
@@ -307,8 +337,8 @@
       </ion-card>
     </ng-container>
 
-     <!-- Tema 3: Laboratorio I -->
-     <ng-container *ngIf="selectedContent === 'u1_su3_video2'">
+    <!-- Tema 3: Laboratorio I -->
+    <ng-container *ngIf="selectedContent === 'u1_su3_video2'">
       <ion-card>
         <ion-card-header>
           <ion-card-title>Tema 3: Laboratorio I</ion-card-title>
@@ -320,8 +350,8 @@
       </ion-card>
     </ng-container>
 
-     <!-- Tema 4: Laboratorio II -->
-     <ng-container *ngIf="selectedContent === 'u1_su3_video3'">
+    <!-- Tema 4: Laboratorio II -->
+    <ng-container *ngIf="selectedContent === 'u1_su3_video3'">
       <ion-card>
         <ion-card-header>
           <ion-card-title>Tema 4: Laboratorio II</ion-card-title>
@@ -333,8 +363,8 @@
       </ion-card>
     </ng-container>
 
-     <!-- Tema 5: Laboratorio III -->
-     <ng-container *ngIf="selectedContent === 'u1_su3_video4'">
+    <!-- Tema 5: Laboratorio III -->
+    <ng-container *ngIf="selectedContent === 'u1_su3_video4'">
       <ion-card>
         <ion-card-header>
           <ion-card-title>Tema 5: Laboratorio III</ion-card-title>
@@ -346,7 +376,7 @@
       </ion-card>
     </ng-container>
 
-    <!-- Quiz2--> 
+    <!-- Quiz2-->
     <ng-container *ngIf="selectedContent === 'u1_su3_quiz2'">
       <ion-card>
         <ion-card-header>
@@ -367,11 +397,12 @@
           <ion-card-title>Tema 1: Introducción fenómenos cadavéricos</ion-card-title>
         </ion-card-header>
         <ion-card-content>
-          <p>Los fenómenos cadavéricos, en los cadáveres de seres humanos inician una vez morimos, son secuenciales, dependen del medio ambiente, de la nutrición, contextura estados biológicos y toxicológicos del cadáver.
-<br/>
-<br/>
+          <p>Los fenómenos cadavéricos, en los cadáveres de seres humanos inician una vez morimos, son secuenciales,
+            dependen del medio ambiente, de la nutrición, contextura estados biológicos y toxicológicos del cadáver.
+            <br />
+            <br />
             <strong>PALABRAS CLAVES:</strong> Fenómenos cadavéricos, putrefacción.
-            </p>
+          </p>
           <ion-button (click)="nextContent()">Siguiente</ion-button>
         </ion-card-content>
       </ion-card>
@@ -390,7 +421,7 @@
       </ion-card>
     </ng-container>
 
- <!-- Tema 3: Lavoratorio IV-Larvas -->
+    <!-- Tema 3: Lavoratorio IV-Larvas -->
     <ng-container *ngIf="selectedContent === 'u1_su4_video1'">
       <ion-card>
         <ion-card-header>
@@ -403,7 +434,7 @@
       </ion-card>
     </ng-container>
 
-     <!-- Tema 4: Lavoratorio V-Larvas -->
+    <!-- Tema 4: Lavoratorio V-Larvas -->
     <ng-container *ngIf="selectedContent === 'u1_su4_video2'">
       <ion-card>
         <ion-card-header>
@@ -417,84 +448,3 @@
     </ng-container>
   </div>
 </ion-content>
-
-
-<!--Modelos para visualización de contenidos
-     Tema 1: Video 
-    <ng-container *ngIf="selectedContent === 'video'">
-      <ion-card>
-        <ion-card-header>
-          <ion-card-title>Tema 1: Video</ion-card-title>
-        </ion-card-header>
-        <ion-card-content>
-          <iframe [src]="u1_su1_video1_Url" frameborder="0" allowfullscreen></iframe>
-          <ion-button (click)="nextContent()">Siguiente</ion-button>
-        </ion-card-content>
-      </ion-card>
-    </ng-container>
-
-     Tema 2: Lectura 
-    <ng-container *ngIf="selectedContent === 'lecture'">
-      <ion-card>
-        <ion-card-header>
-          <ion-card-title>Tema 2: Lectura</ion-card-title>
-        </ion-card-header>
-        <ion-card-content>
-          <p>Este es el contenido de la lectura...</p>
-          <ion-button (click)="nextContent()">Siguiente</ion-button>
-        </ion-card-content>
-      </ion-card>
-    </ng-container>
-
-     Tema 3: Imagen 
-    <ng-container *ngIf="selectedContent === 'image'">
-      <ion-card>
-        <ion-card-header>
-          <ion-card-title>Tema 3: Imagen</ion-card-title>
-        </ion-card-header>
-        <ion-card-content>
-          <img src="path-to-your-image.jpg" alt="Imagen" width="100%">
-          <ion-button (click)="nextContent()">Siguiente</ion-button>
-        </ion-card-content>
-      </ion-card>
-    </ng-container>
-
-     Tema 4: Quiz 
-    <ng-container *ngIf="selectedContent === 'quiz'">
-      <ion-card>
-        <ion-card-header>
-          <ion-card-title>Tema 4: Quiz</ion-card-title>
-        </ion-card-header>
-        <ion-card-content>
-          <p>Haz clic en el botón de abajo para hacer el quiz.</p>
-          <ion-button (click)="goToQuiz()">Ir al Quiz</ion-button>
-        </ion-card-content>
-      </ion-card>
-    </ng-container>
-
-    Tema 5: Segundo Video 
-    <ng-container *ngIf="selectedContent === 'video2'">
-      <ion-card>
-        <ion-card-header>
-          <ion-card-title>Tema 5: Segundo Video</ion-card-title>
-        </ion-card-header>
-        <ion-card-content>
-          <iframe [src]="u1_su1_video1_Url2" frameborder="0" allowfullscreen></iframe>
-          <ion-button (click)="nextContent()">Siguiente</ion-button>
-        </ion-card-content>
-      </ion-card>
-    </ng-container>
-
-     Tema 6: Segunda Lectura 
-    <ng-container *ngIf="selectedContent === 'lecture2'">
-      <ion-card>
-        <ion-card-header>
-          <ion-card-title>Tema 6: Segunda Lectura</ion-card-title>
-        </ion-card-header>
-        <ion-card-content>
-          <p>Este es el contenido de la segunda lectura...</p>
-          <ion-button (click)="finishAndGoToTest()">Finalizar y volver al Test 1</ion-button>
-        </ion-card-content>
-      </ion-card>
-    </ng-container>
-  -->

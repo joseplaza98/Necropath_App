@@ -1,55 +1,107 @@
-.results-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
+ion-header {
+  ion-toolbar {
+    border: none; /* Quita cualquier borde del toolbar */
+    box-shadow: none; /* Quita cualquier sombra */
+    ion-title {
+      display: flex;
+      align-items: center;
+      color: #ffffff; /* Color blanco para el título del encabezado */
+      background-color: #466ece; /* Azul más vibrante */
+      padding: 20px; /* Aumentar el padding para mayor espacio */
+      border-radius: 0 0 16px 16px; /* Bordes redondeados en la parte inferior */
+      font-weight: bold; /* Negrita para mayor impacto */
+      font-size: 1.8em; /* Tamaño de fuente mayor para mayor visibilidad */
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Sombra para dar profundidad */
+    }
+
+    /* Estilo para el botón de retroceso */
+    ion-buttons {
+      ion-back-button {
+        color: #ffffff; /* Color blanco para el icono del botón de retroceso */
+        --background: transparent; /* Fondo transparente para el botón */
+        --icon-color: #ffffff; /* Color del icono en blanco */
+        
+        &:hover {
+          --icon-color: #e0e0e0; /* Color del icono al pasar el ratón */
+        }
+      }
+    }
   }
-  
-  .user-info {
-    text-align: center;
-    margin-bottom: 20px;
-  }
-  
-  .user-info h2 {
-    font-size: 24px;
-    color: #3880ff;
-    margin-bottom: 10px;
-  }
-  
-  .user-info p {
-    font-size: 16px;
-    color: #666;
-  }
-  
-  .score-section {
+}
+
+.results-content {
+  position: relative;
+  overflow: hidden;
+  --background: #f4f4f9; /* Mismo fondo que en home */
+}
+
+.background-waves {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 50%;
+  background: url('https://www.transparenttextures.com/patterns/white-brick.png') no-repeat center center;
+  background-size: cover;
+  z-index: -1;
+}
+
+.cards-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 16px;
+}
+
+.custom-card {
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  background-color: white; /* Fondo blanco para las tarjetas */
+}
+
+.card-header {
+  font-weight: bold;
+  background-color: #3880ff; /* Color azul para el encabezado */
+  color: white; /* Texto en blanco para mayor contraste */
+  padding: 10px;
+  text-align: center;
+}
+
+.card-content {
+  padding: 15px;
+
+  .results-table {
     width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 15px;
+
+    th, td {
+      text-align: left;
+      padding: 8px;
+      border-bottom: 1px solid #ddd;
+    }
+
+    th {
+      background-color: #f1f1f1; /* Color gris claro para las cabeceras de la tabla */
+      color: #333; /* Texto oscuro para las cabeceras de la tabla */
+    }
+  }
+
+  .total-score-container {
+    margin-top: 15px;
     text-align: center;
-    margin-bottom: 30px;
+
+    .total-score-title {
+      font-size: 1.2em;
+      color: #333;
+      margin: 0;
+    }
+
+    .total-score-value {
+      font-size: 1.5em;
+      font-weight: bold;
+      color: #4CAF50; /* Color verde para destacar el puntaje total */
+    }
   }
-  
-  .score-card {
-    background: #f4f5f8;
-    border-radius: 10px;
-    padding: 20px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-    display: inline-block;
-  }
-  
-  .score-card p {
-    font-size: 20px;
-    font-weight: bold;
-    margin: 0;
-    color: #333; /* Color más oscuro para el valor total de la puntuación */
-  }
-  
-  .chart-section {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-  }
-  
-  canvas {
-    width: 80% !important;
-    height: auto !important;
-  }
-  
+}

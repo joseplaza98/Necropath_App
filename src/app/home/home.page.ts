@@ -89,4 +89,11 @@ export class HomePage implements OnInit {
   goToResultados() {
     this.router.navigate(['/results']);
   }
+  goToAbout(){
+    this.router.navigate(['/about']);
+  }
+
+  goToEdit(){
+    this.router.navigate(['/edit-user']);
+  }
 }

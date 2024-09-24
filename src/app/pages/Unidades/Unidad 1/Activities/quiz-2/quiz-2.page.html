@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Quiz 2</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding class="content">
+  <!-- Formulario del Quiz -->
+  <form (ngSubmit)="submitAnswer()" *ngIf="!quizCompleted" class="quiz-form">
+    <ion-card class="question-card">
+      <ion-card-header>
+        <ion-card-title class="question-title">Pregunta {{ currentQuestionIndex + 1 }}</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-item>
+          <ion-label>{{ questions[currentQuestionIndex]?.question }}</ion-label>
+        </ion-item>
+        <ion-radio-group [(ngModel)]="selectedAnswer" name="question" class="radio-group">
+          <ion-item *ngFor="let answer of questions[currentQuestionIndex]?.answers">
+            <ion-label>{{ answer.text }}</ion-label>
+            <ion-radio slot="start" [value]="answer.text"></ion-radio>
+          </ion-item>
+        </ion-radio-group>
+        <ion-text *ngIf="feedback">
+          <br />
+          <p class="feedback-text">{{ feedback }}</p>
+        </ion-text>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-button expand="full" shape="round" type="submit" class="submit-button" [disabled]="!selectedAnswer">Enviar</ion-button>
+  </form>
+
+  <!-- Sección de Resultados -->
+  <div *ngIf="quizCompleted" class="result-container animate__animated animate__fadeIn animate__delay-1s">
+    <ion-card class="result-card animate__animated animate__fadeIn animate__delay-1s">
+      <ion-card-header>
+        <ion-card-title class="result-title">Quiz Completado</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <br/>
+        <p class="result-text">Has acertado <span class="correct">{{ correctAnswers }}</span> de <span class="total">{{
+            totalQuestions }}</span> preguntas.</p>
+          <ion-button expand="full" shape="round" (click)="retryQuiz()" class="rounded-button retry-button">Reintentar</ion-button>
+          <ion-button expand="full" shape="round" (click)="goU1()" class="rounded-button home-button">Continuar</ion-button>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>

@@ -1,25 +1,48 @@
 <ion-header>
   <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
     <ion-title>Results</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
-  <div class="results-container">
-    <div class="user-info">
-      <h2>Welcome, {{ userName }}!</h2>
-      <p>Here are your results:</p>
-    </div>
-    
-    <div class="score-section">
-      <h3>Your Total Score:</h3>
-      <div class="score-card">
-        <p><strong>{{ score }}</strong> / <strong>{{ totalQuestions }}</strong></p>
+<ion-content class="results-content">
+  <div class="background-waves"></div>
+  
+  <div class="cards-container">
+    <div class="custom-card" *ngFor="let unit of ['Unidad 1', 'Unidad 2', 'Unidad 3']">
+      <div class="card-header">{{ unit }}</div>
+      <div class="card-content">
+        <table class="results-table">
+          <thead>
+            <tr>
+              <th>Nombre actividad</th>
+              <th>Puntaje</th>
+            </tr>
+          </thead>
+          <tbody>
+            <ng-container *ngFor="let result of results">
+              <tr *ngIf="isInUnit(result.name, unit)">
+                <td>{{ result.name }}</td>
+                <td>{{ result.score | number: '1.0-0' }}</td>
+              </tr>
+            </ng-container>
+          </tbody>
+        </table>
+        
+        <div class="total-score-container">
+          <p class="total-score-title"><strong>Puntaje Total:</strong></p>
+          <p class="total-score-value">{{ unitScores[unit] | number: '1.0-2' }}</p>
+        </div>
       </div>
     </div>
-
+    
+    <!--
     <div class="chart-section">
       <canvas id="myChart"></canvas>
     </div>
+      -->
+    
   </div>
 </ion-content>

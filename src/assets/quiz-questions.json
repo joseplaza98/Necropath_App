@@ -56,5 +56,65 @@
         }
       }
     ]
+  },
+
+  {
+    "testNumber": 3,
+    "questions": [
+      {
+        "question": "¿Pregunta 1?",
+        "answers": [
+          { "text": "Respuesta 1", "isCorrect": true },
+          { "text": "Respuesta 2", "isCorrect": false },
+          { "text": "Respuesta 3", "isCorrect": false }
+        ],
+        "feedback": {
+          "correct": "¡Correcto!.😊",
+          "incorrect": "Incorrecto. 😢"
+        }
+      },
+      {
+        "question": "¿Pregunta 2?",
+        "answers": [
+          { "text": "Respuesta 1", "isCorrect": true },
+          { "text": "Respuesta 2", "isCorrect": false },
+          { "text": "Respuesta 3", "isCorrect": false }
+        ],
+        "feedback": {
+          "correct": "¡Correcto!.😊",
+          "incorrect": "Incorrecto. 😢"
+        }
+      }
+    ]
+  },
+
+  {
+    "testNumber": 4,
+    "questions": [
+      {
+        "question": "¿Pregunta 1 modelo?",
+        "answers": [
+          { "text": "Respuesta 1", "isCorrect": true },
+          { "text": "Respuesta 2", "isCorrect": false },
+          { "text": "Respuesta 3", "isCorrect": false }
+        ],
+        "feedback": {
+          "correct": "¡Correcto!.😊",
+          "incorrect": "Incorrecto. 😢"
+        }
+      },
+      {
+        "question": "¿Pregunta 2?",
+        "answers": [
+          { "text": "Respuesta 1", "isCorrect": true },
+          { "text": "Respuesta 2", "isCorrect": false },
+          { "text": "Respuesta 3", "isCorrect": false }
+        ],
+        "feedback": {
+          "correct": "¡Correcto!.😊",
+          "incorrect": "Incorrecto. 😢"
+        }
+      }
+    ]
   }
 ]

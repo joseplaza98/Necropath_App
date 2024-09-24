@@ -7,14 +7,14 @@
         "answers": [
           { "text": "Londres", "isCorrect": false },
           { "text": "Madrid", "isCorrect": false },
-          { "text": "París", "isCorrect": true },
+          { "text": "Correcta", "isCorrect": true },
           { "text": "Berlín", "isCorrect": false }
         ]
       },
       {
         "question": "¿Cuál es el río más largo del mundo?",
         "answers": [
-          { "text": "Nilo", "isCorrect": true },
+          { "text": "Correcta", "isCorrect": true },
           { "text": "Amazonas", "isCorrect": false },
           { "text": "Yangtsé", "isCorrect": false },
           { "text": "Misisipi", "isCorrect": false }
@@ -31,7 +31,7 @@
           { "text": "Atlántico", "isCorrect": false },
           { "text": "Íntico", "isCorrect": false },
           { "text": "Ártico", "isCorrect": false },
-          { "text": "Pacífico", "isCorrect": true }
+          { "text": "Correcta", "isCorrect": true }
         ]
       },
       {
@@ -39,7 +39,7 @@
         "answers": [
           { "text": "Venus", "isCorrect": false },
           { "text": "Tierra", "isCorrect": false },
-          { "text": "Mercurio", "isCorrect": true },
+          { "text": "Correcta", "isCorrect": true },
           { "text": "Marte", "isCorrect": false }
         ]
       }

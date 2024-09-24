@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { FirestoreService } from 'src/app/services/firestore.service';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
@@ -11,44 +11,77 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 })
 export class U2Tema1Page implements OnInit {
   selectedContent: string | null = null;
-  videoUrl: SafeResourceUrl;
-  videoUrl2: SafeResourceUrl;
+  //Videos U1 SU1
+  u2_su1_video1_Url: SafeResourceUrl;
+  u2_su1_video2_Url: SafeResourceUrl;
+
+  //Videos U1 SU2
+  u2_su2_video1_Url: SafeResourceUrl;
+
   progress: any = {
+
+    //Sub unidad 1
+    u2_su1_intro: false,
+    u2_su1_video1: false,
+    u2_su1_infografia: false,
+    u2_su1_video2: false,
+    u2_su1_quiz: false,
+    
+    //Sub unidad 2
+    u2_su2_intro: false,
+    u2_su2_infografia: false,
+    u2_su2_video1: false,
+    u2_su2_test_2: false,
+
+    /** 
     video: false,
     lecture: false,
     image: false,
+    quiz: false,
     video2: false,
     lecture2: false,
     test: false
+    */
   };
 
   constructor(
     private firestoreService: FirestoreService,
     private authService: AuthService,
     private router: Router,
+    private route: ActivatedRoute,
     private sanitizer: DomSanitizer
   ) {
-    // Usar las URLs de incrustación de YouTube
-    this.videoUrl = this.sanitizer.bypassSecurityTrustResourceUrl('https://drive.google.com/file/d/1gApRULDtRi4GV4H_uqhlElzPbm0NuBk9/preview');
-    this.videoUrl2 = this.sanitizer.bypassSecurityTrustResourceUrl('https://drive.google.com/file/d/1zcAgdq5ZN85S_lCe_BMuw_oFb38WVsd8/preview');
+
+    //Lista y enlaces de contenido de video
+    this.u2_su1_video1_Url = this.sanitizer.bypassSecurityTrustResourceUrl('https://drive.google.com/file/d/1fY6c7hnyZ2oMubtDEFEnVGJotHQx_O46/preview');
+    this.u2_su1_video2_Url = this.sanitizer.bypassSecurityTrustResourceUrl('https://drive.google.com/file/d/1LFNR2vj-m5ErVlQq6o2Ww40ITOCrz3xP/preview');
+    this.u2_su2_video1_Url = this.sanitizer.bypassSecurityTrustResourceUrl('https://drive.google.com/file/d/12uMDlSo4yL897wRC5pprqiSh-wtOHMll/preview');
   }
 
   ngOnInit() {
     this.loadProgress();
-    this.selectedContent = 'video'; // Mostrar el primer contenido por defecto
+    this.route.queryParams.subscribe(params => {
+      const loadContent = params['loadContent'];
+      if (loadContent) {
+        this.loadContent(loadContent);
+      } else {
+        this.selectedContent = 'u2_su1_intro'; // Mostrar el primer contenido por defecto
+      }
+    });
   }
 
   async loadProgress() {
     try {
       const userId = await this.authService.getCurrentUserId();
       if (userId) {
-        const userProgress = await this.firestoreService.getUserProgress(userId, 'unidad 2');
+        const userProgress = await this.firestoreService.getUserProgress(userId, 'unidad 2'); //Agrega la colección llamada Unidad 2 asociada con el uid del usuario registrado
         if (userProgress) {
           this.progress = userProgress;
+          console.log('Loaded progress from Firebase:', this.progress); // Verifica si se carga correctamente
         }
         // Inicializa el progreso para el primer contenido
-        if (!this.progress.video) {
-          this.progress.video = true;
+        if (!this.progress.u2_su1_intro) {
+          this.progress.u2_su1_intro = true;
           this.saveProgress();
         }
         this.updateTestAccess();
@@ -60,11 +93,11 @@ export class U2Tema1Page implements OnInit {
 
   loadContent(contentType: string) {
     // Permitir acceso si el contenido anterior ha sido visto
-    const contentOrder = ['video', 'lecture', 'image', 'video2', 'lecture2'];
+    const contentOrder = ['u2_su1_intro', 'u2_su1_video1', 'u2_su1_infografia', 'u2_su1_video2', 'u2_su1_quiz', 'u2_su2_intro', 'u2_su2_infografia', 'u2_su2_video1'];
     const currentIndex = contentOrder.indexOf(contentType);
     const previousContent = contentOrder[currentIndex - 1];
 
-    if (contentType === 'video' || (this.progress[previousContent] && this.progress[previousContent] !== undefined)) {
+    if (contentType === 'u2_su1_intro' || (this.progress[previousContent] && this.progress[previousContent] !== undefined)) {
       this.selectedContent = contentType;
       if (!this.progress[contentType]) {
         this.progress[contentType] = true;
@@ -79,7 +112,9 @@ export class U2Tema1Page implements OnInit {
     try {
       const userId = await this.authService.getCurrentUserId();
       if (userId) {
+        console.log('Progress to save:', this.progress); // Log para verificar el progreso
         await this.firestoreService.saveUserProgress(userId, 'unidad 2', this.progress);
+        console.log('Progress saved successfully');
       }
     } catch (error) {
       console.error('Error saving progress:', error);
@@ -87,7 +122,7 @@ export class U2Tema1Page implements OnInit {
   }
 
   nextContent() {
-    const contentOrder = ['video', 'lecture', 'image', 'video2', 'lecture2'];
+    const contentOrder = ['u2_su1_intro', 'u2_su1_video1', 'u2_su1_infografia', 'u2_su1_video2', 'u2_su1_quiz', 'u2_su2_intro', 'u2_su2_infografia', 'u2_su2_video1'];
     const currentIndex = contentOrder.indexOf(this.selectedContent!);
     const nextIndex = currentIndex + 1;
 
@@ -97,6 +132,7 @@ export class U2Tema1Page implements OnInit {
   }
 
   finishAndGoToTest() {
+    this.progress.u2_su2_test_2 = true; // Marca el test como completado
     this.saveProgress().then(() => {
       this.router.navigate(['/test-2']);
     }).catch(error => {
@@ -105,18 +141,30 @@ export class U2Tema1Page implements OnInit {
   }
 
   async goToTest() {
-    if (this.progress.video && this.progress.lecture && this.progress.image && this.progress.video2 && this.progress.lecture2) {
+    if (this.progress.u2_su1_intro && this.progress.u2_su1_video1 && this.progress.u2_su1_infografia && this.progress.u2_su1_video2 && this.progress.u2_su1_quiz && this.progress.u2_su2_intro && this.progress.u2_su2_infografia && this.progress.u2_su2_video1) {
       this.router.navigate(['/test-2']);
     } else {
       console.warn('Debe completar todos los contenidos antes de acceder al test.');
     }
   }
 
+  // Navegar al quiz
+  goToQuiz() {
+    this.progress.u2_su1_quiz = true;
+    console.log('Setting u2_su1_quiz1 to true'); // Verifica si esto se ejecuta
+    this.saveProgress().then(() => {
+      console.log('Navigating to quiz-1'); // Verifica si esto se ejecuta después del guardado
+      this.router.navigate(['/u2-quiz-1']);
+    }).catch(error => {
+      console.error('Error navigating to quiz:', error);
+    });
+  }
+
   updateTestAccess() {
-    if (this.progress.video && this.progress.lecture && this.progress.image && this.progress.video2 && this.progress.lecture2) {
-      this.progress.test = true;
+   if (this.progress.u2_su1_intro && this.progress.u2_su1_video1 && this.progress.u2_su1_infografia && this.progress.u2_su1_video2 && this.progress.u2_su1_quiz && this.progress.u2_su2_intro && this.progress.u2_su2_infografia && this.progress.u2_su2_video1) {
+      this.progress.u2_su2_test_2 = true;
     } else {
-      this.progress.test = false;
+      this.progress.u2_su2_test_2 = false;
     }
   }
 }
