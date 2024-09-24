@@ -1,5 +1,8 @@
 <ion-header>
   <ion-toolbar>
+    <ion-buttons slot="start">
+    <ion-back-button defaultHref="/login"></ion-back-button>
+  </ion-buttons>
     <ion-title>Registrate</ion-title>
   </ion-toolbar>
 </ion-header>
@@ -27,7 +30,7 @@
       <ion-label position="floating">Contraseña</ion-label>
       <ion-input type="password" [(ngModel)]="password" required></ion-input>
     </ion-item>
-    <ion-button expand="full" (click)="register()">Crear</ion-button>
+    <ion-button (click)="register()">Crear</ion-button>
     <div class="login-link">
       <p>¿Recordaste tu usuario? <a [routerLink]="['/login']">Iniciar sesión</a></p>
     </div>

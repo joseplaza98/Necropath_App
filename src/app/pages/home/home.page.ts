@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthService } from '../services/auth/auth.service';  // Asegúrate de tener la ruta correcta
-import { FirestoreService } from '../services/firestore.service';  // Asegúrate de tener la ruta correcta
+import { AuthService } from '../../services/auth/auth.service';  // Asegúrate de tener la ruta correcta
+import { FirestoreService } from '../../services/firestore.service';  // Asegúrate de tener la ruta correcta
 import { AlertController } from '@ionic/angular'; // Importar AlertController
 
 @Component({
@@ -95,5 +95,8 @@ export class HomePage implements OnInit {
 
   goToEdit(){
     this.router.navigate(['/edit-user']);
+  }
+  goToResults(){
+    this.router.navigate(['/results']);
   }
 }

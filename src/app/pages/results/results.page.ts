@@ -1,6 +1,6 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
-import { FirestoreService } from '../services/firestore.service';
-import { AuthService } from '../services/auth/auth.service';
+import { FirestoreService } from '../../services/firestore.service';
+import { AuthService } from '../../services/auth/auth.service';
 import { Chart, registerables } from 'chart.js';
 
 // Registrar todos los componentes necesarios de Chart.js

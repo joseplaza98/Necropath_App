@@ -1,0 +1,63 @@
+ 
+  ion-header {
+    height: 60px; /* Ajustar altura del header */
+    background: #ffff; /* Asegura que el fondo del toolbar sea consistente */
+  }
+  
+  ion-toolbar {
+    padding: 0; /* Eliminar padding del toolbar */
+    box-shadow: none; /* Eliminar cualquier sombra */
+    border-bottom: none; /* Eliminar borde inferior */
+    background: #466ece; /* Asegura que el fondo del toolbar sea consistente */
+    display: flex;
+    align-items: center;
+  }
+
+  ion-title {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Centrar el título horizontalmente */
+    color: #ffffff; /* Color blanco para el título del encabezado */
+    background-color: #466ece; /* Azul más vibrante */
+    height: 100%; /* Hacer que el título ocupe toda la altura del toolbar */
+    border-radius: 0 0 16px 16px; /* Bordes redondeados en la parte inferior */
+    font-weight: bold; /* Negrita para mayor impacto */
+    font-size: 1.5em; /* Tamaño de fuente menor para mayor visibilidad */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Sombra para dar profundidad */
+  }
+  
+  /* Estilo para el botón de retroceso y el botón de cierre de sesión */
+  ion-buttons {
+    display: flex; /* Asegurarse de que los botones usen flexbox */
+    align-items: center; /* Centrar los botones verticalmente */
+    
+    ion-back-button {
+      color: #ffffff; /* Color blanco para el icono del botón de retroceso */
+      --background: transparent; /* Fondo transparente para el botón */
+      --icon-color: #ffffff; /* Color del icono en blanco */
+      
+      &:hover {
+        --icon-color: #e0e0e0; /* Color del icono al pasar el ratón */
+      }
+    }
+}
+  
+ 
+  ion-button {
+    margin-top: 4px; /* Ajuste del margen superior */
+    --border-radius: 20px; /* Bordes redondeados más pronunciados */
+    --background: #466ece; /* Color vibrante para el botón */
+    --color: #ffffff; /* Texto en blanco para el botón */
+    padding: 12px 24px; /* Mayor padding del botón */
+    font-size: 16px; /* Tamaño de fuente del botón */
+    font-weight: bold; /* Negrita para el texto del botón */
+    transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out; /* Transiciones rápidas y suaves */
+  }
+  
+  .button-container {
+    display: flex;
+    justify-content: center; /* Centra el contenido horizontalmente */
+    margin-top: 20px; /* Espaciado superior para separar del contenido anterior */
+    border-radius: 5%;
+  }
+  

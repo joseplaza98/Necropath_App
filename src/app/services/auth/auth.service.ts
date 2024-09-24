@@ -100,4 +100,37 @@ export class AuthService {
     const userScoreRef = this.firestore.collection('user_scores').doc(userId);
     await userScoreRef.set({ score: score }, { merge: true });
   }
+
+  // Método para actualizar el perfil del usuario
+  async updateUserProfile(name: string, surname: string, phone: number, email: string, password?: string): Promise<void> {
+    const user = await this.afAuth.currentUser;
+    if (user) {
+      try {
+        // Actualizar la información del usuario en Firestore
+        await this.firestore.collection('users').doc(user.uid).update({
+          name,
+          surname,
+          phone,
+          email,
+        });
+
+        // Actualizar el email en Firebase Authentication si ha cambiado
+        if (email !== user.email) {
+          await user.updateEmail(email);
+        }
+
+        // Actualizar la contraseña si se ha proporcionado una nueva
+        if (password) {
+          await user.updatePassword(password);
+        }
+
+        console.log('User profile updated successfully');
+      } catch (error) {
+        console.error('Error updating user profile:', error);
+        throw error;
+      }
+    } else {
+      throw new Error('No user is currently signed in.');
+    }
+  }
 }

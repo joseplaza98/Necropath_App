@@ -15,7 +15,7 @@
       <ion-label position="floating">Contraseña</ion-label>
       <ion-input type="password" [(ngModel)]="password" required></ion-input>
     </ion-item>
-    <ion-button expand="full" (click)="login()" class="login-button">Ingresar</ion-button>
+    <ion-button (click)="login()" class="login-button">Ingresar</ion-button>
     <div class="register-link">
       <p>¿No tienes un usuario? <a [routerLink]="['/register']">Registrate</a></p>
     </div>

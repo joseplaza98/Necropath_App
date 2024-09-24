@@ -11,7 +11,7 @@ const routes: Routes = [
   },
   {
     path: 'home',
-    loadChildren: () => import('./home/home.module').then(m => m.HomePageModule),
+    loadChildren: () => import('./pages/home/home.module').then(m => m.HomePageModule),
     canActivate: [AuthGuard]  // Protege la ruta home con el AuthGuard
   },
   {
@@ -39,7 +39,7 @@ const routes: Routes = [
   },
   {
     path: 'results',
-    loadChildren: () => import('./results/results.module').then( m => m.ResultsPageModule),
+    loadChildren: () => import('./pages/results/results.module').then( m => m.ResultsPageModule),
     canActivate: [AuthGuard]  // Protege la ruta home con el AuthGuard
   },
   {
@@ -94,7 +94,7 @@ const routes: Routes = [
   },
   {
     path: 'about',
-    loadChildren: () => import('./about/about.module').then( m => m.AboutPageModule),
+    loadChildren: () => import('./pages/about/about.module').then( m => m.AboutPageModule),
     canActivate: [AuthGuard]  // Protege la ruta home con el AuthGuard
   },
   {
@@ -104,7 +104,7 @@ const routes: Routes = [
   },
   {
     path: 'edit-user',
-    loadChildren: () => import('./edit-user/edit-user.module').then( m => m.EditUserPageModule),
+    loadChildren: () => import('./pages/edit-user/edit-user.module').then( m => m.EditUserPageModule),
     canActivate: [AuthGuard]  // Protege la ruta home con el AuthGuard
   },
 ];
