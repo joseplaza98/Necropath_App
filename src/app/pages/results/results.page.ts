@@ -3,7 +3,6 @@ import { FirestoreService } from '../../services/firestore.service';
 import { AuthService } from '../../services/auth/auth.service';
 import { Chart, registerables } from 'chart.js';
 
-// Registrar todos los componentes necesarios de Chart.js
 Chart.register(...registerables);
 
 interface UserScore {
@@ -23,7 +22,7 @@ export class ResultsPage implements OnInit, AfterViewInit {
   score: number = 0;
   totalQuestions: number = 0;
   results: any[] = [];
-  unitScores: { [key: string]: number } = {}; // Para almacenar los puntajes por unidad
+  unitScores: { [key: string]: number } = {};
 
   constructor(
     private firestoreService: FirestoreService,
@@ -47,25 +46,31 @@ export class ResultsPage implements OnInit, AfterViewInit {
   fetchScores() {
     if (this.userId) {
       this.firestoreService.getUserScores(this.userId).subscribe((scores) => {
-        console.log('Scores:', scores); // Registro para verificar los datos de puntajes
+        console.log('Puntajes:', scores); //Log para verificar los datos de puntajes
 
         if (scores) {
           const scoreEntries = Object.entries(scores) as [string, UserScore][];
 
-          // Organizar resultados según el orden requerido
+          // Aquí se deben organizar los resultados según el orden requerido
           const orderedResults = [
-            { key: 'reg-u1_quiz 1', name: 'Unidad 1: reg-u1-quiz 1' }, //Unidad 1: reg-u1-quiz 1
-            { key: 'reg-u1_quiz 2', name: 'Unidad 1: reg-u1-quiz 2' }, //Unidad 1: reg-u1-quiz 2
-            { key: 'reg-u1_test', name: 'Unidad 1: reg-u1-test' }, //Unidad 1: reg-u1-test
-            { key: 'reg-u2_quiz 1', name: 'Unidad 2: reg-u2-quiz 1' }, //Unidad 2: reg-u2-quiz 1
-            { key: 'reg-u2_test', name: 'Unidad 2: reg-u2-test' }, //Unidad 2: reg-u2-test
-            { key: 'reg-u3_quiz 1', name: 'Unidad 3: reg-u3-quiz 1' }, //Unidad 3: reg-u3-quiz 1
-            { key: 'reg-u3_test', name: 'Unidad 3: reg-u3-test' }, //Unidad 3: reg-u3-test
+
+            //Unidad 1
+            { key: 'reg-u1_quiz 1', name: 'Unidad 1: reg-u1-quiz 1' },
+            { key: 'reg-u1_quiz 2', name: 'Unidad 1: reg-u1-quiz 2' },
+            { key: 'reg-u1_test', name: 'Unidad 1: reg-u1-test' },
+            
+            //Unidad 2
+            { key: 'reg-u2_quiz 1', name: 'Unidad 2: reg-u2-quiz 1' },
+            { key: 'reg-u2_test', name: 'Unidad 2: reg-u2-test' },
+            
+            //Unidad 3
+            { key: 'reg-u3_quiz 1', name: 'Unidad 3: reg-u3-quiz 1' },
+            { key: 'reg-u3_test', name: 'Unidad 3: reg-u3-test' },
           ];
 
           this.results = orderedResults.map(({ key, name }) => {
             const scoreData = scores[key] || { correctAnswers: 0, totalQuestions: 0 };
-            console.log(`Data for ${key}:`, scoreData); // Registro para verificar datos individuales
+            console.log(`Data para ${key}:`, scoreData); // Log para verificar datos individuales
 
             const correctAnswers = scoreData.correctAnswers || 0;
             const totalQuestions = scoreData.totalQuestions || 0;
@@ -74,7 +79,7 @@ export class ResultsPage implements OnInit, AfterViewInit {
             return { name, correctAnswers, totalQuestions, score: scorePercentage };
           });
 
-          console.log('Results:', this.results); // Registro para verificar resultados finales
+          console.log('Resultados:', this.results); //Log para verificar resultados finales
 
           // Obtener datos para el gráfico
           const correctAnswers = this.results.map(result => result.correctAnswers);
@@ -119,6 +124,7 @@ export class ResultsPage implements OnInit, AfterViewInit {
     }
 }
 
+//Fragmento para renderizar una gráfica
   renderChart(correctAnswers: number[], totalQuestions: number[]) {
     const canvas = document.getElementById('myChart') as HTMLCanvasElement;
 

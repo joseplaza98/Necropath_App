@@ -47,13 +47,14 @@
         <ion-item button [disabled]="!progress.u3_su2_lectura1 && selectedContent !== 'u3_su2_lectura1'"
           (click)="loadContent('u3_su2_lectura1'); menu.close()">Tema 1: Arma blanca</ion-item>
         <ion-item button [disabled]="!progress.u3_su2_video1 && selectedContent !== 'u3_su2_video1'"
-          (click)="loadContent('u3_su2_video1'); menu.close()">Tema 2: Aplicación examen interno</ion-item>
+          (click)="loadContent('u3_su2_video1'); menu.close()">Tema 2: Laboratorio XII</ion-item>
         <ion-item button [disabled]="!progress.u3_su2_lectura2 && selectedContent !== 'u3_su2_lectura2'"
-          (click)="loadContent('u3_su2_lectura2'); menu.close()">Tema 3: Arma blanca</ion-item>
+          (click)="loadContent('u3_su2_lectura2'); menu.close()">Tema 3: Arma de fuego</ion-item>
         <ion-item button [disabled]="!progress.u3_su2_lectura3 && selectedContent !== 'u3_su2_lectura3'"
-          (click)="loadContent('u3_su2_lectura3'); menu.close()">Tema 4: Arma blanca</ion-item>
+          (click)="loadContent('u3_su2_lectura3'); menu.close()">Tema 4: Mecanismo contundente</ion-item>
 
-        <ion-item button [disabled]="!progress.u3_su2_test_3" (click)="goToTest(); menu.close()">Test Unidad 3</ion-item>
+        <ion-item button [disabled]="!progress.u3_su2_test_3" (click)="goToTest(); menu.close()">Test Unidad
+          3</ion-item>
       </ion-list>
     </ion-content>
   </ion-menu>
@@ -75,17 +76,54 @@
           <ion-card-title>Tema 1: Introducción causa básica de muerte</ion-card-title>
         </ion-card-header>
         <ion-card-content>
-          <p>Las Causas básicas de muerte están clasificadas en: Herida por Proyectil Arma de Fuego, Herida por arma
-            corto punzante, Herida corto contundente, Heridas por arma punzante, Heridas por arma cortante, o por
-            traumatismo contundente en accidente de tránsito.</p>
+          <p>Es conocida comúnmente como la enfermedad o lesión que inició la cadena de acontecimientos patológicos,
+            circunstancias del accidente o violencia que condujeron directamente a la muerte. Las Causas básicas de
+            muerte están clasificadas en: </p>
+          <ion-list>
+            <ion-item>
+              <p>a. Herida por Proyectil Arma de Fuego.</p>
+            </ion-item>
+            <ion-item>
+              <p>b. Herida por arma corto punzante.</p>
+            </ion-item>
+            <ion-item>
+              <p>c. Herida corto contundente.</p>
+            </ion-item>
+            <ion-item>
+              <p>d. Heridas por arma punzante.</p>
+            </ion-item>
+            <ion-item>
+              <p>e. Heridas por arma cortante.</p>
+            </ion-item>
+            <ion-item>
+              <p>f. Traumatismo contundente en accidente de tránsito.</p>
+            </ion-item>
+          </ion-list>
           <br />
-          <p>También debemos recordar y determinar Manera de muerte, con el propósito de orientar a las autoridades en
-            el aspecto como murió la victima.</p>
-          <br />
-          <p>Las maneras de muerte son: Homicida qué significa matar a otro con o sin intención.
-            Suicida (autoeliminación autolisis). Indeterminada es aquel qué la autoridad qué investiga el caso existe la
-            sospecha qué sea una muerte violenta.Accidental como caídas y por ejemplo los accidentes de tránsito, los
-            accidentes de trabajo.
+
+          <p>De acuerdo con lo anterior, también debemos recordar y determinar la manera de muerte, con el propósito de
+            orientar a las autoridades de manera clara y concisa, el aspecto como murió la victima. Algunas de las
+            maneras de muerte son:
+            <br/>
+            <br/>
+            <ion-list>
+              <ion-item>
+                <p>a. Homicida: Matar a otro con o sin intención. </p>
+              </ion-item>
+              <br />
+              <ion-item>
+                <p>b. Suicida: autoeliminación o autolisis.</p>
+              </ion-item>
+              <br />
+              <ion-item>
+                <p>c. Indeterminada: Aquel qué la autoridad qué investiga el caso existe la sospecha qué sea una muerte
+                  violenta.</p>
+              </ion-item>
+              <br />
+              <ion-item>
+                <p>d. Accidental: Contempla caídas, como, los accidentes de tránsito, los accidentes de trabajo.</p>
+              </ion-item>
+            </ion-list>
             <br />
             <br />
             <strong>PALABRAS CLAVES: </strong>Causa de Muerte, Manera de Muerte.
@@ -182,31 +220,33 @@
         </ion-card-header>
         <ion-card-content>
           <p>Los protocolos especiales de lesiones tienen cuatro componentes, para él caso de proyectil arma blanca es
-            decir de acuerdo al arma o mecanismo sé este cortopunzante, punzante, cortante, corto contundente así:</p>
-          <br />
+            decir de acuerdo al arma o mecanismo este puede ser corto punzante, punzante, cortante, corto contundente.
+            En este sentido es necesario realizar:</p>
+            <br/>
           <ion-list>
             <ion-item>
-              <p><strong>- Descripción de los bordes de las heridas: </strong> de acuerdo al arma utilizada o mecanismo
-                es necesario medir la longitud, y unir los bordes de las heridas ademas sé debe decir la región
-                anatómica corporal y su relación con los ejes: sagital, coronal y transversal; medir en centimetros la
-                distancia a la línea media y él vértice.</p>
+              <p>a. Descripción de los bordes de las heridas de acuerdo al arma utilizada o mecanismo es necesario medir
+                la longitud, y unir los bordes de las heridas además sé debe decir la región anatómica corporal y su
+                relación con los ejes: sagital, coronal y transversal; medir en centímetros la distancia a la línea
+                media y él vértice</p>
             </ion-item>
             <br />
             <ion-item>
-              <p><strong>- Profundidad de las heridas: </strong>Con la ayuda de una guia medir la profundidad de las
-                heridas siempre utilizar un parámetro métrico.</p>
+              <p>b. Con la ayuda de una guía medir la profundidad de las heridas siempre utilizar un parámetro métrico.
+              </p>
             </ion-item>
             <br />
             <ion-item>
-              <p><strong>- Descripción detallada de las lesiones siguiento los planos como: </strong>piel, tejido
-                células músculos, corazón pulmones hígado etc.</p>
+              <p>c. Descripción detallada de las lesiones siguiendo los planos como: piel, tejido células músculos,
+                corazón pulmones hígado etc.</p>
             </ion-item>
             <br />
             <ion-item>
-              <p><strong>- Trayectoria según los ejes corporales anatomicos: </strong>Sagital- Transverso y Coronal. Es
-                decir, anterior o posterior, superior o inferior, derecha o izquierda y viceversa de acuerdo a las
-                medidas al vertex y línea media en los planos corporales de un ser humano.</p>
+              <p>d. Trayectoria según los ejes corporales anatómicos: Sagital- Transverso y Coronal. Es decir, anterior
+                o posterior, superior o inferior, derecha o izquierda y viceversa de acuerdo a las medidas al vertex y
+                línea media en los planos corporales de un ser humano.</p>
             </ion-item>
+            <br />
           </ion-list>
           <ion-button (click)="nextContent()">Siguiente</ion-button>
         </ion-card-content>
@@ -233,22 +273,20 @@
           <ion-card-title>Tema 3: Arma de fuego</ion-card-title>
         </ion-card-header>
         <ion-card-content>
-          <p>Dentro del contexto y los mecanismos de muerte y hallazgos observados es fundamental orientar a la
+          <p>Dentro del contexto y los mecanismos de muerte y hallazgos observados, es fundamental orientar a la
             autoridad del caso describiendo de manera detallada las lesiones en un protocolo especial en relación con
             arma de fuego.</p>
           <br />
           <p>Los protocolos especiales de lesiones tienen cuatro componentes, para él caso de proyectil arma de fuego
             así:
-
+            <br/>
             <ion-list>
               <br />
               <ion-item>
                 <p><strong>- Orificio de entrada: </strong>Se pueden identificar por sus características como forma
-                  oval,
-                  circular o irregular, la medida del anillo de contusión, la presencia de ahumamiento y/o tatuaje, y
-                  establecer su relación con los ejes coronal, sagital y trasverso, medir en centímetros la distancia a
-                  la
-                  línea media y él vértice.
+                  oval, circular o irregular, la medida del anillo de contusión, la presencia de ahumamiento y/o
+                  tatuaje, y establecer su relación con los ejes coronal, sagital y trasverso, medir en centímetros la
+                  distancia a la línea media y él vértice.
               </ion-item>
               <br />
               <ion-item>
@@ -258,7 +296,7 @@
               </ion-item>
               <br />
               <ion-item>
-                <p><strong>- Descripción detallada de Lesiones: </strong>Se puede realizar teniendo en cuenta aspectos
+                <p><strong>- Descripción detallada de Lesiones: </strong> Se puede realizar teniendo en cuenta aspectos
                   como piel, tejido celular, fracturas, laceración de órganos, hasta la salida o recuperación del
                   proyectil.</p>
               </ion-item>
@@ -272,7 +310,7 @@
               <br />
             </ion-list>
 
-            <strong>PALABRAS CLAVES:</strong>Proyectil arma de Fuego, Mecanismo de muerte.
+            <strong>PALABRAS CLAVES: </strong>Proyectil arma de fuego, Mecanismo de muerte.
           </p>
           <ion-button (click)="nextContent()">Siguiente</ion-button>
         </ion-card-content>
@@ -301,8 +339,8 @@
           <p>De acuerdo con las lesiones patrón, estas dependerán del tipo de vehículo, lugar del choque, volcamiento,
             atropellamiento, uso de casco de seguridad en motociclistas y uso del cinturón de seguridad en conductores y
             pasajeros. Los accidentes tienen una cinemática de dos fases así:</p>
-          <br />
-          <ion-list>
+            <br/>
+            <ion-list>
             <ion-item>
               <p> a. Impacto primario: cuando el vehículo es chocado o choca contra otro vehículo o contra un animal u
                 objeto inanimado como por ejemplo un árbol un poste entre otros.</p>

@@ -63,17 +63,6 @@ export class U1Tema1Page implements OnInit {
     u1_su4_video1: false,
     u1_su4_video2: false,
     u1_su4_test_1: false,
-
-
-    /** 
-    video: false,
-    lecture: false,
-    image: false,
-    quiz: false,
-    video2: false,
-    lecture2: false,
-    test: false
-    */
   };
 
   constructor(
@@ -120,7 +109,7 @@ export class U1Tema1Page implements OnInit {
         const userProgress = await this.firestoreService.getUserProgress(userId, 'unidad 1'); //Agrega la colección llamada Unidad 2 asociada con el uid del usuario registrado
         if (userProgress) {
           this.progress = userProgress;
-          console.log('Loaded progress from Firebase:', this.progress); // Verifica si se carga correctamente
+          console.log('Progreso cargado desde Firebase:', this.progress); // Verifica si se carga correctamente
         }
         // Inicializa el progreso para el primer contenido
         if (!this.progress.u1_su1_intro) {
@@ -130,7 +119,7 @@ export class U1Tema1Page implements OnInit {
         this.updateTestAccess();
       }
     } catch (error) {
-      console.error('Error loading progress:', error);
+      console.error('Error al cargar el progreso:', error);
     }
   }
 
@@ -156,9 +145,9 @@ export class U1Tema1Page implements OnInit {
     try {
       const userId = await this.authService.getCurrentUserId();
       if (userId) {
-        console.log('Progress to save:', this.progress); // Agrega un log para verificar el progreso
+        console.log('Progreso para guardar:', this.progress); // Log para verificar el progreso
         await this.firestoreService.saveUserProgress(userId, 'unidad 1', this.progress);
-        console.log('Progress saved successfully');
+        console.log('Progreso guardado correctamente');
       }
     } catch (error) {
       console.error('Error saving progress:', error);
@@ -181,7 +170,7 @@ export class U1Tema1Page implements OnInit {
     this.saveProgress().then(() => {
       this.router.navigate(['/test-1']);
     }).catch(error => {
-      console.error('Error finishing content and navigating to test:', error);
+      console.error('Error al finalizar el contenido:', error);
     });
   }
 
@@ -196,25 +185,23 @@ export class U1Tema1Page implements OnInit {
 
   // Navegar al quiz
   goToQuiz() {
-    this.progress.u1_su2_quiz1 = true;
-    console.log('Setting u1_su2_quiz1 to true'); // Verifica si esto se ejecuta
+    this.progress.u1_su2_quiz1 = true; // Marca el quiz como completado
     this.saveProgress().then(() => {
-      console.log('Navigating to quiz-1'); // Verifica si esto se ejecuta después del guardado
+      console.log('Navigating to quiz-1');
       this.router.navigate(['/quiz-1']);
     }).catch(error => {
-      console.error('Error navigating to quiz:', error);
+      console.error('Error al navegar al quiz 1:', error);
     });
   }
 
     // Navegar al quiz
     goToQuiz2() {
-      this.progress.u1_su3_quiz2 = true;
-      console.log('Setting u1_su3_quiz2 to true'); // Verifica si esto se ejecuta
+      this.progress.u1_su3_quiz2 = true; // Marca el quiz como completado
       this.saveProgress().then(() => {
-        console.log('Navigating to quiz-2'); // Verifica si esto se ejecuta después del guardado
+        console.log('Navigating to quiz-2');
         this.router.navigate(['/quiz-2']);
       }).catch(error => {
-        console.error('Error navigating to quiz:', error);
+        console.error('Error al navegar al quiz 2:', error);
       });
     }
 

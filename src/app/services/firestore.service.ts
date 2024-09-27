@@ -9,9 +9,9 @@ export class FirestoreService {
   constructor(private firestore: AngularFirestore) {}
 
   // Método para obtener las preguntas del test desde Firestore
-  getQuestions(testNumber: string): Observable<any> {
-    return this.firestore.collection('questions').doc(`test-${testNumber}`).valueChanges();
-  }
+  // getQuestions(testNumber: string): Observable<any> {
+    // return this.firestore.collection('questions').doc(`test-${testNumber}`).valueChanges();
+//  }
 
   // Método para guardar el puntaje del usuario en Firestore
   async saveUserScore(userId: string, testNumber: string, correctAnswers: number, totalQuestions: number): Promise<void> {
@@ -57,7 +57,7 @@ export class FirestoreService {
         return null;
       }
     } catch (error) {
-      console.error('Error getting user progress:', error);
+      console.error('Error al cargar el progreso del usuario:', error);
       throw error;
     }
   }

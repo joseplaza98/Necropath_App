@@ -53,21 +53,6 @@ const routes: Routes = [
     canActivate: [AuthGuard]  // Protege la ruta home con el AuthGuard
   },
   {
-    path: 'intro-u1',
-    loadChildren: () => import('./pages/Unidades/Unidad 1/intro-u1/intro-u1.module').then( m => m.IntroU1PageModule),
-    canActivate: [AuthGuard]  // Protege la ruta home con el AuthGuard
-  },
-  {
-    path: 'intro-u2',
-    loadChildren: () => import('./pages/Unidades/Unidad 2/intro-u2/intro-u2.module').then( m => m.IntroU2PageModule),
-    canActivate: [AuthGuard]  // Protege la ruta home con el AuthGuard
-  },
-  {
-    path: 'intro-u3',
-    loadChildren: () => import('./pages/Unidades/Unidad 3/intro-u3/intro-u3.module').then( m => m.IntroU3PageModule),
-    canActivate: [AuthGuard]  // Protege la ruta home con el AuthGuard
-  },
-  {
     path: 'u3-tema-1',
     loadChildren: () => import('./pages/Unidades/Unidad 3/u3-tema-1/u3-tema-1.module').then( m => m.U3Tema1PageModule),
     canActivate: [AuthGuard]  // Protege la ruta home con el AuthGuard
@@ -99,7 +84,7 @@ const routes: Routes = [
   },
   {
     path: 'syllabus',
-    loadChildren: () => import('./syllabus/syllabus.module').then( m => m.SyllabusPageModule),
+    loadChildren: () => import('./pages/syllabus/syllabus.module').then( m => m.SyllabusPageModule),
     canActivate: [AuthGuard]  // Protege la ruta home con el AuthGuard
   },
   {

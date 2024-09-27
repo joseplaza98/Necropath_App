@@ -37,19 +37,19 @@ export class Test1Page implements OnInit {
   }
 
   loadQuestions() {
-    this.http.get<any[]>('/assets/questions.json').subscribe(
+    this.http.get<any[]>('/assets/questions.json').subscribe( //Ruta donde se almacena el json del test
       data => {
-        console.log('Data received from questions.json:', data);
+        console.log('Datos recibidos de questions.json:', data);
         this.questions = data.filter(q => q.testNumber === 1)[0]?.questions || [];
         this.totalQuestions = this.questions.length;
         this.questions.forEach((question, index) => {
           this.testForm.addControl(index.toString(), new FormControl(''));
         });
-        console.log('Questions loaded:', this.questions);
+        console.log('Preguntas cargadas:', this.questions);
         this.animateQuestions();
       },
       error => {
-        console.error('Error loading questions:', error);
+        console.error('Error al cargar las preguntas:', error);
       }
     );
   }
@@ -64,7 +64,7 @@ export class Test1Page implements OnInit {
 
   onAnswerChange(event: any, index: number) {
     const selectedValue = event.detail.value;
-    console.log(`Answer selected for question ${index + 1}:`, selectedValue);
+    console.log(`Respuesta seleccionada por pregunta ${index + 1}:`, selectedValue);
     this.selectedAnswers[index] = selectedValue;
   }
 
@@ -72,28 +72,30 @@ export class Test1Page implements OnInit {
     this.correctAnswers = 0;
     const totalQuestions = this.questions.length;
 
-    console.log('Total Questions:', totalQuestions);
+    console.log('Total de preguntas:', totalQuestions);
 
     for (let i = 0; i < totalQuestions; i++) {
       const question = this.questions[i];
       const correctAnswer = question.answers.find((a: { isCorrect: boolean }) => a.isCorrect)?.text;
       const selectedAnswer = this.selectedAnswers[i];
 
-      console.log(`Question ${i + 1}:`);
-      console.log('Correct Answer:', correctAnswer);
-      console.log('Selected Answer:', selectedAnswer);
+      /**Logs para validar preguntas y respuestas
+      console.log(`Pregunta ${i + 1}:`);
+      console.log('Repsuesta correcta:', correctAnswer);
+      console.log('Respuesta seleccionada:', selectedAnswer);
+      */
 
       if (selectedAnswer && correctAnswer && selectedAnswer.trim() === correctAnswer.trim()) {
         this.correctAnswers++;
       }
     }
 
-    console.log('Correct Answers:', this.correctAnswers);
+    console.log('Respuestas correctas:', this.correctAnswers);
     this.testCompleted = true;
 
     const userId = await this.authService.getCurrentUserId();
     if (userId) {
-      console.log('Saving user score...');
+      console.log('Guardando puntaje del usuario...');
       await this.firestoreService.saveUserScore(userId, "u1_test", this.correctAnswers, totalQuestions);
     }
   }

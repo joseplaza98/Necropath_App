@@ -20,6 +20,7 @@ export class QuestionService {
 
   constructor(private http: HttpClient) { }
 
+  //Carga las preguntas desde un json
   getQuestions(): Observable<Question[]> {
     return this.http.get<Question[]>('assets/questions.json');
   }

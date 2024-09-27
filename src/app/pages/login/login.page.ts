@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { AuthService } from '../../services/auth/auth.service';
 import { Router } from '@angular/router';
-import { AlertController } from '@ionic/angular'; // Importar AlertController
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-login',
@@ -15,15 +15,15 @@ export class LoginPage {
   constructor(
     private authService: AuthService,
     private router: Router,
-    private alertController: AlertController // Inyectar AlertController
+    private alertController: AlertController
   ) {}
 
   async login() {
     try {
       await this.authService.login(this.email, this.password);
-      this.router.navigate(['/home']); // Redirige a la página principal después del login
+      this.router.navigate(['/home']);
     } catch (error) {
-      console.error('Login failed:', error);
+      console.error('Error al iniciar sesión:', error);
       await this.presentErrorAlert(error);
     }
   }
@@ -54,6 +54,6 @@ export class LoginPage {
   }
 
   navigateToRegister() {
-    this.router.navigate(['/register']); // Redirige a la página de registro
+    this.router.navigate(['/register']);
   }
 }

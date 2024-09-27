@@ -78,7 +78,7 @@ export class U3Tema1Page implements OnInit {
         const userProgress = await this.firestoreService.getUserProgress(userId, 'unidad 3'); //Agrega la colección llamada Unidad 2 asociada con el uid del usuario registrado
         if (userProgress) {
           this.progress = userProgress;
-          console.log('Loaded progress from Firebase:', this.progress); // Verifica si se carga correctamente
+          console.log('Progreso cargado desde Firebase:', this.progress); // Verifica si se carga correctamente
         }
         // Inicializa el progreso para el primer contenido
         if (!this.progress.u3_su1_intro) {
@@ -88,7 +88,7 @@ export class U3Tema1Page implements OnInit {
         this.updateTestAccess();
       }
     } catch (error) {
-      console.error('Error loading progress:', error);
+      console.error('Error al cargar el progreso:', error);
     }
   }
 
@@ -113,9 +113,9 @@ export class U3Tema1Page implements OnInit {
     try {
       const userId = await this.authService.getCurrentUserId();
       if (userId) {
-        console.log('Progress to save:', this.progress); // Agrega un log para verificar el progreso
+        console.log('Progress to save:', this.progress); // Log para verificar el progreso
         await this.firestoreService.saveUserProgress(userId, 'unidad 3', this.progress);
-        console.log('Progress saved successfully');
+        console.log('Progreso guardado correctamente');
       }
     } catch (error) {
       console.error('Error saving progress:', error);
@@ -137,7 +137,7 @@ export class U3Tema1Page implements OnInit {
     this.saveProgress().then(() => {
       this.router.navigate(['/test-3']);
     }).catch(error => {
-      console.error('Error finishing content and navigating to test:', error);
+      console.error('Error al finalizar el contenido:', error);
     });
   }
 
@@ -152,18 +152,17 @@ export class U3Tema1Page implements OnInit {
   // Navegar al quiz
   goToQuiz() {
     this.progress.u3_su1_quiz = true;
-    console.log('Setting u3_su1_quiz to true'); // Verifica si esto se ejecuta
+    console.log('Setting u3_su1_quiz to true'); // Marca el quiz como completado
     this.saveProgress().then(() => {
-      console.log('Navigating to quiz-4'); // Verifica si esto se ejecuta después del guardado
+      console.log('Navigating to quiz-4');
       this.router.navigate(['/u3-quiz-1']);
     }).catch(error => {
-      console.error('Error navigating to quiz:', error);
+      console.error('Error al navegar al quiz:', error);
     });
   }
 
   updateTestAccess() {
    if (this.progress.u3_su1_intro && this.progress.u3_su1_video1 && this.progress.u3_su1_video2 && this.progress.u3_su1_video3 && this.progress.u3_su1_video4 && this.progress.u3_su1_video5 && this.progress.u3_su1_quiz && this.progress.u3_su2_lectura1 && this.progress.u3_su2_video1 && this.progress.u3_su2_lectura2 && this.progress.u3_su2_lectura3) {
-    // if (this.progress.video && this.progress.lecture && this.progress.image && this.progress.quiz && this.progress.video2 && this.progress.lecture2) {
       this.progress.u3_su2_test_3 = true;
     } else {
       this.progress.u3_su2_test_3 = false;

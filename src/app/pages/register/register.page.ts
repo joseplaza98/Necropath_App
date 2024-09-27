@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { AuthService } from '../../services/auth/auth.service';
 import { Router } from '@angular/router';
-import { AlertController } from '@ionic/angular'; // Importar AlertController
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-register',
@@ -12,28 +12,39 @@ export class RegisterPage {
   name: string = '';
   surname: string = '';
   email: string = '';
-  phone: string = ''; // Asegúrate de que este es un string en lugar de number
+  phone: string = '';
   password: string = '';
 
   constructor(
     private authService: AuthService,
     private router: Router,
-    private alertController: AlertController // Inyectar AlertController
+    private alertController: AlertController
   ) {}
 
   async register() {
     try {
-      // Convertir el teléfono a número si la función espera un número
       const phoneNumber: number = parseInt(this.phone, 10);
       await this.authService.register(this.email, this.password, this.name, this.surname, phoneNumber);
-      // Redirige a la página de inicio de sesión después de registrarse
+      await this.presentSuccessAlert();
       this.router.navigate(['/login']);
     } catch (error) {
-      console.error('Registration failed:', error);
+      console.error('Error al registrar el usuario:', error);
       await this.presentErrorAlert(error);
     }
   }
 
+  //Alerta si el inicio de sesión es correcto
+  async presentSuccessAlert() {
+    const alert = await this.alertController.create({
+      header: 'Registro Exitoso',
+      message: 'Te has registrado correctamente.',
+      buttons: ['OK']
+    });
+
+    await alert.present();
+  }
+
+//Alerta si el inicio de sesión es incorrecto
   async presentErrorAlert(error: any) {
     let message = 'Ocurrió un error. Por favor, intente nuevamente.';
 
@@ -41,7 +52,7 @@ export class RegisterPage {
     if (error.code === 'auth/invalid-email') {
       message = 'El formato del correo electrónico es inválido.';
     } else if (error.code === 'auth/email-already-in-use') {
-      message = 'Esta dirección de correo electrónico ya está en uso.';
+      message = 'No se puede usar esta dirección de correo electrónico.';
     } else if (error.code === 'auth/weak-password') {
       message = 'La contraseña debe tener al menos 6 caracteres.';
     } else if (error.code === 'auth/network-request-failed') {
@@ -60,6 +71,6 @@ export class RegisterPage {
   }
 
   navigateToLogin() {
-    this.router.navigate(['/login']); // Redirige a la página de inicio de sesión
+    this.router.navigate(['/login']);
   }
 }

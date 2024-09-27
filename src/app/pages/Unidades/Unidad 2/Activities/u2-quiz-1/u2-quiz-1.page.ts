@@ -32,7 +32,7 @@ export class U2Quiz1Page implements OnInit {
   loadQuestions() {
     this.http.get<any[]>('/assets/quiz-questions.json').subscribe(
       data => {
-        console.log('Data loaded:', data); // Verifica la estructura de los datos
+        console.log('Data cargada:', data);
         if (Array.isArray(data)) {
           const quizData = data.find(q => q.testNumber === 3);
           if (quizData) {
@@ -40,14 +40,14 @@ export class U2Quiz1Page implements OnInit {
             this.totalQuestions = this.questions.length;
             console.log('Questions:', this.questions);
           } else {
-            console.error('No data found for testNumber 2');
+            console.error('No se encuentran preguntas para quiz 3');
           }
         } else {
-          console.error('Loaded data is not an array:', data);
+          console.error('Los datos no fueron cargados:', data);
         }
       },
       error => {
-        console.error('Error loading questions:', error);
+        console.error('Error al cargar las preguntas:', error);
       }
     );
   }
@@ -74,14 +74,14 @@ export class U2Quiz1Page implements OnInit {
         } else {
           this.selectedAnswer = '';
         }
-      }, 2000); // Espera 2 segundos para mostrar el feedback antes de pasar a la siguiente pregunta
+      }, 2000); // Tiempo para mostrar el feedback antes de pasar a la siguiente pregunta
     }
   }
 
   async saveResults() {
     const userId = await this.authService.getCurrentUserId();
     if (userId) {
-      await this.firestoreService.saveUserScore(userId, "u2_quiz 1", this.correctAnswers, this.totalQuestions); // Cambia el número del test si es necesario
+      await this.firestoreService.saveUserScore(userId, "u2_quiz 1", this.correctAnswers, this.totalQuestions); // Cambia el nombre de la colección y actualiza el número del test/quiz si es necesario
     }
   }
 

@@ -45,6 +45,7 @@ export class HomePage implements OnInit {
     }
   }
 
+  //Método para cerrar sesión
   async logout() {
     const alert = await this.alertController.create({
       header: 'Confirmar',
@@ -62,7 +63,7 @@ export class HomePage implements OnInit {
           handler: async () => {
             try {
               await this.authService.logout();
-              this.router.navigateByUrl('/login');  // Redirige a la página de login
+              this.router.navigateByUrl('/login');
             } catch (error) {
               console.error('Logout failed', error);
             }

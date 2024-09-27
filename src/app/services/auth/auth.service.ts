@@ -27,10 +27,10 @@ export class AuthService {
   async login(email: string, password: string): Promise<void> {
     try {
       await this.afAuth.signInWithEmailAndPassword(email, password);
-      console.log('User logged in successfully');
+      console.log('Sesión iniciada correctamente');
       this.router.navigate(['/home']);
     } catch (error) {
-      console.error('Error during login:', error);
+      console.error('Error al iniciar sesión:', error);
       throw error;
     }
   }
@@ -48,10 +48,10 @@ export class AuthService {
           phone,
           uid: user.uid
         });
-        console.log('User registered successfully');
+        console.log('Usuario registrado correctamente');
       }
     } catch (error) {
-      console.error('Error during registration:', error);
+      console.error('Error durante el registro:', error);
       throw error;
     }
   }
@@ -67,10 +67,10 @@ export class AuthService {
   async logout(): Promise<void> {
     try {
       await this.afAuth.signOut();
-      console.log('User logged out successfully');
+      console.log('Sesión cerrada correctamente');
       this.router.navigate(['/login']);
     } catch (error) {
-      console.error('Error during logout:', error);
+      console.error('Error al cerrar sesión:', error);
       throw error;
     }
   }
@@ -81,7 +81,7 @@ export class AuthService {
     return user ? user.uid : null;
   }
 
-  // Obtener el perfil del usuario
+  // Método para obtener el perfil del usuario
   getUserProfile(): Observable<any> {
     return this.user$.pipe(
       switchMap(user => {
@@ -102,7 +102,7 @@ export class AuthService {
   }
 
   // Método para actualizar el perfil del usuario
-  async updateUserProfile(name: string, surname: string, phone: number, email: string, password?: string): Promise<void> {
+  async updateUserProfile(name: string, surname: string, phone: number, password?: string): Promise<void> {
     const user = await this.afAuth.currentUser;
     if (user) {
       try {
@@ -111,26 +111,20 @@ export class AuthService {
           name,
           surname,
           phone,
-          email,
         });
-
-        // Actualizar el email en Firebase Authentication si ha cambiado
-        if (email !== user.email) {
-          await user.updateEmail(email);
-        }
 
         // Actualizar la contraseña si se ha proporcionado una nueva
         if (password) {
           await user.updatePassword(password);
         }
 
-        console.log('User profile updated successfully');
+        console.log('Perfil de usuario actualizado correctamente');
       } catch (error) {
-        console.error('Error updating user profile:', error);
+        console.error('Error al actualizar el perfil:', error);
         throw error;
       }
     } else {
-      throw new Error('No user is currently signed in.');
+      throw new Error('No es posible actualizar el perfil');
     }
   }
 }

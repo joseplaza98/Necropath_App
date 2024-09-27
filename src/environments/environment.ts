@@ -5,12 +5,12 @@
 export const environment = {
   production: false,
   firebase: {
-    apiKey: "AIzaSyCWUaOLV44beoBPWlQbqnMUDMjtVCMmYHo",
-    authDomain: "testing-89196.firebaseapp.com",
-    projectId: "testing-89196",
-    storageBucket: "testing-89196.appspot.com",
-    messagingSenderId: "497803445762",
-    appId: "1:497803445762:web:cc81fb43e586eb2c42891b"
+    apiKey: "AIzaSyBq0Pi2gaPUB6smTPXO2m3pENodMU3asQU",
+    authDomain: "necropath-app.firebaseapp.com",
+    projectId: "necropath-app",
+    storageBucket: "necropath-app.appspot.com",
+    messagingSenderId: "341790938790",
+    appId: "1:341790938790:web:f63b51d776082177294667"
   }
 };
 

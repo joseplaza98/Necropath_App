@@ -19,7 +19,7 @@
       <!--Modelos para la creación de contenidos
       //División del contenido
       <ion-item-divider>
-        <ion-label>Básicos de autópsia</ion-label>
+        <ion-label>Básicos de autopsia</ion-label>
       </ion-item-divider>
 
       //Lista de contenidos menu lateral
@@ -37,11 +37,11 @@
 
       <!--Menu temas unidad 1-Sub unidad 1-->
       <ion-item-divider>
-        <ion-label>Básicos de autópsia</ion-label>
+        <ion-label>Básicos de autopsia</ion-label>
       </ion-item-divider>
       <ion-list>
         <ion-item button [disabled]="!progress.u1_su1_intro && selectedContent !== 'u1_su1_intro'"
-          (click)="loadContent('u1_su1_intro'); menu.close()">Tema 1: Introducción básicos de autópsia</ion-item>
+          (click)="loadContent('u1_su1_intro'); menu.close()">Tema 1: Introducción básicos de autopsia</ion-item>
         <ion-item button [disabled]="!progress.u1_su1_lectura1 && selectedContent !== 'u1_su1_lectura1'"
           (click)="loadContent('u1_su1_lectura1'); menu.close()">Tema 2: Lectura acta de levantamiento</ion-item>
         <ion-item button [disabled]="!progress.u1_su1_video1 && selectedContent !== 'u1_su1_video1'"
@@ -120,16 +120,14 @@
     </ion-toolbar>
 
     <!--Temas unidad 1-Sub unidad 1-->
-    <!-- Tema 1: Introducción básicos de autópsia -->
+    <!-- Tema 1: Introducción básicos de autopsia -->
     <ng-container *ngIf="selectedContent === 'u1_su1_intro'">
       <ion-card>
         <ion-card-header>
-          <ion-card-title>Tema 1: Introducción básicos de autópsia</ion-card-title>
+          <ion-card-title>Tema 1: Introducción básicos de autopsia</ion-card-title>
         </ion-card-header>
         <ion-card-content>
-          <p>Para comenzar, debe recibir los datos preliminares por parte de la autoridad del caso quien los consolidará
-            en el acta de levantamiento; es importante realizar una lectura detenida y prestar atención al detalle para
-            obtener los datos más relevantes como fecha, lugar de los hechos y contexto relacionado con la muerte.
+          <p>Aprende las buenas prácticas al elaborar una autopsia, luego de recibir los datos preliminares por parte de la autoridad del caso, quien consolidará el acta de levantamiento; posteriormente, realiza la lectura detenida y detallada del acta, identificando datos relevantes como: fecha, lugar de los hechos y contexto relacionado con la muerte.
             <br />
             <br />
             <strong>PALABRAS CLAVES: </strong>Necropsia, Medicina Legal, Patología Forense, Educación Médica.
@@ -146,20 +144,25 @@
           <ion-card-title>Tema 2: Lectura acta de levantamiento</ion-card-title>
         </ion-card-header>
         <ion-card-content>
-          <p>El acta de levantamiento, es un documento fundamental donde reposan los datos relacionados con la defunción
-            de una persona como fecha, nombres, apellidos, edad, sexo, lugar y contexto del suceso.</p>
+          <p>Él acta de levantamiento del cadáver, es un documento fundamental donde reposan los datos relacionados con la defunción de una persona como fecha, nombres, apellidos, edad, sexo, lugar y contexto del suceso; lo anterior nos ayudará a entender los detalles del deceso y poder establecer la ruta de procedimientos a realizar. </p>
           <br />
-          <p>Es importante leer con detenimiento esta información, para así tener una idea más cercana del caso y
-            ajustar el procedimiento a realizar; entre las recomendaciones principales y cuidados que se deben de tener
-            presentes están:</p>
+          <p>De acuerdo con los expertos en el tema, algunas recomendaciones y cuidados son:</p>
           <br />
           <ion-list>
             <ion-item>
-              <p>a. Leer detenidamente el caso, identificando las causas de muerte, edad y sexo del difunto.</p>
+              <p>a.	Leer detenidamente el caso.</p>
             </ion-item>
             <br />
             <ion-item>
-              <p>b. Revisar que el formato (acta) se encuentre con sus campos correctamente diligenciados.</p>
+              <p>b.	Identificar las causas de muerte.</p>
+            </ion-item>
+            <br />
+            <ion-item>
+              <p>c.	Establecer características del cadáver como edad, piel, sexo, tatuajes, estatura, contextura, etc.</p>
+            </ion-item>
+            <br />
+            <ion-item>
+              <p>d.	Revisar que el formato (acta) se encuentre con sus campos correctamente diligenciados, sin tachones ni enmendaduras.</p>
             </ion-item>
           </ion-list>
           <ion-button (click)="nextContent()">Siguiente</ion-button>
@@ -174,6 +177,7 @@
           <ion-card-title>Tema 3: Necropsia médico legal</ion-card-title>
         </ion-card-header>
         <ion-card-content>
+          <p>Haz clic en el botón ▶ para reproducir el video.</p>
           <iframe [src]="u1_su1_video1_Url" frameborder="0" allowfullscreen></iframe>
           <ion-button (click)="nextContent()">Siguiente</ion-button>
         </ion-card-content>
@@ -187,6 +191,7 @@
           <ion-card-title>Tema 4: Objetivos de la necropsia</ion-card-title>
         </ion-card-header>
         <ion-card-content>
+          <p>Haz clic en el botón ▶ para reproducir el video.</p>
           <iframe [src]="u1_su1_video2_Url" frameborder="0" allowfullscreen></iframe>
           <ion-button (click)="nextContent()">Siguiente</ion-button>
         </ion-card-content>
@@ -198,16 +203,12 @@
     <ng-container *ngIf="selectedContent === 'u1_su2_intro'">
       <ion-card>
         <ion-card-header>
-          <ion-card-title>Tema 1: Introducción TDF</ion-card-title>
+          <ion-card-title>Tema 1: Introducción procedimientos y técnicas</ion-card-title>
         </ion-card-header>
         <ion-card-content>
-          <p>Él procedimiento de necropsia es un protocolo basado en un método muy antiguo qué nace en la especialidad
-            médica de la Anatomía - Patológica, siguiendo parámetros rigurosos y científicos.</p>
+          <p>Aplica procedimientos y técnicas para evaluar un cadáver, a través de la revisión de rótulos, embalaje del cuerpo y firma de la cadena de custodia. Luego procede a realizar los diagramas y tomar las fotografías relacionadas con el inicio del procedimiento en el cadáver.
           <br />
-          <p>Una vez leída él acta debemos revisar los rótulos y él embalaje del cuerpo, además firmar la cadena de
-            custodia, para luego proceder a tomar las fotografías de inicio del procedimiento.
-            <br />
-            <br />
+          <br />
             <strong>PALABRAS CLAVES: </strong>Patología Forense, Cadena de custodia.
           </p>
           <ion-button (click)="nextContent()">Siguiente</ion-button>
@@ -222,6 +223,7 @@
           <ion-card-title>Tema 2: Toma de fotografías de inicio I</ion-card-title>
         </ion-card-header>
         <ion-card-content>
+          <p>Haz clic en el botón ▶ para reproducir el video.</p>
           <iframe [src]="u1_su2_video1_Url" frameborder="0" allowfullscreen></iframe>
           <ion-button (click)="nextContent()">Siguiente</ion-button>
         </ion-card-content>
@@ -235,6 +237,7 @@
           <ion-card-title>Tema 3: Toma de fotografías de inicio II</ion-card-title>
         </ion-card-header>
         <ion-card-content>
+          <p>Haz clic en el botón ▶ para reproducir el video.</p>
           <iframe [src]="u1_su2_video2_Url" frameborder="0" allowfullscreen></iframe>
           <ion-button (click)="nextContent()">Siguiente</ion-button>
         </ion-card-content>
@@ -249,6 +252,7 @@
           <ion-card-title>Tema 4: Señales particulares</ion-card-title>
         </ion-card-header>
         <ion-card-content>
+          <p>Haz clic en el botón ▶ para reproducir el video.</p>
           <iframe [src]="u1_su2_video3_Url" frameborder="0" allowfullscreen></iframe>
           <ion-button (click)="nextContent()">Siguiente</ion-button>
         </ion-card-content>
@@ -263,6 +267,7 @@
           <ion-card-title>Tema 5: Identificación del cadáver</ion-card-title>
         </ion-card-header>
         <ion-card-content>
+          <p>Haz clic en el botón ▶ para reproducir el video.</p>
           <iframe [src]="u1_su2_video4_Url" frameborder="0" allowfullscreen></iframe>
           <ion-button (click)="nextContent()">Siguiente</ion-button>
         </ion-card-content>
@@ -277,6 +282,7 @@
           <ion-card-title>Tema 6: Identificación del preámbulo</ion-card-title>
         </ion-card-header>
         <ion-card-content>
+          <p>Haz clic en el botón ▶ para reproducir el video.</p>
           <iframe [src]="u1_su2_video5_Url" frameborder="0" allowfullscreen></iframe>
           <ion-button (click)="goToQuiz()">Siguiente</ion-button>
         </ion-card-content>
@@ -305,19 +311,24 @@
           <ion-card-title>Tema 1: Introducción a la descripción de prendas</ion-card-title>
         </ion-card-header>
         <ion-card-content>
-          <p>La ropa, la moda las prendas son parte del contexto social de los seres humanos, nos permiten inferir por
-            su aspecto, cuidado, valor y limpieza, además de aportar manchas fibras o cabellos entre otros elementos
-            como residuos de disparo rasgaduras qué permitan establecer nexos entre el agresor y la víctima.</p>
+          <p>Realiza la descripción de prendas como parte del contexto social de los seres humanos, nos permiten perfilar el individuo por su aspecto, cuidado y limpieza, además de aportar manchas fibras o cabellos entre otros elementos que facilitan la identificación de nexos entre el agresor y la víctima. En este orden de ideas es importante:
           <br />
-          <p> Es importante describir las prendas, así: Talla la cual está en la etiqueta al igual que la marca, el
-            material por ejemplo algodón, poliéster, caucho entre otros, describir rasgaduras por arma blanca o
-            proyectil arma de fuego, y la presencia de residuos de disparo.</p>
           <br />
-          <p>Los residuos de disparo serán analizados en él laboratorio de balística. Finalmente describir sí las
-            prendas coinciden con las heridas observadas en él cadáver.
+          <ion-list>
+            <ion-item>
+              <p>a.	Describir las prendas, como talla, marca, material (algodón, poliéster, caucho, etc).</p>
+            </ion-item>
+            <br/>
+            <ion-item>
+              <p>b.	Describir rasgaduras por arma blanca o proyectil de arma de fuego, donde en este último caso, los residuos de disparo serán analizados en él laboratorio de balística.</p> 
+            </ion-item>
+            <br/>
+            <ion-item>
+              <p>c.	Describir sí las prendas coinciden con las heridas observadas en él cadáver.</p>
+            </ion-item>
+          </ion-list>
             <br />
-            <br />
-            <strong>PALABRAS CLAVES:</strong> Prendas de vestir, Residuos, Intercambio, evidencias.
+            <strong>PALABRAS CLAVES: </strong>Prendas de vestir, Residuos, Intercambio, evidencias.
           </p>
           <ion-button (click)="nextContent()">Siguiente</ion-button>
         </ion-card-content>
@@ -331,6 +342,7 @@
           <ion-card-title>Tema 2: Prendas y accesorios</ion-card-title>
         </ion-card-header>
         <ion-card-content>
+          <p>Haz clic en el botón ▶ para reproducir el video.</p>
           <iframe [src]="u1_su3_video1_Url" frameborder="0" allowfullscreen></iframe>
           <ion-button (click)="nextContent()">Siguiente</ion-button>
         </ion-card-content>
@@ -344,6 +356,7 @@
           <ion-card-title>Tema 3: Laboratorio I</ion-card-title>
         </ion-card-header>
         <ion-card-content>
+          <p>Haz clic en el botón ▶ para reproducir el video.</p>
           <iframe [src]="u1_su3_video2_Url" frameborder="0" allowfullscreen></iframe>
           <ion-button (click)="nextContent()">Siguiente</ion-button>
         </ion-card-content>
@@ -357,6 +370,7 @@
           <ion-card-title>Tema 4: Laboratorio II</ion-card-title>
         </ion-card-header>
         <ion-card-content>
+          <p>Haz clic en el botón ▶ para reproducir el video.</p>
           <iframe [src]="u1_su3_video3_Url" frameborder="0" allowfullscreen></iframe>
           <ion-button (click)="nextContent()">Siguiente</ion-button>
         </ion-card-content>
@@ -370,6 +384,7 @@
           <ion-card-title>Tema 5: Laboratorio III</ion-card-title>
         </ion-card-header>
         <ion-card-content>
+          <p>Haz clic en el botón ▶ para reproducir el video.</p>
           <iframe [src]="u1_su3_video4_Url" frameborder="0" allowfullscreen></iframe>
           <ion-button (click)="goToQuiz2()">Siguiente</ion-button>
         </ion-card-content>
@@ -397,11 +412,10 @@
           <ion-card-title>Tema 1: Introducción fenómenos cadavéricos</ion-card-title>
         </ion-card-header>
         <ion-card-content>
-          <p>Los fenómenos cadavéricos, en los cadáveres de seres humanos inician una vez morimos, son secuenciales,
-            dependen del medio ambiente, de la nutrición, contextura estados biológicos y toxicológicos del cadáver.
+          <p>Explicar los fenómenos cadavéricos permite determinar el tiempo que ha transcurrido en la muerte de una persona clasificados como tempranos, tardíos y conservadores, los cuales dependen de la contextura, estados biológicos, estado de nutrición, medio ambiente, y toxicológicos del cadáver.
             <br />
             <br />
-            <strong>PALABRAS CLAVES:</strong> Fenómenos cadavéricos, putrefacción.
+            <strong>PALABRAS CLAVES: </strong>Fenómenos cadavéricos, putrefacción.
           </p>
           <ion-button (click)="nextContent()">Siguiente</ion-button>
         </ion-card-content>
@@ -421,26 +435,28 @@
       </ion-card>
     </ng-container>
 
-    <!-- Tema 3: Lavoratorio IV-Larvas -->
+    <!-- Tema 3: Laboratorio IV-Larvas -->
     <ng-container *ngIf="selectedContent === 'u1_su4_video1'">
       <ion-card>
         <ion-card-header>
-          <ion-card-title>Tema 3: Lavoratorio IV-Larvas</ion-card-title>
+          <ion-card-title>Tema 3: Laboratorio IV-Larvas</ion-card-title>
         </ion-card-header>
         <ion-card-content>
+          <p>Haz clic en el botón ▶ para reproducir el video.</p>
           <iframe [src]="u1_su4_video1_Url" frameborder="0" allowfullscreen></iframe>
           <ion-button (click)="nextContent()">Siguiente</ion-button>
         </ion-card-content>
       </ion-card>
     </ng-container>
 
-    <!-- Tema 4: Lavoratorio V-Larvas -->
+    <!-- Tema 4: Laboratorio V-Larvas -->
     <ng-container *ngIf="selectedContent === 'u1_su4_video2'">
       <ion-card>
         <ion-card-header>
-          <ion-card-title>Tema 4: Lavoratorio V-Larvas</ion-card-title>
+          <ion-card-title>Tema 4: Laboratorio V-Larvas</ion-card-title>
         </ion-card-header>
         <ion-card-content>
+          <p>Haz clic en el botón ▶ para reproducir el video.</p>
           <iframe [src]="u1_su4_video2_Url" frameborder="0" allowfullscreen></iframe>
           <ion-button (click)="finishAndGoToTest()">Siguiente</ion-button>
         </ion-card-content>
