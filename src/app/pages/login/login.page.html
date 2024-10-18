@@ -1,23 +1,26 @@
-<ion-header>
-  <ion-toolbar>
+<ion-header class="ion-header">
+  <ion-toolbar class="ion-toolbar">
     <ion-title>Inicio de sesión</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <div class="login-container">
-    <img style="border-radius: 10%" src="../../../assets/imgs/Logo_app.png">
-    <ion-item>
-      <ion-label position="floating">Correo</ion-label>
-      <ion-input type="email" [(ngModel)]="email" required></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label position="floating">Contraseña</ion-label>
-      <ion-input type="password" [(ngModel)]="password" required></ion-input>
-    </ion-item>
-    <ion-button (click)="login()" class="login-button">Ingresar</ion-button>
-    <div class="register-link">
-      <p>¿No tienes un usuario? <a [routerLink]="['/register']">Registrate</a></p>
-    </div>
-  </div>
+  <ion-card>
+      <div class="login-container">
+        <img src="../../../assets/imgs/Logo_app.png">
+        <ion-item>
+          <ion-label position="floating">Correo</ion-label>
+          <ion-input type="email" [(ngModel)]="email" required></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Contraseña</ion-label>
+          <ion-input type="password" [(ngModel)]="password" required></ion-input>
+        </ion-item>
+        <ion-button (click)="login()" class="login-button">Ingresar</ion-button>
+        <div class="register-link">
+          <p>¿No tienes un usuario? <a [routerLink]="['/register']">Registrate</a></p>
+        </div>
+      </div>
+  </ion-card>
 </ion-content>
+

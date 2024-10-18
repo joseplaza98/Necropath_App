@@ -1,14 +1,16 @@
 ion-header {
+  background-color: #ffffff;
+  box-shadow: none;
+  
   ion-toolbar {
-    border: none; /* Quita cualquier borde del toolbar */
-    box-shadow: none; /* Quita cualquier sombra */
+    padding: 0; /* Eliminar padding del toolbar */
+    --background: #466ece;/* Color de fondo del toolbar */
+    border-radius: 0 0 16px 16px;
+
     ion-title {
       display: flex;
       align-items: center;
       color: #ffffff; /* Color blanco para el título del encabezado */
-      background-color: #466ece; /* Azul más vibrante */
-      padding: 20px; /* Aumentar el padding para mayor espacio */
-      border-radius: 0 0 16px 16px; /* Bordes redondeados en la parte inferior */
       font-weight: bold; /* Negrita para mayor impacto */
       font-size: 1.8em; /* Tamaño de fuente mayor para mayor visibilidad */
       text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Sombra para dar profundidad */

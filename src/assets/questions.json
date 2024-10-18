@@ -3,21 +3,39 @@
     "testNumber": 1,
     "questions": [
       {
-        "question": "¿Cuál es la capital de Francia?",
+        "question": "¿Cuáles son las principales diferencias entre autopsia clínica y autopsia médico legal?",
         "answers": [
-          { "text": "Londres", "isCorrect": false },
-          { "text": "Madrid", "isCorrect": false },
-          { "text": "Correcta", "isCorrect": true },
-          { "text": "Berlín", "isCorrect": false }
+          { "text": "La autopsia clínica pretende esclarecer la causa de muerte y los mecanismos fisiopatológicos que causaron la muerte, permite una correlación clínico patológica y tiene fines académicos, investigativos y sociales.", "isCorrect": false },
+          { "text": "La autopsia Forense o médico legal, pretende determinar la causa de muerte y manera de muerte violenta, para apoyar la administración de justicia", "isCorrect": false },
+          { "text": "Necrodactilia", "isCorrect": false },
+          { "text": "Origen de la solicitud, descripción del procedimiento, análisis histopatológico, otros análisis", "isCorrect": true }
         ]
       },
       {
-        "question": "¿Cuál es el río más largo del mundo?",
+        "question": "¿Cuál es el instrumental básico para realizar una autopsia clínica y médico legal?",
         "answers": [
-          { "text": "Correcta", "isCorrect": true },
-          { "text": "Amazonas", "isCorrect": false },
-          { "text": "Yangtsé", "isCorrect": false },
-          { "text": "Misisipi", "isCorrect": false }
+          { "text": "Tomar fotografías previo al procedimiento", "isCorrect": false },
+          { "text": "Tijeras, cuchillo, escoplo costotomo y bisturí", "isCorrect": false },
+          { "text": "Laboratorio", "isCorrect": false },
+          { "text": "Solo b y c son correctas", "isCorrect": true }
+        ]
+      },
+      {
+        "question": "¿Cuáles son los principios de bioseguridad en autopsia médico legal?",
+        "answers": [
+          { "text": "Practicas seguras para la prevención en la contaminación de piel y mucosas mediante el uso adecuado de elementos de protección individual en contexto de riesgo biológico", "isCorrect": false },
+          { "text": "Uso de tapa bocas, guantes y botas de sangre", "isCorrect": false },
+          { "text": "Uso de botas de sangre", "isCorrect": false },
+          { "text": "Todas las anteriores", "isCorrect": true }
+        ]
+      },
+      {
+        "question": "¿Cuáles son las diferencias entre riesgo biológico y riesgo psicosocial?",
+        "answers": [
+          { "text": "El riesgo biológico es inherente, ubicuo y asociado al trabajo de cadáveres, es decir a contacto de fluidos corporales", "isCorrect": false },
+          { "text": "Riesgo psicosocial", "isCorrect": false },
+          { "text": "Informe final", "isCorrect": false },
+          { "text": "Todas las anteriores", "isCorrect": true }
         ]
       }
     ]
@@ -26,21 +44,53 @@
     "testNumber": 2,
     "questions": [
       {
-        "question": "¿Cuál es el océano más grande?",
+        "question": "¿Cuáles son las fases para la identificación de los fenómenos cadavéricos?",
         "answers": [
-          { "text": "Atlántico", "isCorrect": false },
-          { "text": "Íntico", "isCorrect": false },
-          { "text": "Ártico", "isCorrect": false },
-          { "text": "Correcta", "isCorrect": true }
+          { "text": "Fases del cronotanato diagnostico", "isCorrect": false },
+          { "text": "Descripción de fenómenos cadavéricos tempranos, frialdad, livideces, deshidratación de mucosas, opacidad de corneas y rigidez", "isCorrect": false },
+          { "text": "Descripción de fenómenos cadavéricos descomposición (fase cromática, enfisematosa, licuefactiva y esqueletización)", "isCorrect": false },
+          { "text": "A, B y C son correctas", "isCorrect": true },
+          { "text": "Ninguna de las anteriores", "isCorrect": false }
         ]
       },
       {
-        "question": "¿Cuál es el planeta más cercano al sol?",
+        "question": "Para la evaluación y tratamiento de lesiones, ¿Qué tecnicas se deben aplicar?",
         "answers": [
-          { "text": "Venus", "isCorrect": false },
-          { "text": "Tierra", "isCorrect": false },
-          { "text": "Correcta", "isCorrect": true },
-          { "text": "Marte", "isCorrect": false }
+          { "text": "Incisiones", "isCorrect": false },
+          { "text": "Craneotomía, I, T, y Y.", "isCorrect": false },
+          { "text": "Historia clínica", "isCorrect": false },
+          { "text": "A, B y C son correctas", "isCorrect": true },
+          { "text": "Ninguna de las anteriores", "isCorrect": false }
+        ]
+      },
+      {
+        "question": " ¿Cuál SI es un procedimiento a realizar al iniciar una autópsia? ",
+        "answers": [
+          { "text": "Firma del formato de cadena de custodia ", "isCorrect": false },
+          { "text": "Toma de fotografía del embalaje y del rotulo", "isCorrect": false },
+          { "text": "Foto del aspecto general del cadáver vestido", "isCorrect": false },
+          { "text": "Descripción y fotos de las prendas", "isCorrect": false },
+          { "text": "Todas las anteriores", "isCorrect": true }
+        ]
+      },
+      {
+        "question": "Un hombre es encontrado sin vida en un callejón, con evidencias que sugieren un posible homicidio. La escena del crimen es examinada por los investigadores forenses, quienes recogen pruebas, incluyendo la ropa del fallecido, ¿Qué acciones se deben tomar sobre el cadáver?",
+        "answers": [
+          { "text": "Identificar el tipo de prenda", "isCorrect": false },
+          { "text": "Determinar el material talla y marca", "isCorrect": false },
+          { "text": "Reportar la presencia de Rasgaduras y residuos de disparos", "isCorrect": false },
+          { "text": "Ninguna de las anteriores", "isCorrect": false },
+          { "text": "A, B y C son correctas", "isCorrect": true }
+        ]
+      },
+      {
+        "question": "Un paciente de 78 años llega a la sala de emergencias tras sufrir una caída en su hogar. Presenta un dolor agudo en la cadera derecha y dificultad para caminar. Después de una evaluación, se confirma una fractura de cadera, ¿Qué técnica se puede aplicar en el paciente?",
+        "answers": [
+          { "text": "Técnicas de disección de GHON", "isCorrect": false },
+          { "text": "Técnica de MATTA", "isCorrect": false },
+          { "text": "Técnica de VIRCHOW - in situ", "isCorrect": false },
+          { "text": "A, B y C son correctas", "isCorrect": true },
+          { "text": "Ninguna de las anteriores", "isCorrect": false }
         ]
       }
     ]
@@ -49,21 +99,58 @@
     "testNumber": 3,
     "questions": [
       {
-        "question": "¿Pregunta 1?",
+        "question": "Un hombre es encontrado inconsciente en su casa, con olor a alcohol en el aliento y una herida en la cabeza; el examen externo revela contusiones en el rostro y un corte en la frente, ¿Qué aspectos se deben evaluar para este caso?",
         "answers": [
-          { "text": "Correcta", "isCorrect": true },
-          { "text": "Incor", "isCorrect": false },
-          { "text": "Incorr", "isCorrect": false },
-          { "text": "Incorre", "isCorrect": false }
+          { "text": "Talla, peso, raza, contextura, color de piel y faneras", "isCorrect": false },
+          { "text": "Examen céfalo caudal: cabeza, rostro, cuello, tórax, abdomen, espalda y glúteos, genitales, ano, miembros superiores y miembros inferiores", "isCorrect": false },
+          { "text": "Descripción de lesiones o ausencia de las mismas", "isCorrect": false },
+          { "text": "Todas las anteriores", "isCorrect": true }
         ]
       },
       {
-        "question": "¿Pregunta 2?",
+        "question": "Un paciente de 45 años con antecedentes de consumo excesivo de alcohol es ingresado tras un accidente automovilístico; el examen interno revela hemorragia interna en el hígado y contusiones en el tórax, indicando lesiones graves que requieren intervención quirúrgica, ¿Qué aspectos se deben evaluar para este caso?",
         "answers": [
-          { "text": "Correcta", "isCorrect": true },
-          { "text": "Incor", "isCorrect": false },
-          { "text": "Incorr", "isCorrect": false },
-          { "text": "Incorre", "isCorrect": false }
+          { "text": "Se deben describir los hallazgos por sistemas así: gálea pericráneo, cráneo, meninges, encéfalo, columna vertebral y medula espinal", "isCorrect": false },
+          { "text": "Cavidad torácica, sistema respiratorio y sistema cardiovascular", "isCorrect": false },
+          { "text": "Cavidad abdominal, sistema digestivo, hepato-biliar pancreático y sistema genito-urinario", "isCorrect": false },
+          { "text": "Todas las anteriores", "isCorrect": true }
+        ]
+      },
+      {
+        "question": "Un hombre de 60 años es encontrado sin vida en su casa, con antecedentes de enfermedad cardiovascular. La autopsia revela obstrucción de las arterias coronarias y un infarto de miocardio, confirmando que la causa de muerte fue un ataque al corazón. ¿Cuál fué su causa de muerte?",
+        "answers": [
+          { "text": "Homicidio", "isCorrect": false },
+          { "text": "Natural", "isCorrect": true },
+          { "text": "Muerte accidental-accidente de transito", "isCorrect": false },
+          { "text": "Indeterminada", "isCorrect": false }
+        ]
+      },
+      {
+        "question": "¿Cuáles son los componentes que exige la autoridad en la conclusión pericial?",
+        "answers": [
+          { "text": "Resumen del contexto anotado en el acta de inspección del cadáver", "isCorrect": false },
+          { "text": "Causa básica de muerte", "isCorrect": false },
+          { "text": "Manera de muerte", "isCorrect": false },
+          { "text": "Todas las anteriores", "isCorrect": true }
+        ]
+      },
+      {
+        "question": "Un hombre de 35 años es encontrado muerto en un callejón con un orificio de entrada en el pecho y tatuaje, indicando un disparo a corta distancia. La autopsia revela un orificio de salida en la espalda y daño en el pulmón, mientras que las trayectorias sugieren que el tirador estaba frente a la víctima. ¿Qie protocolos se deben seguir para la validación del caso?",
+        "answers": [
+          { "text": "Identificar el orificio de entrada características presencia de tatuaje y ahumamiento", "isCorrect": false },
+          { "text": "Identificar el orificio de salida o recuperación de proyectiles y descripción de lesiones", "isCorrect": false },
+          { "text": "Establecer las trayectorias en los planos sagital, coronal y transverso", "isCorrect": false },
+          { "text": "Todas las anteriores", "isCorrect": true }
+        ]
+      },
+      {
+        "question": "Un hombre de 40 años es hallado sin vida en su casa, con múltiples heridas por arma blanca en el abdomen y brazos. La autopsia revela que las heridas son compatibles con un ataque violento y se observa un corte profundo en la arteria femoral, lo que sugiere que la causa de muerte fue la hemorragia interna. ¿Que aspectos se deben considerar al evaluar este caso?",
+        "answers": [
+          { "text": "Establecer el tipo de mecanismo: cortante, (cuchillas, bisturíes), corto punzante, (cuchillos, navajas) punzante (lesnas pica hielos) y corto contundente, (machete, hachas)", "isCorrect": false },
+          { "text": "Realizar la descripción de las heridas su forma, bordes agudos, romo, longitud, orientación localización medidas a línea media y el vertex", "isCorrect": false },
+          { "text": "Esclarecer la profundidad y trayectoria en los ejes coronal, sagital y transverso", "isCorrect": false },
+          { "text": "Ninguna de las anteriores", "isCorrect": false },
+          { "text": "Todas las anteriores", "isCorrect": true }
         ]
       }
     ]

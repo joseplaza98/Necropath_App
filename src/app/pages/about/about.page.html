@@ -1,9 +1,9 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
+<ion-header class="ion-header">
+  <ion-toolbar class="ion-toolbar">
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/home"></ion-back-button>
     </ion-buttons>
-    <ion-title>Acerca de</ion-title>
+    <ion-title class="ion-title">Acerca de</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -14,11 +14,12 @@
         <ion-card-header>
           <ion-card-title>¿Que es Necropath?</ion-card-title>
         </ion-card-header>
-        <img  src="../../assets/imgs/Logo_app.png" />
         <ion-card-content>
-          <p>Construida bajo la estrategia de Microlearning (Pequeñas unidades de contenido), en Necropath App brindamos conocimientos básicos sobre autopsia clínica y médico legal; adicionalmente cuenta con más de 50 temas relacionados con Patología forense, autopsia médico legal y clínica.</p>
-        </ion-card-content>
+        <img src="../../assets/imgs/Logo_app.png" />
 
+          <p><strong>Descripción del curso</strong></p>
+          <p>Brindar los conocimientos básicos en patología Forense para poder realizar de manera adecuada y completa una autopsia médico legal y clínica, y redactar un informe médico legal en sus labores como perito en apoyo a la administración de justicia en cualquier sitio del territorio colombiano.</p>
+        </ion-card-content>
         <ion-card-content>
           <p><strong>Objetivos de formación</strong></p>
           <br />
@@ -26,7 +27,7 @@
           <br />
           <ion-list>
             <ion-item>
-              <p>Capacitar a los médicos forenses en el tema de autopsia médico legal y clínica a través de una estrategia de microlearning.</p>
+              <p>Capacitar a los médicos generales en el tema de autopsia médico legal y clínica a través de una estrategia de micro-learning.</p>
             </ion-item>
           </ion-list>
           <br />
@@ -34,13 +35,20 @@
           <br />
           <ion-list>
             <ion-item>
-              <p>a.	Analizar el contexto del suceso cadavérico a través del método anato-patológico.</p>
+              <p>a. Analizar él cuerpo humano a través del método anato-patológico.</p>
             </ion-item>
             <br />
             <ion-item>
-              <p>b.	Evaluar las características y generar el diagnóstico del fenómeno cadavérico.</p>
+              <p>b.	Evaluar las características y generar el diagnóstico de los fenómenos cadavéricos.</p>
+            </ion-item>
+            <ion-item>
+              <p>c.	Decribir las lesiones y determinar causa y manera de muerte.</p>
             </ion-item>
           </ion-list>
+        </ion-card-content>
+        <ion-card-content>
+          <p><strong>Habilidades a desarrollar</strong></p>
+          <p>Adquirir habilidades para la realización de una autopsia médico legal y clínica mediante la aplicación de las técnicas de descripción y disección de cadáveres víctimas de violencia mediante el método anatomo-patológico determinando causa y manera de muerte y su relación con él contexto.</p>
         </ion-card-content>
       </ion-card>
     </div>
@@ -71,12 +79,12 @@
     <div class="cards-container">
       <ion-card class="custom-card">
         <ion-card-header>
-          <ion-card-title>Syllabus</ion-card-title>
+          <ion-card-title>Diseño curricular</ion-card-title>
         </ion-card-header>
         <ion-card-content>
-          <p>Consulta el syllabus de Necropath app dando clic en sl siguiente botón:</p>
+          <p>Consulta el diseño curricular de Necropath app dando clic en sl siguiente botón:</p>
           <div class="button-container">
-            <ion-button class="custom-button" (click)="goToSyllabus()">Ver</ion-button>
+            <ion-button class="custom-button" (click)="goToD_curricular()">Ver</ion-button>
           </div>
         </ion-card-content>
       </ion-card>

@@ -101,7 +101,7 @@
         <ion-item button [disabled]="!progress.u1_su4_infografia && selectedContent !== 'u1_su4_infografia'"
           (click)="loadContent('u1_su4_infografia'); menu.close()">Tema 2: Definición fenómenos cadavéricos</ion-item>
         <ion-item button [disabled]="!progress.u1_su4_video1 && selectedContent !== 'u1_su4_video1'"
-          (click)="loadContent('u1_su4_video1'); menu.close()">Tema 3: Lavoratorio IV-Larvas</ion-item>
+          (click)="loadContent('u1_su4_video1'); menu.close()">Tema 3: Laboratorio IV-Larvas</ion-item>
         <ion-item button [disabled]="!progress.u1_su4_video2 && selectedContent !== 'u1_su4_video2'"
           (click)="loadContent('u1_su4_video2'); menu.close()">Tema 4: Laboratorio V-Larvas</ion-item>
         <ion-item button [disabled]="!progress.u1_su4_test_1" (click)="goToTest(); menu.close()">Test Unidad 1</ion-item>
@@ -291,14 +291,14 @@
 
 
     <!-- Quiz1-->
-    <ng-container *ngIf="selectedContent === 'u1_su1_quiz1'">
+    <ng-container *ngIf="selectedContent === 'u1_su2_quiz1'">
       <ion-card>
         <ion-card-header>
           <ion-card-title>Quiz</ion-card-title>
         </ion-card-header>
         <ion-card-content>
           <p>Haz clic en el botón de abajo para hacer el quiz.</p>
-          <ion-button (click)="nextContent()">Ir al Quiz</ion-button>
+          <ion-button (click)="goToQuiz()">Ir al Quiz</ion-button>
         </ion-card-content>
       </ion-card>
     </ng-container>
@@ -399,7 +399,7 @@
         </ion-card-header>
         <ion-card-content>
           <p>Haz clic en el botón de abajo para hacer el quiz.</p>
-          <ion-button (click)="nextContent()">Ir al Quiz</ion-button>
+          <ion-button (click)="goToQuiz2()">Ir al Quiz</ion-button>
         </ion-card-content>
       </ion-card>
     </ng-container>

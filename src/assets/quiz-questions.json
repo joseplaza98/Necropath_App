@@ -3,27 +3,36 @@
     "testNumber": 1,
     "questions": [
       {
-        "question": "¿Cuál es la capital de Francia?",
+        "question": "Datos relacionados con la defunción de una persona como fecha, nombres, apellidos, edad, entre otros, ¿hacen parte del acta de levantamiento del cadáver?",
         "answers": [
-          { "text": "París", "isCorrect": true },
-          { "text": "Londres", "isCorrect": false },
-          { "text": "Madrid", "isCorrect": false }
+          { "text": "Si", "isCorrect": true },
+          { "text": "No", "isCorrect": false }
         ],
         "feedback": {
-          "correct": "¡Correcto! París es la capital de Francia. 😊",
-          "incorrect": "Incorrecto. La respuesta correcta es París. 😢"
+          "correct": "¡Correcto! ✔",
+          "incorrect": "¡Incorrecto! ❌"
         }
       },
       {
-        "question": "¿Cuál es el resultado de 2 + 2?",
+        "question": "Leer detenidamente el caso y NO identificar las causas de muerte ¿son algunas recomendaciones de expertos al momento de leer el acta de levantamiento? ",
         "answers": [
-          { "text": "3", "isCorrect": false },
-          { "text": "4", "isCorrect": true },
-          { "text": "5", "isCorrect": false }
+          { "text": "Si", "isCorrect": false },
+          { "text": "No", "isCorrect": true }
         ],
         "feedback": {
-          "correct": "¡Correcto! 2 + 2 es 4 😊.",
-          "incorrect": "Incorrecto. La respuesta correcta es 4. 😢"
+           "correct": "¡Correcto! ✔",
+          "incorrect": "¡Incorrecto! ❌"
+        }
+      },
+      {
+        "question": "En una escena de crimen, un cadáver con heridas en el tórax es fotografiado por el forense desde varios ángulos para documentar las lesiones y la posición del cuerpo, ¿estaría aplicando una de las técnicas para evaluar un cadáver?",
+        "answers": [
+          { "text": "Si", "isCorrect": true },
+          { "text": "No", "isCorrect": false }
+        ],
+        "feedback": {
+          "correct": "¡Correcto! ✔",
+          "incorrect": "¡Incorrecto! ❌"
         }
       }
     ]
@@ -32,27 +41,36 @@
     "testNumber": 2,
     "questions": [
       {
-        "question": "¿Donde vives?",
+        "question": "Realizar la descripción de prendas como parte del contexto social de los seres humanos, ¿nos permiten perfilar el individuo por su aspecto, cuidado y limpieza?",
         "answers": [
-          { "text": "Cali", "isCorrect": true },
-          { "text": "Medellin", "isCorrect": false },
-          { "text": "Bogota", "isCorrect": false }
+          { "text": "Si", "isCorrect": true },
+          { "text": "No", "isCorrect": false }
         ],
         "feedback": {
-          "correct": "¡Correcto! Vives en cali. 😊",
-          "incorrect": "Incorrecto. No vives en ahi. 😢"
+          "correct": "¡Correcto! ✔",
+          "incorrect": "¡Incorrecto! ❌"
         }
       },
       {
-        "question": "¿3+2?",
+        "question": "Omitir la descripción de las prendas como talla, marca, material, ¿es una práctica necesaria al momento de evaluar un cadáver?",
         "answers": [
-          { "text": "2", "isCorrect": false },
-          { "text": "5", "isCorrect": true },
-          { "text": "7", "isCorrect": false }
+          { "text": "Si", "isCorrect": false },
+          { "text": "No", "isCorrect": true }
         ],
         "feedback": {
-          "correct": "¡Correcto! 3 + 2 es 5 😊.",
-          "incorrect": "Incorrecto. La respuesta correcta es 5. 😢"
+          "correct": "¡Correcto! ✔",
+          "incorrect": "¡Incorrecto! ❌"
+        }
+      },
+      {
+        "question": "Un cuerpo es hallado con múltiples heridas punzantes en el abdomen, pero la ropa que lleva puesta no presenta ningún desgarro ni señales de daño, ¿se debe reportar como una novedad a los entes competentes?",
+        "answers": [
+          { "text": "Si", "isCorrect": true },
+          { "text": "No", "isCorrect": false }
+        ],
+        "feedback": {
+          "correct": "¡Correcto! ✔",
+          "incorrect": "¡Incorrecto! ❌"
         }
       }
     ]
@@ -62,27 +80,42 @@
     "testNumber": 3,
     "questions": [
       {
-        "question": "¿Pregunta 1?",
+        "question": "¿Cuáles son los métodos anatomo-patológicos establecidos por el examen externo?",
         "answers": [
-          { "text": "Respuesta 1", "isCorrect": true },
-          { "text": "Respuesta 2", "isCorrect": false },
-          { "text": "Respuesta 3", "isCorrect": false }
+          { "text": "Céfalo caudal (izquierdo -derecho)", "isCorrect": false },
+          { "text": "Superficie (palpación y descripción de las lesiones)", "isCorrect": false },
+          { "text": "A y b son correctas", "isCorrect": true },
+          { "text": "Ninguna de las anteriores", "isCorrect": false }
         ],
         "feedback": {
-          "correct": "¡Correcto!.😊",
-          "incorrect": "Incorrecto. 😢"
+          "correct": "¡Correcto! ✔",
+          "incorrect": "¡Incorrecto! ❌"
         }
       },
       {
-        "question": "¿Pregunta 2?",
+        "question": "Un profesional forense realiza la medición de los huesos largos de un esqueleto encontrado en una zona remota, comparando las proporciones del fémur y el húmero para estimar la estatura del individuo fallecido, ¿a qué revisión del examen externo corresponde?",
         "answers": [
-          { "text": "Respuesta 1", "isCorrect": true },
-          { "text": "Respuesta 2", "isCorrect": false },
-          { "text": "Respuesta 3", "isCorrect": false }
+          { "text": "Antropometría", "isCorrect": true },
+          { "text": "Galea pericráneo", "isCorrect": false },
+          { "text": "Sistema hemato poyetico", "isCorrect": false },
+          { "text": "Ninguna de las anteriores", "isCorrect": false }
         ],
         "feedback": {
-          "correct": "¡Correcto!.😊",
-          "incorrect": "Incorrecto. 😢"
+          "correct": "¡Correcto! ✔",
+          "incorrect": "¡Incorrecto! ❌"
+        }
+      },
+      {
+        "question": "En un examen forense, el cadáver presenta una decoloración inusual en la piel de los brazos y restos de tierra bajo las uñas. El profesional analiza cuidadosamente la piel y las faneras (uñas y cabello) en busca de señales de agresión o contacto con sustancias tóxicas, ¿a qué revisión del examen externo corresponde?",
+        "answers": [
+          { "text": "Cabeza y Tórax", "isCorrect": false },
+          { "text": "Abdomen, Espalda Y Glúteos", "isCorrect": false },
+          { "text": "Piel Y Faneras", "isCorrect": true },
+          { "text": "Ninguna de las anteriores", "isCorrect": false }
+        ],
+        "feedback": {
+          "correct": "¡Correcto! ✔",
+          "incorrect": "¡Incorrecto! ❌"
         }
       }
     ]
@@ -92,27 +125,42 @@
     "testNumber": 4,
     "questions": [
       {
-        "question": "¿Pregunta 1 modelo?",
+        "question": "¿Cuál de las siguientes opciones no es una causa básica de muerte?",
         "answers": [
-          { "text": "Respuesta 1", "isCorrect": true },
-          { "text": "Respuesta 2", "isCorrect": false },
-          { "text": "Respuesta 3", "isCorrect": false }
+          { "text": "Herida por proyectil arma de fuego", "isCorrect": false },
+          { "text": "Herida por arma corto punzante", "isCorrect": false },
+          { "text": "Traumatismo contundente en accidente de tránsito", "isCorrect": false },
+          { "text": "Heridas de transito contundente", "isCorrect": true }
         ],
         "feedback": {
-          "correct": "¡Correcto!.😊",
-          "incorrect": "Incorrecto. 😢"
+          "correct": "¡Correcto! ✔",
+          "incorrect": "¡Incorrecto! ❌"
         }
       },
       {
-        "question": "¿Pregunta 2?",
+        "question": "Una mujer es encontrada en su habitación con una carta de despedida y una sobredosis de pastillas a su lado, ¿a qué tipo de muerte corresponde?",
         "answers": [
-          { "text": "Respuesta 1", "isCorrect": true },
-          { "text": "Respuesta 2", "isCorrect": false },
-          { "text": "Respuesta 3", "isCorrect": false }
+          { "text": "Suicida", "isCorrect": true },
+          { "text": "Homicida", "isCorrect": false },
+          { "text": "Indeterminada", "isCorrect": false },
+          { "text": "Accidental", "isCorrect": false }
         ],
         "feedback": {
-          "correct": "¡Correcto!.😊",
-          "incorrect": "Incorrecto. 😢"
+          "correct": "¡Correcto! ✔",
+          "incorrect": "¡Incorrecto! ❌"
+        }
+      },
+      {
+        "question": "Un hombre es encontrado muerto tras caer desde un edificio en construcción, pero no hay testigos directos y las cámaras no capturaron el momento exacto. ¿a qué tipo de muerte corresponde?",
+        "answers": [
+          { "text": "Suicida", "isCorrect": false },
+          { "text": "Indeterminada", "isCorrect": false },
+          { "text": "Accidental", "isCorrect": true },
+          { "text": "Homicida", "isCorrect": false }
+        ],
+        "feedback": {
+          "correct": "¡Correcto! ✔",
+          "incorrect": "¡Incorrecto! ❌"
         }
       }
     ]

@@ -1,15 +1,35 @@
 ion-header {
-  height: 60px; /* Ajustar altura del header */
-  height: 40px; /* Ajustar altura del toolbar */
-}
+  background-color: #ffffff;
+  box-shadow: none;
+  text-align: center;
+  
+  ion-toolbar {
+    padding: 0; /* Eliminar padding del toolbar */
+    --background: #466ece;/* Color de fondo del toolbar */
+    border-radius: 0 0 16px 16px;
 
-ion-toolbar {
-  padding: 0; /* Eliminar padding del toolbar */
-  box-shadow: none; /* Eliminar cualquier sombra */
-  border-bottom: none; /* Eliminar borde inferior */
-  background: #466ece; /* Asegura que el fondo del toolbar sea consistente */
-  display: flex;
-  align-items: center;
+    ion-title {
+      display: flex;
+      align-items: center;
+      color: #ffffff; /* Color blanco para el título del encabezado */
+      font-weight: bold; /* Negrita para mayor impacto */
+      font-size: 1.8em; /* Tamaño de fuente mayor para mayor visibilidad */
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Sombra para dar profundidad */
+    }
+
+    /* Estilo para el botón de retroceso */
+    ion-buttons {
+      ion-back-button {
+        color: #ffffff; /* Color blanco para el icono del botón de retroceso */
+        --background: transparent; /* Fondo transparente para el botón */
+        --icon-color: #ffffff; /* Color del icono en blanco */
+        
+        &:hover {
+          --icon-color: #e0e0e0; /* Color del icono al pasar el ratón */
+        }
+      }
+    }
+  }
 }
 
     ion-title {

@@ -13,7 +13,7 @@ export class AboutPage implements OnInit {
   ngOnInit() {
   }
 
-  goToSyllabus(){
-    this.router.navigate(['/syllabus']);
+  goToD_curricular(){
+    window.open('https://drive.google.com/file/d/1n43zLl_PC5IovckTjJQBLhGZqCScfpb5/preview', '_blank');
   }
 }

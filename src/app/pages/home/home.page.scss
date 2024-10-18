@@ -1,15 +1,16 @@
-ion-header {
-  height: 60px; /* Ajustar altura del header */
-  
-  ion-toolbar {
-    height: 40px; /* Ajustar altura del toolbar */
-    padding: 0; /* Eliminar padding del toolbar */
-    border: none; /* Quita cualquier borde del toolbar */
-    box-shadow: none; /* Quita cualquier sombra */
-    display: flex; /* Asegurarse de que el toolbar use flexbox */
-    align-items: center; /* Centrar verticalmente el contenido del toolbar */
+.ion-header {
+  background-color: #ffffff;
+  box-shadow: none;
+  text-align: center;
+}
+
+.ion-toolbar {
+  padding: 0; /* Eliminar padding del toolbar */
+  --background: #466ece;/* Color de fondo del toolbar */
+  border-radius: 0 0 16px 16px;
+}
     
-    ion-title {
+    .ion-title {
       display: flex;
       align-items: center;
       justify-content: center; /* Centrar el título horizontalmente */
@@ -46,8 +47,6 @@ ion-header {
         padding: 0; /* Eliminar padding para evitar desalineación */
       }
     }
-  }
-}
 
 ion-content {
   --background: #f3f4f6; /* Color de fondo más claro y suave */

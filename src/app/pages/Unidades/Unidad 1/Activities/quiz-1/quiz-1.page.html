@@ -7,9 +7,9 @@
 <ion-content class="content" padding>
   <!-- Formulario del Quiz -->
   <form (ngSubmit)="submitAnswer()" *ngIf="!quizCompleted" class="quiz-form">
-    <ion-card class="question-card">
+    <ion-card>
       <ion-card-header>
-        <ion-card-title class="question-title">Pregunta {{ currentQuestionIndex + 1 }}</ion-card-title>
+        <ion-card-title>Pregunta {{ currentQuestionIndex + 1 }}</ion-card-title>
       </ion-card-header>
       <ion-card-content>
         <ion-item lines="none">

@@ -9,16 +9,16 @@
   <form (ngSubmit)="submitAnswer()" *ngIf="!quizCompleted" class="quiz-form">
     <ion-card class="question-card">
       <ion-card-header>
-        <ion-card-title class="question-title">Pregunta {{ currentQuestionIndex + 1 }}</ion-card-title>
+        <ion-card-title>Pregunta {{ currentQuestionIndex + 1 }}</ion-card-title>
       </ion-card-header>
       <ion-card-content>
-        <ion-item>
-          <ion-label>{{ questions[currentQuestionIndex]?.question }}</ion-label>
+        <ion-item lines="none">
+          <ion-label class="question-label">{{ questions[currentQuestionIndex]?.question }}</ion-label>
         </ion-item>
         <ion-radio-group [(ngModel)]="selectedAnswer" name="question" class="radio-group">
-          <ion-item *ngFor="let answer of questions[currentQuestionIndex]?.answers">
-            <ion-label>{{ answer.text }}</ion-label>
+          <ion-item *ngFor="let answer of questions[currentQuestionIndex]?.answers" lines="none" class="answer-item">
             <ion-radio slot="start" [value]="answer.text"></ion-radio>
+            <ion-label>{{ answer.text }}</ion-label>
           </ion-item>
         </ion-radio-group>
         <ion-text *ngIf="feedback">

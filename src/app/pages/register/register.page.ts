@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { AuthService } from '../../services/auth/auth.service';
 import { Router } from '@angular/router';
-import { AlertController } from '@ionic/angular';
+import { AlertController, LoadingController } from '@ionic/angular';
 
 @Component({
   selector: 'app-register',
@@ -14,23 +14,48 @@ export class RegisterPage {
   email: string = '';
   phone: string = '';
   password: string = '';
+  isLoading: boolean = false;
+  isButtonDisabled: boolean = false;
 
   constructor(
     private authService: AuthService,
     private router: Router,
-    private alertController: AlertController
+    private alertController: AlertController,
+    private loadingController: LoadingController
   ) {}
 
   async register() {
+
+    this.isLoading = true; // Inicia el indicador de carga
+    const loading = await this.loadingController.create({
+      message: 'Registrando...',
+    });
+    await loading.present();
+
+    this.isButtonDisabled = true;
+
     try {
       const phoneNumber: number = parseInt(this.phone, 10);
       await this.authService.register(this.email, this.password, this.name, this.surname, phoneNumber);
       await this.presentSuccessAlert();
+      this.clearFields();
       this.router.navigate(['/login']);
     } catch (error) {
       console.error('Error al registrar el usuario:', error);
       await this.presentErrorAlert(error);
+    } finally {
+      await loading.dismiss(); // Cierra el loading
+      this.isButtonDisabled = false; // Reactivar el botón al finalizar
     }
+  }
+
+   // Método para limpiar los campos
+   clearFields() {
+    this.name = '';
+    this.surname = '';
+    this.email = '';
+    this.phone = '';
+    this.password = '';
   }
 
   //Alerta si el inicio de sesión es correcto

@@ -1,13 +1,11 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-buttons slot="start">
-    <ion-back-button defaultHref="/login"></ion-back-button>
-  </ion-buttons>
+<ion-header class="ion-header">
+  <ion-toolbar class="ion-toolbar">
     <ion-title>Registrate</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <ion-card>
   <div class="register-container">
     <h1 class="register-title">Crear una cuenta</h1>
     <ion-item>
@@ -30,9 +28,10 @@
       <ion-label position="floating">Contraseña</ion-label>
       <ion-input type="password" [(ngModel)]="password" required></ion-input>
     </ion-item>
-    <ion-button (click)="register()">Crear</ion-button>
+    <ion-button (click)="register()" [disabled]="isButtonDisabled" class="register-button">Registrarse</ion-button>
     <div class="login-link">
       <p>¿Recordaste tu usuario? <a [routerLink]="['/login']">Iniciar sesión</a></p>
     </div>
   </div>
+</ion-card>
 </ion-content>
