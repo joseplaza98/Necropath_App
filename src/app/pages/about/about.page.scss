@@ -127,3 +127,33 @@ ion-card-content ion-button {
   justify-content: center; /* Centra horizontalmente */
   margin-top: 20px; /* Espacio superior si es necesario */
 }
+
+.custom-list ion-item {
+  --padding-top: 20px;
+  --padding-bottom: 20px;
+  --padding-start: 16px;
+  --inner-padding-end: 16px;
+  --background: #f9f9f9;
+  margin-bottom: 15px; /* Mayor separación entre items */
+  border-radius: 8px;
+  min-height: 80px; /* Altura mínima de cada item */
+}
+
+.custom-list ion-label {
+  font-size: 1rem;
+}
+
+.custom-list strong {
+  display: block;
+  margin-bottom: 8px;
+  color: #7a7a7a;
+}
+
+.custom-list p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: #666;
+  line-height: 1.5; /* Aumenta la separación entre líneas */
+  text-align: justify;
+}
+
